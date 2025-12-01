@@ -37,6 +37,12 @@ export const appointments = mysqlTable("appointments", {
   status: mysqlEnum("status", ["pending", "confirmed", "completed", "cancelled"]).default("pending").notNull(),
   source: varchar("source", { length: 100 }).default("website"),
   notes: text("notes"),
+  // Campos do Calendly
+  calendlyEventUri: varchar("calendlyEventUri", { length: 500 }).unique(), // URI único do evento no Calendly
+  calendlyInviteeUri: varchar("calendlyInviteeUri", { length: 500 }), // URI do convidado no Calendly
+  calendlyStatus: varchar("calendlyStatus", { length: 50 }), // Status original do Calendly
+  calendlyStartTime: timestamp("calendlyStartTime"), // Hora de início do Calendly
+  calendlyEndTime: timestamp("calendlyEndTime"), // Hora de término do Calendly
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
 });
@@ -66,6 +72,7 @@ export type InsertTrackingEvent = typeof trackingEvents.$inferInsert;
  */
 export const attendances = mysqlTable("attendances", {
   id: int("id").autoincrement().primaryKey(),
+  appointmentId: int("appointmentId").references(() => appointments.id), // Referência ao agendamento
   attendanceNumber: int("attendanceNumber").notNull(), // Número sequencial do atendimento
   attendanceDate: timestamp("attendanceDate").notNull(), // Data e horário do atendimento
   studentName: varchar("studentName", { length: 255 }).notNull(), // Nome do aluno

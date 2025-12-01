@@ -1,0 +1,105 @@
+import { getDb } from "./db";
+import { appointments } from "../drizzle/schema";
+import { syncCalendlyEvents } from "./calendly";
+import { eq } from "drizzle-orm";
+
+/**
+ * Sync Calendly events to database
+ * Creates new appointment records for events that don't exist yet
+ */
+export async function syncCalendlyToDatabase() {
+  try {
+    console.log('[Calendly Sync] Starting sync...');
+    
+    const db = await getDb();
+    if (!db) {
+      console.warn('[Calendly Sync] Database not available');
+      return { success: false, error: 'Database not available' };
+    }
+    
+    // Get events from now onwards
+    const eventsWithInvitees = await syncCalendlyEvents();
+    
+    let newCount = 0;
+    let updatedCount = 0;
+    
+    for (const { event, invitees } of eventsWithInvitees) {
+      // Check if event already exists
+      const existing = await db
+        .select()
+        .from(appointments)
+        .where(eq(appointments.calendlyEventUri, event.uri))
+        .limit(1);
+      
+      if (existing.length === 0 && invitees.length > 0) {
+        // Create new appointment for each invitee
+        const invitee = invitees[0]; // Usually one invitee per event
+        
+        await db.insert(appointments).values({
+          userName: invitee.name,
+          userEmail: invitee.email,
+          scheduledAt: new Date(event.start_time),
+          status: event.status === 'active' ? 'confirmed' : 'cancelled',
+          source: 'calendly',
+          calendlyEventUri: event.uri,
+          calendlyInviteeUri: invitee.uri,
+          calendlyStatus: event.status,
+          calendlyStartTime: new Date(event.start_time),
+          calendlyEndTime: new Date(event.end_time),
+        });
+        
+        newCount++;
+        console.log(`[Calendly Sync] Created appointment for ${invitee.name} at ${event.start_time}`);
+      } else if (existing.length > 0) {
+        // Update existing appointment status if changed
+        const existingAppointment = existing[0];
+        const newStatus = event.status === 'active' ? 'confirmed' : 'cancelled';
+        
+        if (existingAppointment.status !== newStatus) {
+          await db
+            .update(appointments)
+            .set({
+              status: newStatus,
+              calendlyStatus: event.status,
+            })
+            .where(eq(appointments.id, existingAppointment.id));
+          
+          updatedCount++;
+          console.log(`[Calendly Sync] Updated appointment ${existingAppointment.id} status to ${newStatus}`);
+        }
+      }
+    }
+    
+    console.log(`[Calendly Sync] Complete: ${newCount} new, ${updatedCount} updated`);
+    
+    return {
+      success: true,
+      newCount,
+      updatedCount,
+      totalEvents: eventsWithInvitees.length,
+    };
+  } catch (error: any) {
+    console.error('[Calendly Sync] Error:', error.message);
+    return {
+      success: false,
+      error: error.message,
+    };
+  }
+}
+
+/**
+ * Start periodic sync (every 5 minutes)
+ */
+export function startCalendlySync() {
+  // Run immediately
+  syncCalendlyToDatabase();
+  
+  // Then run every 5 minutes
+  const interval = setInterval(() => {
+    syncCalendlyToDatabase();
+  }, 5 * 60 * 1000); // 5 minutes
+  
+  console.log('[Calendly Sync] Periodic sync started (every 5 minutes)');
+  
+  return interval;
+}

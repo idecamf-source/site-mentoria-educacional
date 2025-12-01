@@ -30,7 +30,7 @@ import { trpc } from "@/lib/trpc";
 import { useState } from "react";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
-import { Plus, Download, Pencil, Trash2 } from "lucide-react";
+import { Plus, Download, Pencil, Trash2, Calendar, Clock } from "lucide-react";
 import { toast } from "sonner";
 import { exportAttendancesToExcel } from "@/lib/exportExcel";
 
@@ -58,6 +58,7 @@ export default function Atendimentos() {
 
   const { data: attendances, isLoading, refetch } = trpc.attendances.list.useQuery();
   const { data: nextNumberData } = trpc.attendances.getNextNumber.useQuery();
+  const { data: appointments } = trpc.appointments.list.useQuery();
   const createMutation = trpc.attendances.create.useMutation({
     onSuccess: () => {
       toast.success("Atendimento registrado com sucesso!");
@@ -262,6 +263,84 @@ export default function Atendimentos() {
             </Dialog>
           </div>
         </div>
+
+        {/* Seção de Agendamentos do Calendly */}
+        {appointments && appointments.length > 0 && (
+          <Card className="mb-6">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Calendar className="h-5 w-5 text-primary" />
+                Agendamentos do Calendly
+              </CardTitle>
+              <CardDescription>
+                {appointments.length} agendamento(s) sincronizado(s) automaticamente
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="overflow-x-auto">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Data/Horário</TableHead>
+                      <TableHead>Aluno</TableHead>
+                      <TableHead>Email</TableHead>
+                      <TableHead>Status</TableHead>
+                      <TableHead>Origem</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {appointments.map((appointment) => (
+                      <TableRow key={appointment.id}>
+                        <TableCell>
+                          <div className="flex items-center gap-2">
+                            <Clock className="h-4 w-4 text-muted-foreground" />
+                            {appointment.calendlyStartTime
+                              ? format(new Date(appointment.calendlyStartTime), "dd/MM/yyyy HH:mm", {
+                                  locale: ptBR,
+                                })
+                              : appointment.scheduledAt
+                              ? format(new Date(appointment.scheduledAt), "dd/MM/yyyy HH:mm", {
+                                  locale: ptBR,
+                                })
+                              : "-"}
+                          </div>
+                        </TableCell>
+                        <TableCell>{appointment.userName || "-"}</TableCell>
+                        <TableCell>{appointment.userEmail || "-"}</TableCell>
+                        <TableCell>
+                          <span
+                            className={
+                              appointment.status === "confirmed"
+                                ? "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"
+                                : appointment.status === "completed"
+                                ? "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
+                                : appointment.status === "cancelled"
+                                ? "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800"
+                                : "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800"
+                            }
+                          >
+                            {appointment.status === "confirmed"
+                              ? "Confirmado"
+                              : appointment.status === "completed"
+                              ? "Concluído"
+                              : appointment.status === "cancelled"
+                              ? "Cancelado"
+                              : "Pendente"}
+                          </span>
+                        </TableCell>
+                        <TableCell>
+                          <span className="text-sm text-muted-foreground">
+                            {appointment.source === "calendly" ? "Calendly" : "Website"}
+                          </span>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
+            </CardContent>
+          </Card>
+        )}
 
         <Card>
           <CardHeader>

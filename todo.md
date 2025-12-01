@@ -52,3 +52,12 @@
 ## Ajustes de Layout
 - [x] Centralizar últimos 2 cards de Disponibilidade
 - [x] Centralizar cards de Pilares
+
+## Integração com Calendly API
+- [x] Configurar token de API do Calendly como secret
+- [x] Criar módulo de integração com Calendly API
+- [x] Implementar função para buscar agendamentos
+- [x] Criar job de sincronização automática
+- [x] Atualizar tabela de atendimentos para incluir agendamentos do Calendly
+- [x] Atualizar interface de Atendimentos para exibir status
+- [x] Testar sincronização completa

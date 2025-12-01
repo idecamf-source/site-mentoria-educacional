@@ -20,3 +20,6 @@
 
 ## Correções Pendentes
 - [x] Corrigir visualização do logo no footer (remover filtros CSS que tornam invisível)
+
+## Atualizações de Conteúdo
+- [x] Substituir foto da mentora Patrícia por nova imagem

@@ -1,7 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useTracking } from "@/hooks/useTracking";
+import { trpc } from "@/lib/trpc";
 
 export default function Hero() {
+  const { track } = useTracking();
+  const createAppointment = trpc.appointments.create.useMutation();
+
+  const handleScheduleClick = () => {
+    track("button_click", { button: "agendar_mentoria", location: "hero" });
+    createAppointment.mutate({});
+    window.open("https://calendly.com/mentoriaeducacional/30min", "_blank");
+  };
+
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
@@ -34,7 +45,7 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-600">
           <Button 
             size="lg"
-            onClick={() => window.open("https://calendly.com/mentoriaeducacional/30min", "_blank")}
+            onClick={handleScheduleClick}
             className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-bold text-lg px-8 h-14"
           >
             Agendar Mentoria

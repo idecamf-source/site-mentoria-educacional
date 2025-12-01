@@ -1,3 +1,4 @@
+import { useAuth } from "@/_core/hooks/useAuth";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Pilares from "@/components/Pilares";
@@ -5,8 +6,26 @@ import Mentora from "@/components/Mentora";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { CalendarCheck } from "lucide-react";
+import { usePageView, useTracking } from "@/hooks/useTracking";
+import { trpc } from "@/lib/trpc";
 
 export default function Home() {
+  // The userAuth hooks provides authentication state
+  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
+  let { user, loading, error, isAuthenticated, logout } = useAuth();
+  
+  // Rastrear visualização da página
+  usePageView("home");
+  
+  const { track } = useTracking();
+  const createAppointment = trpc.appointments.create.useMutation();
+
+  const handleScheduleClick = () => {
+    track("button_click", { button: "agendar_horario", location: "cta_final" });
+    createAppointment.mutate({});
+    window.open("https://calendly.com/mentoriaeducacional/30min", "_blank");
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-background font-sans">
       <Navbar />
@@ -28,7 +47,7 @@ export default function Home() {
             </p>
             <Button 
               size="lg"
-              onClick={() => window.open("https://calendly.com/mentoriaeducacional/30min", "_blank")}
+              onClick={handleScheduleClick}
               className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-bold text-lg px-10 h-16 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1"
             >
               <CalendarCheck className="mr-2 h-6 w-6" />

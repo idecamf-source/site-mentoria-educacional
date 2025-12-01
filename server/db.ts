@@ -1,6 +1,6 @@
 import { eq, desc, and, gte, lte, count, sql } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users, appointments, trackingEvents, InsertAppointment, InsertTrackingEvent } from "../drizzle/schema";
+import { InsertUser, users, appointments, trackingEvents, attendances, InsertAppointment, InsertTrackingEvent, InsertAttendance } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -294,4 +294,81 @@ export async function getDailyStats(startDate: Date, endDate: Date) {
     appointmentsByDay,
     eventsByDay,
   };
+}
+
+// ============================================
+// ATTENDANCES (Atendimentos Detalhados)
+// ============================================
+
+export async function createAttendance(data: InsertAttendance) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const result = await db.insert(attendances).values(data);
+  return result;
+}
+
+export async function getAttendances(filters?: {
+  mentorId?: number;
+  startDate?: Date;
+  endDate?: Date;
+  course?: string;
+  semester?: string;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  let query = db.select().from(attendances);
+
+  const conditions = [];
+  if (filters?.mentorId) {
+    conditions.push(eq(attendances.mentorId, filters.mentorId));
+  }
+  if (filters?.startDate) {
+    conditions.push(gte(attendances.attendanceDate, filters.startDate));
+  }
+  if (filters?.endDate) {
+    conditions.push(lte(attendances.attendanceDate, filters.endDate));
+  }
+  if (filters?.course) {
+    conditions.push(eq(attendances.course, filters.course));
+  }
+  if (filters?.semester) {
+    conditions.push(eq(attendances.semester, filters.semester));
+  }
+
+  if (conditions.length > 0) {
+    query = query.where(and(...conditions)) as any;
+  }
+
+  const result = await query.orderBy(desc(attendances.attendanceDate));
+  return result;
+}
+
+export async function getNextAttendanceNumber() {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const result = await db
+    .select({ maxNumber: sql<number>`MAX(${attendances.attendanceNumber})` })
+    .from(attendances);
+
+  const maxNumber = result[0]?.maxNumber || 0;
+  return maxNumber + 1;
+}
+
+export async function updateAttendance(id: number, data: Partial<InsertAttendance>) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  await db.update(attendances)
+    .set({ ...data, updatedAt: new Date() })
+    .where(eq(attendances.id, id));
+}
+
+export async function deleteAttendance(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  await db.delete(attendances).where(eq(attendances.id, id));
 }

@@ -151,6 +151,78 @@ export const appRouter = router({
         };
       }),
   }),
+
+  attendances: router({
+    create: protectedProcedure
+      .input(z.object({
+        attendanceDate: z.date(),
+        studentName: z.string(),
+        course: z.string(),
+        semester: z.string(),
+        observedAspects: z.string().optional(),
+        directivesTaken: z.string().optional(),
+      }))
+      .mutation(async ({ input, ctx }) => {
+        const nextNumber = await db.getNextAttendanceNumber();
+        await db.createAttendance({
+          attendanceNumber: nextNumber,
+          attendanceDate: input.attendanceDate,
+          studentName: input.studentName,
+          course: input.course,
+          semester: input.semester,
+          observedAspects: input.observedAspects,
+          directivesTaken: input.directivesTaken,
+          mentorId: ctx.user.id,
+        });
+        return { success: true, attendanceNumber: nextNumber };
+      }),
+
+    list: protectedProcedure
+      .input(z.object({
+        startDate: z.date().optional(),
+        endDate: z.date().optional(),
+        course: z.string().optional(),
+        semester: z.string().optional(),
+      }).optional())
+      .query(async ({ input, ctx }) => {
+        const attendances = await db.getAttendances({
+          ...input,
+          mentorId: ctx.user.role === 'admin' ? undefined : ctx.user.id,
+        });
+        return attendances;
+      }),
+
+    update: protectedProcedure
+      .input(z.object({
+        id: z.number(),
+        attendanceDate: z.date().optional(),
+        studentName: z.string().optional(),
+        course: z.string().optional(),
+        semester: z.string().optional(),
+        observedAspects: z.string().optional(),
+        directivesTaken: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { id, ...data } = input;
+        await db.updateAttendance(id, data);
+        return { success: true };
+      }),
+
+    delete: protectedProcedure
+      .input(z.object({
+        id: z.number(),
+      }))
+      .mutation(async ({ input }) => {
+        await db.deleteAttendance(input.id);
+        return { success: true };
+      }),
+
+    getNextNumber: protectedProcedure
+      .query(async () => {
+        const nextNumber = await db.getNextAttendanceNumber();
+        return { nextNumber };
+      }),
+  }),
 });
 
 export type AppRouter = typeof appRouter;

@@ -45,11 +45,18 @@ export default function Navbar() {
             Conheça a Mentora
           </button>
           {user && (
-            <Link href="/dashboard">
-              <span className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors cursor-pointer">
-                Dashboard
-              </span>
-            </Link>
+            <>
+              <Link href="/dashboard">
+                <span className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors cursor-pointer">
+                  Dashboard
+                </span>
+              </Link>
+              <Link href="/atendimentos">
+                <span className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors cursor-pointer">
+                  Atendimentos
+                </span>
+              </Link>
+            </>
           )}
           <Button 
             onClick={() => window.open("https://calendly.com/mentoriaeducacional/30min", "_blank")}

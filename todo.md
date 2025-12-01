@@ -23,3 +23,10 @@
 
 ## Atualizações de Conteúdo
 - [x] Substituir foto da mentora Patrícia por nova imagem
+
+## Sistema de Registro de Atendimentos
+- [x] Atualizar esquema do banco de dados com tabela de atendimentos detalhados
+- [x] Criar formulário de registro de atendimento para a mentora
+- [x] Implementar listagem de atendimentos no dashboard
+- [x] Adicionar funcionalidade de exportação para Excel (.xlsx)
+- [x] Testar fluxo completo de registro e exportação

@@ -60,3 +60,23 @@ export const trackingEvents = mysqlTable("tracking_events", {
 
 export type TrackingEvent = typeof trackingEvents.$inferSelect;
 export type InsertTrackingEvent = typeof trackingEvents.$inferInsert;
+
+/**
+ * Tabela de atendimentos detalhados - registra cada sessão de mentoria com informações completas
+ */
+export const attendances = mysqlTable("attendances", {
+  id: int("id").autoincrement().primaryKey(),
+  attendanceNumber: int("attendanceNumber").notNull(), // Número sequencial do atendimento
+  attendanceDate: timestamp("attendanceDate").notNull(), // Data e horário do atendimento
+  studentName: varchar("studentName", { length: 255 }).notNull(), // Nome do aluno
+  course: varchar("course", { length: 255 }).notNull(), // Curso
+  semester: varchar("semester", { length: 50 }).notNull(), // Semestre
+  observedAspects: text("observedAspects"), // Aspectos observados durante a sessão
+  directivesTaken: text("directivesTaken"), // Diretivas tomadas
+  mentorId: int("mentorId").references(() => users.id), // ID da mentora que registrou
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type Attendance = typeof attendances.$inferSelect;
+export type InsertAttendance = typeof attendances.$inferInsert;

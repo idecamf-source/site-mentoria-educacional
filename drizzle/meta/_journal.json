@@ -15,6 +15,13 @@
       "when": 1764608852250,
       "tag": "0001_free_prowler",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1764613524823,
+      "tag": "0002_cute_triton",
+      "breakpoints": true
     }
   ]
 }

@@ -37,3 +37,6 @@
 - [x] Implementar função de sincronização automática
 - [x] Adicionar sincronização ao criar novo atendimento
 - [x] Testar integração completa
+
+## Atualização de Logo
+- [x] Substituir logo por versão sem fundo em todos os componentes

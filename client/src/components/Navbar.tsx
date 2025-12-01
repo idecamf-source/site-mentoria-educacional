@@ -27,10 +27,10 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-8">
           <button 
-            onClick={() => scrollToSection("sobre")}
+            onClick={() => scrollToSection("disponibilidade")}
             className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
           >
-            Sobre a Mentoria
+            Disponibilidade
           </button>
           <button 
             onClick={() => scrollToSection("pilares")}

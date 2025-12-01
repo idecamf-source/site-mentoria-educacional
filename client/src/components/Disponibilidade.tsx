@@ -1,0 +1,68 @@
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Clock, Calendar } from "lucide-react";
+
+const diasSemana = [
+  { dia: "Segunda-feira", horarios: "18:00 - 22:00" },
+  { dia: "Terça-feira", horarios: "18:00 - 22:00" },
+  { dia: "Quarta-feira", horarios: "18:00 - 22:00" },
+  { dia: "Quinta-feira", horarios: "18:00 - 22:00" },
+  { dia: "Sexta-feira", horarios: "18:00 - 22:00" },
+];
+
+export default function Disponibilidade() {
+  return (
+    <section id="disponibilidade" className="py-20 bg-muted/30">
+      <div className="container">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">
+            Horários de Atendimento
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            A Mentoria Educacional está disponível de segunda a sexta-feira, 
+            com sessões de 30 minutos. Agende seu horário através do Calendly.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 max-w-7xl mx-auto">
+          {diasSemana.map((item, index) => (
+            <Card 
+              key={index}
+              className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-2 hover:border-primary/50"
+            >
+              <CardHeader className="pb-3">
+                <div className="flex items-center justify-center mb-2">
+                  <div className="p-3 rounded-full bg-primary/10">
+                    <Calendar className="h-6 w-6 text-primary" />
+                  </div>
+                </div>
+                <CardTitle className="text-center text-lg font-bold text-primary">
+                  {item.dia}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <div className="flex items-center justify-center gap-2 text-muted-foreground">
+                  <Clock className="h-4 w-4" />
+                  <span className="font-medium">{item.horarios}</span>
+                </div>
+                <p className="text-sm text-muted-foreground mt-3">
+                  Sessões de 30 minutos
+                </p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <div className="inline-block p-6 bg-secondary/10 rounded-lg border-2 border-secondary/30">
+            <p className="text-sm text-muted-foreground mb-2">
+              <strong className="text-primary">Importante:</strong> Os horários podem sofrer alterações devido a compromissos da mentora.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Sempre verifique a disponibilidade atualizada no Calendly antes de agendar.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

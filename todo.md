@@ -40,3 +40,11 @@
 
 ## Atualização de Logo
 - [x] Substituir logo por versão sem fundo em todos os componentes
+
+## Reestruturação de Navegação e Disponibilidade
+- [x] Remover botão "Sobre a Mentoria" do menu
+- [x] Remover botão "Saiba Mais" da hero section
+- [x] Destacar botão "Agendar Mentoria" na hero
+- [x] Criar componente de Disponibilidade com cards de horários
+- [x] Adicionar seção "Disponibilidade" ao menu de navegação
+- [x] Integrar Disponibilidade na Home

@@ -1,6 +1,7 @@
 import { useAuth } from "@/_core/hooks/useAuth";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import Disponibilidade from "@/components/Disponibilidade";
 import Pilares from "@/components/Pilares";
 import Mentora from "@/components/Mentora";
 import Footer from "@/components/Footer";
@@ -32,6 +33,7 @@ export default function Home() {
       
       <main className="flex-grow">
         <Hero />
+        <Disponibilidade />
         <Pilares />
         <Mentora />
         

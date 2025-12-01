@@ -42,22 +42,14 @@ export default function Hero() {
           Supere desafios e alcance seu máximo potencial.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-600">
+        <div className="animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-600">
           <Button 
             size="lg"
             onClick={handleScheduleClick}
-            className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-bold text-lg px-8 h-14"
+            className="bg-secondary text-secondary-foreground hover:bg-secondary/90 hover:scale-105 transition-transform font-bold text-xl px-12 h-16 shadow-2xl"
           >
-            Agendar Mentoria
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
-          <Button 
-            variant="outline" 
-            size="lg"
-            onClick={() => document.getElementById("sobre")?.scrollIntoView({ behavior: "smooth" })}
-            className="bg-transparent border-white text-white hover:bg-white/10 hover:text-white font-medium text-lg px-8 h-14"
-          >
-            Saiba Mais
+            Agendar Horário
+            <ArrowRight className="ml-2 h-6 w-6" />
           </Button>
         </div>
       </div>

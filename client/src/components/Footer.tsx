@@ -11,7 +11,7 @@ export default function Footer() {
             <img 
               src="/images/logo.png" 
               alt="Mentoria Educacional" 
-              className="h-16 w-auto brightness-0 invert opacity-90"
+              className="h-16 w-auto"
             />
             <p className="text-primary-foreground/80 text-sm leading-relaxed max-w-xs">
               Um serviço dedicado ao desenvolvimento integral dos alunos da Antonio Meneghetti Faculdade, 

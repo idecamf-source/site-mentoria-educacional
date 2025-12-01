@@ -17,3 +17,6 @@
 - [x] Adicionar filtros e tabelas de dados
 - [x] Testar fluxo completo de agendamento
 - [x] Testar dashboard administrativo
+
+## Correções Pendentes
+- [x] Corrigir visualização do logo no footer (remover filtros CSS que tornam invisível)

@@ -23,11 +23,11 @@ export default function Disponibilidade() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 max-w-7xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-6 max-w-7xl mx-auto">
           {diasSemana.map((item, index) => (
             <Card 
               key={index}
-              className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-2 hover:border-primary/50"
+              className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[220px] hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-2 hover:border-primary/50"
             >
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-center mb-2">

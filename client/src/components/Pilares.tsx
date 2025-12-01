@@ -40,9 +40,9 @@ export default function Pilares() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
           {pilares.map((pilar, index) => (
-            <Card key={index} className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-card group">
+            <Card key={index} className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-card group">
               <CardHeader>
                 <div className="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
                   <pilar.icon className="w-6 h-6 text-primary" />

@@ -48,3 +48,7 @@
 - [x] Criar componente de Disponibilidade com cards de horários
 - [x] Adicionar seção "Disponibilidade" ao menu de navegação
 - [x] Integrar Disponibilidade na Home
+
+## Ajustes de Layout
+- [x] Centralizar últimos 2 cards de Disponibilidade
+- [x] Centralizar cards de Pilares

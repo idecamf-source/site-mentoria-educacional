@@ -30,3 +30,10 @@
 - [x] Implementar listagem de atendimentos no dashboard
 - [x] Adicionar funcionalidade de exportação para Excel (.xlsx)
 - [x] Testar fluxo completo de registro e exportação
+
+## Integração com Google Sheets
+- [x] Acessar e analisar estrutura da planilha do usuário
+- [x] Configurar Google Sheets API no backend
+- [x] Implementar função de sincronização automática
+- [x] Adicionar sincronização ao criar novo atendimento
+- [x] Testar integração completa

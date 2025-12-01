@@ -4,6 +4,7 @@ import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
 import { z } from "zod";
 import * as db from "./db";
+import { addAttendanceToSheet } from "./googleSheets";
 
 export const appRouter = router({
     // if you need to use socket.io, read and register route in server/_core/index.ts, all api should start with '/api/' so that the gateway can route correctly
@@ -174,6 +175,24 @@ export const appRouter = router({
           directivesTaken: input.directivesTaken,
           mentorId: ctx.user.id,
         });
+
+        // Sincronizar com Google Sheets
+        try {
+          await addAttendanceToSheet({
+            attendanceNumber: nextNumber,
+            attendanceDate: input.attendanceDate,
+            studentName: input.studentName,
+            course: input.course,
+            semester: input.semester,
+            observedAspects: input.observedAspects || null,
+            directivesTaken: input.directivesTaken || null,
+          });
+          console.log("Atendimento sincronizado com Google Sheets");
+        } catch (error) {
+          console.error("Erro ao sincronizar com Google Sheets:", error);
+          // Não falhar a operação se o Google Sheets falhar
+        }
+
         return { success: true, attendanceNumber: nextNumber };
       }),
 

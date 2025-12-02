@@ -2,6 +2,7 @@ import { getDb } from "./db";
 import { appointments } from "../drizzle/schema";
 import { syncCalendlyEvents } from "./calendly";
 import { eq } from "drizzle-orm";
+import { addAttendanceToSheet } from "./googleSheets";
 
 /**
  * Sync Calendly events to database
@@ -35,6 +36,10 @@ export async function syncCalendlyToDatabase() {
         // Create new appointment for each invitee
         const invitee = invitees[0]; // Usually one invitee per event
         
+        // Get next appointment number - count all existing appointments
+        const allAppointments = await db.select().from(appointments);
+        const nextNumber = allAppointments.length + 1;
+        
         await db.insert(appointments).values({
           userName: invitee.name,
           userEmail: invitee.email,
@@ -47,6 +52,39 @@ export async function syncCalendlyToDatabase() {
           calendlyStartTime: new Date(event.start_time),
           calendlyEndTime: new Date(event.end_time),
         });
+        
+        // Sync to Google Sheets
+        try {
+          // Extract course and semester from questions if available
+          let course = 'Não informado';
+          let semester = 'Não informado';
+          
+          if (invitee.questions_and_answers) {
+            const courseAnswer = invitee.questions_and_answers.find(
+              qa => qa.question.toLowerCase().includes('curso')
+            );
+            const semesterAnswer = invitee.questions_and_answers.find(
+              qa => qa.question.toLowerCase().includes('semestre')
+            );
+            
+            if (courseAnswer) course = courseAnswer.answer;
+            if (semesterAnswer) semester = semesterAnswer.answer;
+          }
+          
+          await addAttendanceToSheet({
+            attendanceNumber: nextNumber,
+            attendanceDate: new Date(event.start_time),
+            studentName: invitee.name,
+            course,
+            semester,
+            observedAspects: `Agendamento via Calendly - Email: ${invitee.email}`,
+            directivesTaken: null,
+          });
+          
+          console.log(`[Calendly Sync] Added to Google Sheets: ${invitee.name}`);
+        } catch (sheetsError) {
+          console.error(`[Calendly Sync] Failed to sync to Google Sheets:`, sheetsError);
+        }
         
         newCount++;
         console.log(`[Calendly Sync] Created appointment for ${invitee.name} at ${event.start_time}`);

@@ -77,3 +77,8 @@
 - [x] Diagnosticar problema de sincronização
 - [x] Corrigir código de sincronização
 - [x] Testar com agendamento real
+
+## Sincronização Calendly → Google Sheets
+- [x] Modificar calendlySync.ts para chamar addAttendanceToSheet
+- [x] Adaptar dados do Calendly para formato do Google Sheets
+- [x] Testar sincronização completa

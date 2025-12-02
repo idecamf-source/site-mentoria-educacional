@@ -1,0 +1,19 @@
+{
+  "query": "SELECT id, userName, userEmail, scheduledAt, calendlyStartTime, status, source FROM appointments ORDER BY id DESC LIMIT 5",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 24bzj6CBRYpDLM9.root --database W9wkqiUX6UyDmZcGGpnziH --execute SELECT id, userName, userEmail, scheduledAt, calendlyStartTime, status, source FROM appointments ORDER BY id DESC LIMIT 5",
+  "rows": [
+    {
+      "id": "240001",
+      "userName": "Miguel",
+      "userEmail": "miguel161foza@gmail.com",
+      "scheduledAt": "2025-12-02 21:00:00",
+      "calendlyStartTime": "2025-12-02 21:00:00",
+      "status": "confirmed",
+      "source": "calendly"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tuserName\tuserEmail\tscheduledAt\tcalendlyStartTime\tstatus\tsource\n240001\tMiguel\tmiguel161foza@gmail.com\t2025-12-02 21:00:00\t2025-12-02 21:00:00\tconfirmed\tcalendly\n",
+  "stderr": "",
+  "execution_time_ms": 66
+}

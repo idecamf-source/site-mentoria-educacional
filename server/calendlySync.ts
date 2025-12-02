@@ -141,12 +141,12 @@ export function startCalendlySync() {
   // Run immediately
   syncCalendlyToDatabase();
   
-  // Then run every 5 minutes
+  // Then run every 2 minutes
   const interval = setInterval(() => {
     syncCalendlyToDatabase();
-  }, 5 * 60 * 1000); // 5 minutes
+  }, 2 * 60 * 1000); // 2 minutes
   
-  console.log('[Calendly Sync] Periodic sync started (every 5 minutes)');
+  console.log('[Calendly Sync] Periodic sync started (every 2 minutes)');
   
   return interval;
 }

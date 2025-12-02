@@ -1,0 +1,50 @@
+{
+  "query": "SELECT id, userName, userEmail, scheduledAt, source, calendlyEventUri FROM appointments ORDER BY id DESC LIMIT 5",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 24bzj6CBRYpDLM9.root --database W9wkqiUX6UyDmZcGGpnziH --execute SELECT id, userName, userEmail, scheduledAt, source, calendlyEventUri FROM appointments ORDER BY id DESC LIMIT 5",
+  "rows": [
+    {
+      "id": "390001",
+      "userName": "Carlos Vinicius Garcia Zanonato",
+      "userEmail": "viniciuszanona@gmail.com",
+      "scheduledAt": "2025-12-03 00:30:00",
+      "source": "calendly",
+      "calendlyEventUri": "https://api.calendly.com/scheduled_events/03859145-36d0-4dc3-952b-aee0adb6dad8"
+    },
+    {
+      "id": "360008",
+      "userName": "NULL",
+      "userEmail": "NULL",
+      "scheduledAt": "NULL",
+      "source": "website",
+      "calendlyEventUri": "NULL"
+    },
+    {
+      "id": "360007",
+      "userName": "NULL",
+      "userEmail": "NULL",
+      "scheduledAt": "NULL",
+      "source": "website",
+      "calendlyEventUri": "NULL"
+    },
+    {
+      "id": "360006",
+      "userName": "NULL",
+      "userEmail": "NULL",
+      "scheduledAt": "NULL",
+      "source": "website",
+      "calendlyEventUri": "NULL"
+    },
+    {
+      "id": "360005",
+      "userName": "NULL",
+      "userEmail": "NULL",
+      "scheduledAt": "NULL",
+      "source": "website",
+      "calendlyEventUri": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tuserName\tuserEmail\tscheduledAt\tsource\tcalendlyEventUri\n390001\tCarlos Vinicius Garcia Zanonato\tviniciuszanona@gmail.com\t2025-12-03 00:30:00\tcalendly\thttps://api.calendly.com/scheduled_events/03859145-36d0-4dc3-952b-aee0adb6dad8\n360008\tNULL\tNULL\tNULL\twebsite\tNULL\n360007\tNULL\tNULL\tNULL\twebsite\tNULL\n360006\tNULL\tNULL\tNULL\twebsite\tNULL\n360005\tNULL\tNULL\tNULL\twebsite\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 99
+}

@@ -96,3 +96,14 @@
 ## Adicionar Observações do Aluno na Planilha
 - [x] Modificar calendlySync.ts para incluir observações na coluna F
 - [x] Testar sincronização com dados reais
+
+## Diagnóstico de Sincronização Google Sheets
+- [ ] Testar conexão com Google Sheets
+- [ ] Verificar credenciais
+- [ ] Testar sincronização manual
+- [ ] Corrigir problemas encontrados
+
+## Reduzir Intervalo de Sincronização
+- [x] Alterar intervalo de 5 para 2 minutos
+- [x] Reiniciar servidor
+- [x] Validar funcionamento

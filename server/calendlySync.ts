@@ -55,9 +55,10 @@ export async function syncCalendlyToDatabase() {
         
         // Sync to Google Sheets
         try {
-          // Extract course and semester from questions if available
+          // Extract course, semester and student notes from questions if available
           let course = 'Não informado';
           let semester = 'Não informado';
+          let studentInfo = '';
           
           if (invitee.questions_and_answers) {
             const courseAnswer = invitee.questions_and_answers.find(
@@ -66,9 +67,16 @@ export async function syncCalendlyToDatabase() {
             const semesterAnswer = invitee.questions_and_answers.find(
               qa => qa.question.toLowerCase().includes('semestre')
             );
+            // Get the last question (usually the open-ended one with student notes)
+            const notesAnswer = invitee.questions_and_answers.find(
+              qa => !qa.question.toLowerCase().includes('curso') && 
+                    !qa.question.toLowerCase().includes('semestre') &&
+                    !qa.question.toLowerCase().includes('telefone')
+            );
             
             if (courseAnswer) course = courseAnswer.answer;
             if (semesterAnswer) semester = semesterAnswer.answer;
+            if (notesAnswer) studentInfo = notesAnswer.answer;
           }
           
           await addAttendanceToSheet({
@@ -77,6 +85,7 @@ export async function syncCalendlyToDatabase() {
             studentName: invitee.name,
             course,
             semester,
+            studentInfo, // Observações do aluno do formulário
             observedAspects: `Agendamento via Calendly - Email: ${invitee.email}`,
             directivesTaken: null,
           });

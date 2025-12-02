@@ -92,3 +92,7 @@
 - [x] Atualizar botão "Agendar Horário" na hero section
 - [x] Atualizar botão "Agendar Horário" na seção CTA final
 - [x] Verificar outros links para o Calendly no site
+
+## Adicionar Observações do Aluno na Planilha
+- [x] Modificar calendlySync.ts para incluir observações na coluna F
+- [x] Testar sincronização com dados reais

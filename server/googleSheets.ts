@@ -23,6 +23,7 @@ interface AttendanceData {
   studentName: string;
   course: string;
   semester: string;
+  studentInfo?: string | null; // Info do aluno (coluna F)
   observedAspects: string | null;
   directivesTaken: string | null;
 }
@@ -38,7 +39,7 @@ export async function addAttendanceToSheet(attendance: AttendanceData): Promise<
     });
 
     // Preparar linha de dados conforme estrutura da planilha
-    // Colunas: A=Nº, B=Data/Horário, C=Aluno, D=Curso, E=Semestre, F=Ações (vazio), G=Aspectos, H=Diretivas
+    // Colunas: A=Nº, B=Data/Horário, C=Aluno, D=Curso, E=Semestre, F=Info Aluno, G=Aspectos, H=Diretivas
     const values = [
       [
         attendance.attendanceNumber,
@@ -46,7 +47,7 @@ export async function addAttendanceToSheet(attendance: AttendanceData): Promise<
         attendance.studentName,
         attendance.course,
         attendance.semester,
-        "", // Coluna "Ações" vazia
+        attendance.studentInfo || "", // Coluna "Info Aluno" com observações do formulário
         attendance.observedAspects || "",
         attendance.directivesTaken || "",
       ],

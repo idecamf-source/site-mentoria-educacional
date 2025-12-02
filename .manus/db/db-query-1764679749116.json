@@ -1,0 +1,32 @@
+{
+  "query": "SELECT id, userName, userEmail, scheduledAt, calendlyStartTime, calendlyEndTime, status, calendlyStatus, source FROM appointments WHERE source = 'calendly' ORDER BY calendlyStartTime DESC LIMIT 10",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 24bzj6CBRYpDLM9.root --database W9wkqiUX6UyDmZcGGpnziH --execute SELECT id, userName, userEmail, scheduledAt, calendlyStartTime, calendlyEndTime, status, calendlyStatus, source FROM appointments WHERE source = 'calendly' ORDER BY calendlyStartTime DESC LIMIT 10",
+  "rows": [
+    {
+      "id": "210002",
+      "userName": "MIGUEL MOMBACH FOZA",
+      "userEmail": "miguel161foza@gmail.com",
+      "scheduledAt": "2025-12-03 00:00:00",
+      "calendlyStartTime": "2025-12-03 00:00:00",
+      "calendlyEndTime": "2025-12-03 00:30:00",
+      "status": "confirmed",
+      "calendlyStatus": "active",
+      "source": "calendly"
+    },
+    {
+      "id": "210001",
+      "userName": "Miguel",
+      "userEmail": "miguel161foza@gmail.com",
+      "scheduledAt": "2025-12-02 22:00:00",
+      "calendlyStartTime": "2025-12-02 22:00:00",
+      "calendlyEndTime": "2025-12-02 22:30:00",
+      "status": "confirmed",
+      "calendlyStatus": "active",
+      "source": "calendly"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tuserName\tuserEmail\tscheduledAt\tcalendlyStartTime\tcalendlyEndTime\tstatus\tcalendlyStatus\tsource\n210002\tMIGUEL MOMBACH FOZA\tmiguel161foza@gmail.com\t2025-12-03 00:00:00\t2025-12-03 00:00:00\t2025-12-03 00:30:00\tconfirmed\tactive\tcalendly\n210001\tMiguel\tmiguel161foza@gmail.com\t2025-12-02 22:00:00\t2025-12-02 22:00:00\t2025-12-02 22:30:00\tconfirmed\tactive\tcalendly\n",
+  "stderr": "",
+  "execution_time_ms": 51
+}

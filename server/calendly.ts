@@ -75,7 +75,7 @@ async function getEventTypeUri(): Promise<string> {
     const user = await getCurrentUser();
     const response = await calendlyClient.get('/event_types', {
       params: {
-        user: user.uri,
+        organization: user.current_organization,
       },
     });
     
@@ -109,7 +109,7 @@ export async function getScheduledEvents(params?: {
     
     const response = await calendlyClient.get('/scheduled_events', {
       params: {
-        user: user.uri,
+        organization: user.current_organization,
         event_type: eventTypeUri,
         min_start_time: params?.minStartTime,
         max_start_time: params?.maxStartTime,

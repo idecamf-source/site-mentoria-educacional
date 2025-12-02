@@ -69,3 +69,11 @@
 - [x] Criar endpoint tRPC para sincronização manual do Calendly
 - [x] Adicionar botão no Dashboard
 - [x] Testar funcionalidade
+
+## Limpeza de Dados para Testes
+- [x] Limpar tabela de agendamentos (appointments)
+
+## Correção de Sincronização do Calendly
+- [x] Diagnosticar problema de sincronização
+- [x] Corrigir código de sincronização
+- [x] Testar com agendamento real

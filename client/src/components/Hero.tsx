@@ -1,19 +1,16 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useTracking } from "@/hooks/useTracking";
 import { trpc } from "@/lib/trpc";
-import CalendlyModal from "@/components/CalendlyModal";
 
 export default function Hero() {
-  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
   const { track } = useTracking();
   const createAppointment = trpc.appointments.create.useMutation();
 
   const handleScheduleClick = () => {
     track("button_click", { button: "agendar_mentoria", location: "hero" });
     createAppointment.mutate({});
-    setIsCalendlyOpen(true);
+    window.open("https://calendly.com/patricia-dias-amf/mentoria-educacional", "_blank");
   };
 
   return (
@@ -56,8 +53,6 @@ export default function Hero() {
           </Button>
         </div>
       </div>
-      
-      <CalendlyModal open={isCalendlyOpen} onOpenChange={setIsCalendlyOpen} />
     </section>
   );
 }

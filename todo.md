@@ -96,9 +96,3 @@
 ## Adicionar Observações do Aluno na Planilha
 - [x] Modificar calendlySync.ts para incluir observações na coluna F
 - [x] Testar sincronização com dados reais
-
-## Incorporação do Widget Calendly no Site
-- [x] Criar componente CalendlyModal
-- [x] Adicionar script do Calendly no HTML
-- [x] Integrar modal com botões de agendamento
-- [x] Testar abertura e fechamento do modal

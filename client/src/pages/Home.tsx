@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useAuth } from "@/_core/hooks/useAuth";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -6,14 +5,12 @@ import Disponibilidade from "@/components/Disponibilidade";
 import Pilares from "@/components/Pilares";
 import Mentora from "@/components/Mentora";
 import Footer from "@/components/Footer";
-import CalendlyModal from "@/components/CalendlyModal";
 import { Button } from "@/components/ui/button";
 import { CalendarCheck } from "lucide-react";
 import { usePageView, useTracking } from "@/hooks/useTracking";
 import { trpc } from "@/lib/trpc";
 
 export default function Home() {
-  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
   // The userAuth hooks provides authentication state
   // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
   let { user, loading, error, isAuthenticated, logout } = useAuth();
@@ -27,12 +24,12 @@ export default function Home() {
   const handleScheduleClick = () => {
     track("button_click", { button: "agendar_horario", location: "cta_final" });
     createAppointment.mutate({});
-    setIsCalendlyOpen(true);
+    window.open("https://calendly.com/patricia-dias-amf/mentoria-educacional", "_blank");
   };
 
   return (
     <div className="min-h-screen flex flex-col bg-background font-sans">
-      <Navbar onScheduleClick={() => setIsCalendlyOpen(true)} />
+      <Navbar />
       
       <main className="flex-grow">
         <Hero />
@@ -63,8 +60,6 @@ export default function Home() {
       </main>
 
       <Footer />
-      
-      <CalendlyModal open={isCalendlyOpen} onOpenChange={setIsCalendlyOpen} />
     </div>
   );
 }

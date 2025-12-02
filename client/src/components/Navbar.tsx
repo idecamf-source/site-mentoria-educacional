@@ -2,11 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { useAuth } from "@/_core/hooks/useAuth";
 
-interface NavbarProps {
-  onScheduleClick?: () => void;
-}
-
-export default function Navbar({ onScheduleClick }: NavbarProps) {
+export default function Navbar() {
   const { user } = useAuth();
   
   const scrollToSection = (id: string) => {
@@ -63,7 +59,7 @@ export default function Navbar({ onScheduleClick }: NavbarProps) {
             </>
           )}
           <Button 
-            onClick={onScheduleClick || (() => window.open("https://calendly.com/patricia-dias-amf/mentoria-educacional", "_blank"))}
+            onClick={() => window.open("https://calendly.com/patricia-dias-amf/mentoria-educacional", "_blank")}
             className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-bold"
           >
             Agendar Horário

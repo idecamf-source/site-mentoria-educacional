@@ -87,3 +87,8 @@
 - [x] Atualizar CALENDLY_API_TOKEN para conta da Patrícia
 - [x] Atualizar CALENDLY_EVENT_URL para novo link
 - [x] Testar sincronização com nova conta
+
+## Atualização de Links de Agendamento no Site
+- [x] Atualizar botão "Agendar Horário" na hero section
+- [x] Atualizar botão "Agendar Horário" na seção CTA final
+- [x] Verificar outros links para o Calendly no site

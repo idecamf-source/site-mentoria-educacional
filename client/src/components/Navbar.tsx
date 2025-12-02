@@ -59,7 +59,7 @@ export default function Navbar() {
             </>
           )}
           <Button 
-            onClick={() => window.open("https://calendly.com/mentoriaeducacional/30min", "_blank")}
+            onClick={() => window.open("https://calendly.com/patricia-dias-amf/mentoria-educacional", "_blank")}
             className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-bold"
           >
             Agendar Horário

@@ -24,7 +24,7 @@ export default function Home() {
   const handleScheduleClick = () => {
     track("button_click", { button: "agendar_horario", location: "cta_final" });
     createAppointment.mutate({});
-    window.open("https://calendly.com/mentoriaeducacional/30min", "_blank");
+    window.open("https://calendly.com/patricia-dias-amf/mentoria-educacional", "_blank");
   };
 
   return (

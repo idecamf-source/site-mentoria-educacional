@@ -82,3 +82,8 @@
 - [x] Modificar calendlySync.ts para chamar addAttendanceToSheet
 - [x] Adaptar dados do Calendly para formato do Google Sheets
 - [x] Testar sincronização completa
+
+## Atualização de Credenciais Calendly
+- [x] Atualizar CALENDLY_API_TOKEN para conta da Patrícia
+- [x] Atualizar CALENDLY_EVENT_URL para novo link
+- [x] Testar sincronização com nova conta

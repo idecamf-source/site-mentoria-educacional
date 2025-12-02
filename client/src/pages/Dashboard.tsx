@@ -2,7 +2,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { trpc } from "@/lib/trpc";
 import { useState, useMemo } from "react";
-import { Calendar, TrendingUp, Users, MousePointerClick, BarChart3, Clock } from "lucide-react";
+import { Calendar, TrendingUp, Users, MousePointerClick, BarChart3, Clock, RefreshCw } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 import { Badge } from "@/components/ui/badge";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
@@ -21,6 +23,9 @@ export default function Dashboard() {
     endDate: new Date(),
   });
 
+  const utils = trpc.useUtils();
+  const [isSyncing, setIsSyncing] = useState(false);
+
   const { data: dashboardData, isLoading: isDashboardLoading } = trpc.analytics.dashboard.useQuery({
     startDate: dateRange.startDate,
     endDate: dateRange.endDate,
@@ -28,6 +33,28 @@ export default function Dashboard() {
 
   const { data: appointments, isLoading: isAppointmentsLoading } = trpc.appointments.list.useQuery();
   const { data: events, isLoading: isEventsLoading } = trpc.tracking.list.useQuery();
+
+  const syncCalendly = trpc.calendly.syncNow.useMutation({
+    onSuccess: (result) => {
+      if (result.success) {
+        toast.success(`Sincronização concluída! ${result.newCount || 0} novos agendamentos.`);
+        utils.appointments.list.invalidate();
+      } else {
+        toast.error(result.error || 'Erro ao sincronizar');
+      }
+      setIsSyncing(false);
+    },
+    onError: (error) => {
+      toast.error('Erro ao sincronizar com Calendly');
+      setIsSyncing(false);
+    },
+  });
+
+  const handleSync = () => {
+    setIsSyncing(true);
+    toast.info('Sincronizando com Calendly...');
+    syncCalendly.mutate();
+  };
 
   const stats = useMemo(() => {
     if (!dashboardData) return null;
@@ -65,11 +92,22 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-muted/30 py-8">
       <div className="container">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold mb-2">Dashboard de Mentoria</h1>
-          <p className="text-muted-foreground">
-            Estatísticas e KPIs dos últimos 30 dias
-          </p>
+        <div className="mb-8 flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl font-bold mb-2">Dashboard de Mentoria</h1>
+            <p className="text-muted-foreground">
+              Estatísticas e KPIs dos últimos 30 dias
+            </p>
+          </div>
+          <Button
+            onClick={handleSync}
+            disabled={isSyncing}
+            variant="outline"
+            className="gap-2"
+          >
+            <RefreshCw className={`h-4 w-4 ${isSyncing ? 'animate-spin' : ''}`} />
+            {isSyncing ? 'Sincronizando...' : 'Sincronizar Calendly'}
+          </Button>
         </div>
 
         {/* KPI Cards */}

@@ -5,6 +5,7 @@ import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
 import { z } from "zod";
 import * as db from "./db";
 import { addAttendanceToSheet } from "./googleSheets";
+import { syncCalendlyToDatabase } from "./calendlySync";
 
 export const appRouter = router({
     // if you need to use socket.io, read and register route in server/_core/index.ts, all api should start with '/api/' so that the gateway can route correctly
@@ -18,6 +19,14 @@ export const appRouter = router({
         success: true,
       } as const;
     }),
+  }),
+
+  calendly: router({
+    syncNow: protectedProcedure
+      .mutation(async () => {
+        const result = await syncCalendlyToDatabase();
+        return result;
+      }),
   }),
 
   appointments: router({

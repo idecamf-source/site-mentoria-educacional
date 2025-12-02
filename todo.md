@@ -61,3 +61,11 @@
 - [x] Atualizar tabela de atendimentos para incluir agendamentos do Calendly
 - [x] Atualizar interface de Atendimentos para exibir status
 - [x] Testar sincronização completa
+
+## Atualização de Link do Calendly
+- [x] Link revertido para mentoriaeducacional/30min (aguardando token correto da conta prof-patriciadias)
+
+## Botão de Sincronização Manual
+- [x] Criar endpoint tRPC para sincronização manual do Calendly
+- [x] Adicionar botão no Dashboard
+- [x] Testar funcionalidade

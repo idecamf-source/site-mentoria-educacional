@@ -107,3 +107,8 @@
 - [x] Alterar intervalo de 5 para 2 minutos
 - [x] Reiniciar servidor
 - [x] Validar funcionamento
+
+## Corrigir Agendamentos Pendentes Vazios
+- [x] Investigar código que cria agendamentos ao clicar no botão
+- [x] Remover criação automática de agendamentos vazios
+- [x] Limpar agendamentos pendentes do banco

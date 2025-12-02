@@ -8,7 +8,6 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { CalendarCheck } from "lucide-react";
 import { usePageView, useTracking } from "@/hooks/useTracking";
-import { trpc } from "@/lib/trpc";
 
 export default function Home() {
   // The userAuth hooks provides authentication state
@@ -19,11 +18,9 @@ export default function Home() {
   usePageView("home");
   
   const { track } = useTracking();
-  const createAppointment = trpc.appointments.create.useMutation();
 
   const handleScheduleClick = () => {
     track("button_click", { button: "agendar_horario", location: "cta_final" });
-    createAppointment.mutate({});
     window.open("https://calendly.com/patricia-dias-amf/mentoria-educacional", "_blank");
   };
 

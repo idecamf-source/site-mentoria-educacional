@@ -18,7 +18,7 @@ export default function Disponibilidade() {
             Horários de Atendimento
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A Mentoria Educacional está disponível de segunda a sexta-feira, 
+            A Mentoria Educacional está disponível de segunda a sexta-feira, entre as 18:00 e 22:00, 
             com sessões de 30 minutos. Agende seu horário através do Calendly.
           </p>
         </div>

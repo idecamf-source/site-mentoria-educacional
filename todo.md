@@ -112,3 +112,15 @@
 - [x] Investigar código que cria agendamentos ao clicar no botão
 - [x] Remover criação automática de agendamentos vazios
 - [x] Limpar agendamentos pendentes do banco
+
+## Diagnóstico Sincronização Google Sheets (Novembro)
+- [x] Verificar se há agendamentos no Calendly
+- [x] Testar sincronização manual
+- [ ] Verificar se sincronização automática está rodando
+- [ ] Verificar logs do servidor
+- [ ] Corrigir problema identificado
+
+## Incorporação de Vídeo do YouTube
+- [x] Criar componente VideoSection
+- [x] Incorporar vídeo na página inicial
+- [x] Testar responsividade

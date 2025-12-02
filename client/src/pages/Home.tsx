@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import Disponibilidade from "@/components/Disponibilidade";
 import Pilares from "@/components/Pilares";
 import Mentora from "@/components/Mentora";
+import VideoSection from "@/components/VideoSection";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { CalendarCheck } from "lucide-react";
@@ -30,6 +31,7 @@ export default function Home() {
       
       <main className="flex-grow">
         <Hero />
+        <VideoSection />
         <Disponibilidade />
         <Pilares />
         <Mentora />

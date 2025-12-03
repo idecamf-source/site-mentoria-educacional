@@ -1,5 +1,5 @@
 import { useAuth } from "@/_core/hooks/useAuth";
-import Navbar from "@/components/Navbar";
+
 import Hero from "@/components/Hero";
 import Disponibilidade from "@/components/Disponibilidade";
 import Pilares from "@/components/Pilares";
@@ -27,8 +27,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background font-sans">
-      <Navbar />
-      
       <main className="flex-grow">
         <Hero />
         <VideoSection />

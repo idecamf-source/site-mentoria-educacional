@@ -124,3 +124,7 @@
 - [x] Criar componente VideoSection
 - [x] Incorporar vídeo na página inicial
 - [x] Testar responsividade
+
+## Remover Navbar da Página Inicial
+- [x] Remover Navbar da Home
+- [x] Testar layout sem cabeçalho

@@ -1,6 +1,14 @@
 import { Play } from "lucide-react";
+import { useState } from "react";
 
 export default function VideoSection() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoId = "XewIyn78g-o";
+
+  const handlePlay = () => {
+    setIsPlaying(true);
+  };
+
   return (
     <section className="py-20 bg-gradient-to-b from-background to-muted/30">
       <div className="container">
@@ -25,16 +33,42 @@ export default function VideoSection() {
           <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black/5 backdrop-blur-sm border border-border/50">
             {/* Aspect Ratio Container */}
             <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-              <iframe
-                className="absolute top-0 left-0 w-full h-full"
-                src="https://www.youtube.com/embed/XewIyn78g-o"
-                title="Mentoria Educacional Universitária"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                style={{
-                  border: 'none',
-                }}
-              />
+              {!isPlaying ? (
+                /* Thumbnail Preview */
+                <div 
+                  className="absolute top-0 left-0 w-full h-full cursor-pointer group"
+                  onClick={handlePlay}
+                >
+                  {/* YouTube Thumbnail */}
+                  <img
+                    src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+                    alt="Thumbnail do vídeo"
+                    className="absolute top-0 left-0 w-full h-full object-cover"
+                  />
+                  
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
+                  
+                  {/* Play Button */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-primary/90 group-hover:bg-primary group-hover:scale-110 transition-all duration-300 flex items-center justify-center shadow-2xl">
+                      <Play className="w-10 h-10 md:w-12 md:h-12 text-white fill-white ml-1" />
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                /* YouTube Player */
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full"
+                  src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+                  title="Mentoria Educacional Universitária"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  style={{
+                    border: 'none',
+                  }}
+                />
+              )}
             </div>
           </div>
 

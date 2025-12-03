@@ -128,3 +128,8 @@
 ## Remover Navbar da Página Inicial
 - [x] Remover Navbar da Home
 - [x] Testar layout sem cabeçalho
+
+## Thumbnail Customizada para Vídeo
+- [x] Implementar preview com thumbnail
+- [x] Adicionar botão de play
+- [x] Carregar vídeo ao clicar

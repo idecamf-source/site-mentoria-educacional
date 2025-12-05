@@ -8,12 +8,14 @@ import Home from "./pages/Home";
 import { Suspense, lazy } from "react";
 // Lazy load non-critical pages
 const Dashboard = lazy(() => import("./pages/Dashboard"));
+const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Atendimentos = lazy(() => import("./pages/Atendimentos"));
+import LoadingSpinner from "@/components/ui/LoadingSpinner";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Carregando...</div>}>
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><LoadingSpinner /></div>}>
       <Switch>
         <Route path={"/"} component={Home} />
         <Route path={"/dashboard"} component={Dashboard} />

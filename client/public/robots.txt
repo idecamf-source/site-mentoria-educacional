@@ -1,0 +1,8 @@
+# robots.txt for Mentoria Educacional Universitária
+# Allow all crawlers to access all content
+
+User-agent: *
+Allow: /
+
+# Sitemap location (update after creating sitemap)
+# Sitemap: https://mentoriaeduamf.manus.space/sitemap.xml

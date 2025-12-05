@@ -70,7 +70,7 @@
   
   /* Elementos de Apoio */
   --muted: oklch(0.96 0.01 250);
-  --muted-foreground: oklch(0.55 0.05 250);
+  --muted-foreground: oklch(0.45 0.05 250); /* Escurecido para melhor contraste (era 0.55) */
   --accent: oklch(0.95 0.02 85); /* Dourado muito claro para fundos */
   --accent-foreground: oklch(0.35 0.06 250);
   

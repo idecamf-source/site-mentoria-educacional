@@ -14,16 +14,13 @@ export default function Hero() {
     <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <picture>
-          <source srcSet="/images/hero-bg.webp" type="image/webp" />
-          <img 
-            src="/images/hero-bg.jpg" 
-            alt="Ambiente acadêmico acolhedor" 
-            className="w-full h-full object-cover"
-            fetchPriority="high"
-            loading="eager"
-          />
-        </picture>
+        <img 
+          src="/images/hero-bg.webp" 
+          alt="Ambiente acadêmico acolhedor" 
+          className="w-full h-full object-cover"
+          fetchPriority="high"
+          loading="eager"
+        />
         <div className="absolute inset-0 bg-primary/80 mix-blend-multiply" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
       </div>

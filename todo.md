@@ -141,3 +141,12 @@
 - [x] Adicionar fetchpriority="high" na imagem hero
 - [x] Adicionar preconnect hints
 - [ ] Validar score final após publicação
+
+## Análise Crítica PageSpeed (Score 69 Desktop / 60 Mobile)
+- [x] Analisar novo relatório detalhado
+- [x] Identificar gargalos JavaScript
+- [x] Adicionar preload para imagem hero WebP
+- [x] Lazy loading para thumbnail do YouTube
+- [x] Implementar code splitting (React vendor + UI vendor)
+- [x] Minificação com Terser
+- [ ] Publicar e validar score 90+ após correções

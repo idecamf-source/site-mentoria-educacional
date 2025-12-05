@@ -44,6 +44,8 @@ export default function VideoSection() {
                     src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
                     alt="Thumbnail do vídeo"
                     className="absolute top-0 left-0 w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                   
                   {/* Overlay */}

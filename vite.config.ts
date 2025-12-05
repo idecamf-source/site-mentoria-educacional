@@ -24,6 +24,15 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom', 'react/jsx-runtime'],
+          'ui-vendor': ['@radix-ui/react-dialog', '@radix-ui/react-slot'],
+        },
+      },
+    },
+    minify: 'terser',
   },
   server: {
     host: true,

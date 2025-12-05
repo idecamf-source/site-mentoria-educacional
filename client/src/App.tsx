@@ -5,20 +5,24 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
-import Dashboard from "./pages/Dashboard";
-import Atendimentos from "./pages/Atendimentos";
+import { Suspense, lazy } from "react";
+// Lazy load non-critical pages
+const Dashboard = lazy(() => import("./pages/Dashboard"));
+const Atendimentos = lazy(() => import("./pages/Atendimentos"));
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
-    <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/dashboard"} component={Dashboard} />
-      <Route path={"/atendimentos"} component={Atendimentos} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
-      <Route component={NotFound} />
-    </Switch>
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Carregando...</div>}>
+      <Switch>
+        <Route path={"/"} component={Home} />
+        <Route path={"/dashboard"} component={Dashboard} />
+        <Route path={"/atendimentos"} component={Atendimentos} />
+        <Route path={"/404"} component={NotFound} />
+        {/* Final fallback route */}
+        <Route component={NotFound} />
+      </Switch>
+    </Suspense>
   );
 }
 
@@ -32,7 +36,7 @@ function App() {
     <ErrorBoundary>
       <ThemeProvider
         defaultTheme="light"
-        // switchable
+      // switchable
       >
         <TooltipProvider>
           <Toaster />

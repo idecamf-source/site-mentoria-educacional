@@ -35,7 +35,7 @@ export default function VideoSection() {
             <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
               {!isPlaying ? (
                 /* Thumbnail Preview */
-                <div 
+                <div
                   className="absolute top-0 left-0 w-full h-full cursor-pointer group"
                   onClick={handlePlay}
                 >
@@ -44,11 +44,14 @@ export default function VideoSection() {
                     src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
                     alt="Thumbnail do vídeo"
                     className="absolute top-0 left-0 w-full h-full object-cover"
+                    loading="lazy"
+                    width="1280"
+                    height="720"
                   />
-                  
+
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
-                  
+
                   {/* Play Button */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-primary/90 group-hover:bg-primary group-hover:scale-110 transition-all duration-300 flex items-center justify-center shadow-2xl">

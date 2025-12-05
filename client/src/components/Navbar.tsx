@@ -4,7 +4,7 @@ import { useAuth } from "@/_core/hooks/useAuth";
 
 export default function Navbar() {
   const { user } = useAuth();
-  
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -17,28 +17,33 @@ export default function Navbar() {
       <div className="container flex h-20 items-center justify-between">
         <div className="flex items-center gap-2">
           <Link href="/">
-            <img 
-              src="/images/logo.png" 
-              alt="Mentoria Educacional Universitária" 
-              className="h-12 w-auto object-contain cursor-pointer"
-            />
+            <picture>
+              <source srcSet="/images/logo.webp" type="image/webp" />
+              <img
+                src="/images/logo.png"
+                alt="Mentoria Educacional Universitária"
+                className="h-12 w-auto object-contain cursor-pointer"
+                width="150"
+                height="48"
+              />
+            </picture>
           </Link>
         </div>
 
         <div className="hidden md:flex items-center gap-8">
-          <button 
+          <button
             onClick={() => scrollToSection("disponibilidade")}
             className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
           >
             Disponibilidade
           </button>
-          <button 
+          <button
             onClick={() => scrollToSection("pilares")}
             className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
           >
             Pilares
           </button>
-          <button 
+          <button
             onClick={() => scrollToSection("mentora")}
             className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
           >
@@ -58,7 +63,7 @@ export default function Navbar() {
               </Link>
             </>
           )}
-          <Button 
+          <Button
             onClick={() => window.open("https://calendly.com/patricia-dias-amf/mentoria-educacional", "_blank")}
             className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-bold"
           >

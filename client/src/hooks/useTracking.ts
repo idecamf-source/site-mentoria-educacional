@@ -32,6 +32,11 @@ export function usePageView(pageName: string) {
 
   useEffect(() => {
     track("page_view", { page: pageName });
+    
+    // Track pageview no Umami (sem usar unload)
+    if (typeof window !== 'undefined' && (window as any).umami) {
+      (window as any).umami.track();
+    }
   }, [pageName]);
 }
 

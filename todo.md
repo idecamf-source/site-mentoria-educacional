@@ -21,3 +21,7 @@
 - [x] Criar script de sincronização automática
 - [x] Configurar git credentials
 - [x] Documentar processo de sync
+
+## Correção de APIs Depreciadas
+- [x] Localizar unload event listeners (script Umami)
+- [x] Remover ou substituir por alternativas modernas (data-auto-track="false")

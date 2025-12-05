@@ -16,3 +16,8 @@
 - [x] Otimizar build do Vite com target ES2020+
 - [x] Adicionar code splitting (react-vendor, ui-vendor)
 - [x] Instalar e configurar Terser para minificação
+
+## Sincronização com GitHub
+- [ ] Criar script de sincronização automática
+- [ ] Configurar git credentials
+- [ ] Documentar processo de sync

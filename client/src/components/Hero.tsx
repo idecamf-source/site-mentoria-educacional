@@ -14,9 +14,9 @@ export default function Hero() {
     <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src="/images/hero-bg.webp" 
-          alt="Ambiente acadêmico acolhedor" 
+        <img
+          src="/images/hero-bg.webp"
+          alt="Ambiente acadêmico acolhedor"
           className="w-full h-full object-cover"
           fetchPriority="high"
           loading="eager"
@@ -31,24 +31,24 @@ export default function Hero() {
             Antonio Meneghetti Faculdade
           </span>
         </div>
-        
+
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold tracking-tight max-w-4xl animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 text-white">
           Mentoria Educacional <span className="text-secondary">Universitária</span>
         </h1>
-        
+
         <p className="text-lg md:text-xl text-gray-200 max-w-2xl leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-400">
-          Um espaço seguro e acolhedor para o seu desenvolvimento acadêmico, profissional e pessoal. 
+          Um espaço seguro e acolhedor para o seu desenvolvimento acadêmico, profissional e pessoal.
           Supere desafios e alcance seu máximo potencial.
         </p>
 
         <div className="animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-600">
-          <Button 
+          <Button
             size="lg"
             onClick={handleScheduleClick}
-            className="bg-secondary text-secondary-foreground hover:bg-secondary/90 hover:scale-105 transition-transform font-bold text-xl px-12 h-16 shadow-2xl"
+            className="bg-secondary text-secondary-foreground hover:bg-secondary/90 hover:scale-105 transition-transform font-bold text-2xl px-16 h-20 shadow-2xl"
           >
             Agendar Horário
-            <ArrowRight className="ml-2 h-6 w-6" />
+            <ArrowRight className="ml-2 h-8 w-8" />
           </Button>
         </div>
       </div>

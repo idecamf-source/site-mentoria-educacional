@@ -8,11 +8,17 @@ export default function Footer() {
           
           {/* Coluna 1: Sobre */}
           <div className="space-y-6">
-            <img 
-              src="/images/logo.png" 
-              alt="Mentoria Educacional" 
-              className="h-16 w-auto"
-            />
+            <picture>
+              <source srcSet="/images/logo.webp" type="image/webp" />
+              <img 
+                src="/images/logo.png" 
+                alt="Mentoria Educacional" 
+                className="h-16 w-auto"
+                loading="lazy"
+                width="200"
+                height="142"
+              />
+            </picture>
             <p className="text-primary-foreground/80 text-sm leading-relaxed max-w-xs">
               Um serviço dedicado ao desenvolvimento integral dos alunos da Antonio Meneghetti Faculdade, 
               oferecendo suporte acadêmico, emocional e profissional.

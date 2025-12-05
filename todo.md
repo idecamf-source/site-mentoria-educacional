@@ -133,3 +133,11 @@
 - [x] Implementar preview com thumbnail
 - [x] Adicionar botão de play
 - [x] Carregar vídeo ao clicar
+
+## Otimização de Performance (PageSpeed 90+)
+- [x] Analisar relatório do PageSpeed Insights
+- [x] Otimizar imagens (WebP, redução de 96%)
+- [x] Implementar lazy loading
+- [x] Adicionar fetchpriority="high" na imagem hero
+- [x] Adicionar preconnect hints
+- [ ] Validar score final após publicação

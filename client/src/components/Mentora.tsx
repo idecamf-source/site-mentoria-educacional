@@ -10,11 +10,15 @@ export default function Mentora() {
           <div className="w-full lg:w-1/2 relative">
             <div className="relative aspect-[4/5] w-full max-w-md mx-auto lg:mx-0">
               <div className="absolute inset-0 bg-secondary/20 rounded-2xl transform translate-x-4 translate-y-4" />
-              <img 
-                src="/images/patricia.png" 
-                alt="Prof. Patrícia da Silva Dias" 
-                className="relative w-full h-full object-cover rounded-2xl shadow-2xl z-10 bg-white"
-              />
+              <picture>
+                <source srcSet="/images/patricia.webp" type="image/webp" />
+                <img 
+                  src="/images/patricia.png" 
+                  alt="Prof. Patrícia da Silva Dias" 
+                  className="relative w-full h-full object-cover rounded-2xl shadow-2xl z-10 bg-white"
+                  loading="lazy"
+                />
+              </picture>
               
               {/* Card Flutuante */}
               <div className="absolute -bottom-6 -right-6 z-20 bg-white p-6 rounded-xl shadow-xl max-w-[200px] hidden md:block border border-gray-100">

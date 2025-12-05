@@ -18,6 +18,6 @@
 - [x] Instalar e configurar Terser para minificação
 
 ## Sincronização com GitHub
-- [ ] Criar script de sincronização automática
-- [ ] Configurar git credentials
-- [ ] Documentar processo de sync
+- [x] Criar script de sincronização automática
+- [x] Configurar git credentials
+- [x] Documentar processo de sync

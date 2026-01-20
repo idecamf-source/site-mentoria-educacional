@@ -72,12 +72,12 @@ export default function Footer() {
                   <div className="relative">
                     <MapPin className="w-5 h-5 text-secondary shrink-0 mt-0.5 transition-transform duration-300 group-hover:animate-[bounce-pin_0.5s_ease-in-out]" />
                   </div>
-                  <div>
-                    <p className="font-semibold text-white relative inline-block">
+                  <div className="flex flex-col">
+                    <p className="font-semibold text-white relative inline-block w-fit">
                       Antonio Meneghetti Faculdade
                       <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full group-hover:left-0" />
                     </p>
-                    <p className="text-white/90 text-sm font-medium relative inline-block">
+                    <p className="text-white/90 text-sm font-medium relative inline-block w-fit">
                       Recanto Maestro, RS
                       <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-secondary/70 transition-all duration-300 group-hover:w-full group-hover:left-0" />
                     </p>

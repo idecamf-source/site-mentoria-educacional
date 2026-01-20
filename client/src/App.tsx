@@ -8,7 +8,6 @@ import Home from "./pages/Home";
 import { Suspense, lazy } from "react";
 // Lazy load non-critical pages
 const Dashboard = lazy(() => import("./pages/Dashboard"));
-const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Atendimentos = lazy(() => import("./pages/Atendimentos"));
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 

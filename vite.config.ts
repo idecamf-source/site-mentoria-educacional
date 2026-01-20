@@ -4,10 +4,8 @@ import react from "@vitejs/plugin-react";
 import fs from "node:fs";
 import path from "path";
 import { defineConfig } from "vite";
-import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
 
-
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime()];
+const plugins = [react(), tailwindcss(), jsxLocPlugin()];
 
 export default defineConfig({
   plugins,
@@ -27,11 +25,13 @@ export default defineConfig({
     target: 'es2020',
     minify: 'terser',
     cssMinify: true,
+    sourcemap: true, // Requested for debugging/PSI
     rollupOptions: {
       output: {
         manualChunks: {
           'react-vendor': ['react', 'react-dom'],
-          'ui-vendor': ['@radix-ui/react-dialog', '@radix-ui/react-select'],
+          'ui-vendor': ['@radix-ui/react-dialog', '@radix-ui/react-select', '@radix-ui/react-slot', '@radix-ui/react-label', '@radix-ui/react-checkbox'],
+          'motion': ['framer-motion'],
         },
       },
     },

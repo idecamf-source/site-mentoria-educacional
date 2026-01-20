@@ -15,8 +15,8 @@
     <link rel="preconnect" href="https://plausible.io" />
     <link rel="dns-prefetch" href="https://manus-analytics.com" />
     
-    <!-- Preload LCP image -->
-    <link rel="preload" as="image" href="/images/hero-bg.webp?v=3" imagesrcset="/images/hero-bg-sm.webp?v=3 800w, /images/hero-bg-md.webp?v=3 1200w, /images/hero-bg.webp?v=3 1920w" imagesizes="100vw" fetchpriority="high" />
+    <!-- Preload LCP image with mobile-first approach -->
+    <link rel="preload" as="image" href="/images/hero-bg-600w.webp?v=4" imagesrcset="/images/hero-bg-400w.webp?v=4 400w, /images/hero-bg-600w.webp?v=4 600w, /images/hero-bg-sm.webp?v=4 800w, /images/hero-bg-md.webp?v=4 1200w, /images/hero-bg.webp?v=4 1920w" imagesizes="(max-width: 640px) 400px, (max-width: 768px) 600px, (max-width: 1024px) 800px, (max-width: 1280px) 1200px, 1920px" fetchpriority="high" />
     
     <!-- THIS IS THE START OF A COMMENT BLOCK, BLOCK TO BE DELETED: Google Fonts here, example:
     <link rel="preconnect" href="https://fonts.googleapis.com" />

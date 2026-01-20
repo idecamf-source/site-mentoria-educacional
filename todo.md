@@ -46,3 +46,10 @@
 - [x] Lazy loading no YouTube já implementado (só carrega ao clicar)
 - [x] Scripts com defer já configurados
 - [x] Otimizar patricia.webp (17KB → 12KB)
+
+## Otimização Mobile (Score 49 → 75+)
+- [x] Criar versão 400w da hero-bg (17KB)
+- [x] Criar versão 600w da hero-bg (32KB)
+- [x] Atualizar srcset priorizando mobile (400w, 600w, 800w, 1200w, 1920w)
+- [x] Otimizar preload com media queries para mobile
+- [ ] Testar LCP e TBT no mobile

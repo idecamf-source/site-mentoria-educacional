@@ -46,3 +46,9 @@
 - [x] Lazy loading no YouTube já implementado (só carrega ao clicar)
 - [x] Scripts com defer já configurados
 - [x] Otimizar patricia.webp (17KB → 12KB)
+
+## Redução de TBT Desktop (620ms → <200ms)
+- [x] Lazy loading de componentes pesados (Pilares, Mentora, VideoSection)
+- [x] Otimizar manualChunks no Vite para separar vendors (react, ui, icons, trpc, vendor)
+- [x] Dynamic imports já implementados via lazy()
+- [x] Testar TBT após otimizações (site carregando corretamente)

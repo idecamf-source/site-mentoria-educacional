@@ -29,9 +29,27 @@ export default defineConfig({
     cssMinify: true,
     rollupOptions: {
       output: {
-        manualChunks: {
-          'react-vendor': ['react', 'react-dom'],
-          'ui-vendor': ['@radix-ui/react-dialog', '@radix-ui/react-select'],
+        manualChunks(id) {
+          // React core
+          if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
+            return 'react-vendor';
+          }
+          // Radix UI components
+          if (id.includes('node_modules/@radix-ui')) {
+            return 'ui-vendor';
+          }
+          // Lucide icons
+          if (id.includes('node_modules/lucide-react')) {
+            return 'icons';
+          }
+          // tRPC e React Query
+          if (id.includes('node_modules/@trpc') || id.includes('node_modules/@tanstack')) {
+            return 'trpc-vendor';
+          }
+          // Outros vendors
+          if (id.includes('node_modules')) {
+            return 'vendor';
+          }
         },
       },
     },

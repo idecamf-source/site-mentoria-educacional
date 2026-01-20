@@ -41,12 +41,12 @@ export default function VideoSection() {
                 >
                   {/* YouTube Thumbnail */}
                   <img
-                    src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+                    src={`https://img.youtube.com/vi/${videoId}/mqdefault.jpg`}
                     alt="Thumbnail do vídeo"
                     className="absolute top-0 left-0 w-full h-full object-cover"
                     loading="lazy"
-                    width="1280"
-                    height="720"
+                    width="320"
+                    height="180"
                   />
 
                   {/* Overlay */}

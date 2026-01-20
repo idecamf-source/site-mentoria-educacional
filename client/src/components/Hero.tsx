@@ -15,7 +15,9 @@ export default function Hero() {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/hero-bg.webp"
+          src="/images/hero-bg-400w.webp?v=4"
+          srcSet="/images/hero-bg-400w.webp?v=4 400w, /images/hero-bg-600w.webp?v=4 600w, /images/hero-bg-sm.webp?v=4 800w, /images/hero-bg-md.webp?v=4 1200w, /images/hero-bg.webp?v=4 1920w"
+          sizes="100vw"
           alt="Ambiente acadêmico acolhedor"
           className="w-full h-full object-cover"
           fetchPriority="high"

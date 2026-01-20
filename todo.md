@@ -68,3 +68,10 @@
 - [x] Removido vite-plugin-manus-runtime (causava warning de unload event)
 - [x] Sourcemaps habilitados para debugging
 - [x] Contraste de texto melhorado (muted-foreground: 0.45 → 0.40)
+
+## Alterações do Google Antigravity - Mobile Optimization (Jan 20, 2026)
+- [x] Otimização de carregamento da imagem hero para mobile
+- [x] Redução de trabalho na main thread
+- [x] Melhoria na visibilidade do conteúdo
+- [x] Ajustes no Hero.tsx, Mentora.tsx, VideoSection.tsx
+- [x] Otimizações de CSS no index.css

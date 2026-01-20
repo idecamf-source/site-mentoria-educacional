@@ -25,3 +25,6 @@
 ## Correção de APIs Depreciadas
 - [x] Localizar unload event listeners (script Umami)
 - [x] Remover ou substituir por alternativas modernas (data-auto-track="false")
+
+## Atualização de Contato
+- [x] Alterar email no Footer de mentoria@amf.edu.br para patricia.dias@amf.edu.br

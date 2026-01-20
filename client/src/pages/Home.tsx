@@ -1,14 +1,11 @@
 import { useAuth } from "@/_core/hooks/useAuth";
 
-import { lazy, Suspense } from "react";
 import Hero from "@/components/Hero";
 import Disponibilidade from "@/components/Disponibilidade";
+import Pilares from "@/components/Pilares";
+import Mentora from "@/components/Mentora";
+import VideoSection from "@/components/VideoSection";
 import Footer from "@/components/Footer";
-
-// Lazy load componentes pesados
-const Pilares = lazy(() => import("@/components/Pilares"));
-const Mentora = lazy(() => import("@/components/Mentora"));
-const VideoSection = lazy(() => import("@/components/VideoSection"));
 import { Button } from "@/components/ui/button";
 import { CalendarCheck } from "lucide-react";
 import { usePageView, useTracking } from "@/hooks/useTracking";
@@ -32,16 +29,10 @@ export default function Home() {
     <div className="min-h-screen flex flex-col bg-background font-sans">
       <main className="flex-grow">
         <Hero />
-        <Suspense fallback={<div className="min-h-[400px]" />}>
-          <VideoSection />
-        </Suspense>
+        <VideoSection />
         <Disponibilidade />
-        <Suspense fallback={<div className="min-h-[600px]" />}>
-          <Pilares />
-        </Suspense>
-        <Suspense fallback={<div className="min-h-[500px]" />}>
-          <Mentora />
-        </Suspense>
+        <Pilares />
+        <Mentora />
 
         {/* CTA Final Section */}
         <section className="py-24 bg-primary text-white relative overflow-hidden">

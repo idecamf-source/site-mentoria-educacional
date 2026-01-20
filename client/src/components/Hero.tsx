@@ -13,18 +13,20 @@ export default function Hero() {
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
+      {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/hero-bg-400w.webp?v=4"
+          src="/images/hero-bg.webp?v=4"
           srcSet="/images/hero-bg-400w.webp?v=4 400w, /images/hero-bg-600w.webp?v=4 600w, /images/hero-bg-sm.webp?v=4 800w, /images/hero-bg-md.webp?v=4 1200w, /images/hero-bg.webp?v=4 1920w"
           sizes="100vw"
           alt="Ambiente acadêmico acolhedor"
           className="w-full h-full object-cover"
           fetchPriority="high"
           loading="eager"
+          decoding="sync"
         />
-        <div className="absolute inset-0 bg-primary/80 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-primary/90 md:bg-primary/80 md:mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80 md:opacity-100" />
       </div>
 
       <div className="container relative z-10 flex flex-col items-center text-center text-white space-y-8 px-4">

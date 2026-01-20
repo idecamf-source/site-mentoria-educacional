@@ -2,21 +2,21 @@ import { Badge } from "@/components/ui/badge";
 
 export default function Mentora() {
   return (
-    <section id="mentora" className="py-24 bg-background overflow-hidden">
+    <section id="mentora" className="py-24 bg-background overflow-hidden content-auto">
       <div className="container">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-          
+
           {/* Imagem da Mentora */}
           <div className="w-full lg:w-1/2 relative">
             <div className="relative aspect-[4/5] w-full max-w-md mx-auto lg:mx-0">
               <div className="absolute inset-0 bg-secondary/20 rounded-2xl transform translate-x-4 translate-y-4" />
-              <img 
-                src="/images/patricia.webp" 
-                alt="Prof. Patrícia da Silva Dias" 
+              <img
+                src="/images/patricia.webp"
+                alt="Prof. Patrícia da Silva Dias"
                 className="relative w-full h-full object-cover rounded-2xl shadow-2xl z-10 bg-white"
                 loading="lazy"
               />
-              
+
               {/* Card Flutuante */}
               <div className="absolute -bottom-6 -right-6 z-20 bg-white p-6 rounded-xl shadow-xl max-w-[200px] hidden md:block border border-gray-100">
                 <p className="text-4xl font-serif font-bold text-primary mb-1">15+</p>

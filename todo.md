@@ -62,3 +62,9 @@
 - [x] Otimizar thumbnail YouTube (mqdefault.jpg: 320x180, ~20KB ao invés de 102KB)
 - [ ] Inline critical CSS para reduzir Resource Load Delay (1970ms)
 - [ ] Investigar Element Render Delay (1020ms)
+
+## Alterações do Google Antigravity (Jan 20, 2026)
+- [x] Favicon otimizado para WebP (logo.png → logo.webp)
+- [x] Removido vite-plugin-manus-runtime (causava warning de unload event)
+- [x] Sourcemaps habilitados para debugging
+- [x] Contraste de texto melhorado (muted-foreground: 0.45 → 0.40)

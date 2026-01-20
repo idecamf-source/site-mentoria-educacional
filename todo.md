@@ -87,3 +87,8 @@
 - [x] Componente GlowButton animado adicionado
 - [x] Integração do GlowButton na seção Hero
 - [x] Correção de erro TypeScript no GlowButton
+
+## Ajuste de Cores do GlowButton
+- [x] Alterar gradiente rosa/roxo para dourado/azul (amber-500/yellow-500/amber-600)
+- [x] Ajustar cor do botão para azul marinho (#1a3a52)
+- [x] Ajustar efeito shine para dourado (amber-300)

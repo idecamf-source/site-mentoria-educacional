@@ -40,6 +40,35 @@
   }
 }
 
+/* Animação bounce para ícone de localização */
+@keyframes bounce-pin {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-6px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-3px);
+  }
+}
+
+/* Animação de abertura para ícone de e-mail */
+@keyframes mail-open {
+  0% {
+    transform: scale(1) rotateX(0deg);
+  }
+  50% {
+    transform: scale(1.15) rotateX(-15deg);
+  }
+  100% {
+    transform: scale(1.1) rotateX(0deg);
+  }
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

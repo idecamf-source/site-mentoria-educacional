@@ -118,3 +118,12 @@
 - [x] Reduzir meta description para 50-160 caracteres (agora com 147 caracteres)
 - [x] Adicionar meta keywords com palavras-chave relevantes
 - [x] Corrigir lang="en" para lang="pt-BR"
+
+## Melhorias no Rodapé
+- [x] Animação no ícone de e-mail (mail-open: scale + rotateX)
+- [x] Animação no ícone de localização (bounce-pin: pulinho duplo)
+- [x] Links funcionais (mailto: e Google Maps com target=_blank)
+- [x] Sublinhado animado nos links (cresce do centro para bordas)
+- [x] Divisor elegante com gradiente transparente-branco/30-transparente
+- [x] Transição wave SVG entre seção anterior e rodapé
+- [x] Melhorar contraste do texto (font-semibold e text-white/90)

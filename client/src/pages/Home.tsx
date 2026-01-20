@@ -6,6 +6,7 @@ import Pilares from "@/components/Pilares";
 import Mentora from "@/components/Mentora";
 import VideoSection from "@/components/VideoSection";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 import { Button } from "@/components/ui/button";
 import { CalendarCheck } from "lucide-react";
 import { usePageView, useTracking } from "@/hooks/useTracking";
@@ -57,6 +58,7 @@ export default function Home() {
       </main>
 
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }

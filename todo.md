@@ -75,3 +75,10 @@
 - [x] Melhoria na visibilidade do conteúdo
 - [x] Ajustes no Hero.tsx, Mentora.tsx, VideoSection.tsx
 - [x] Otimizações de CSS no index.css
+
+## Funcionalidade Voltar ao Topo
+- [x] Criar componente ScrollToTop com botão flutuante
+- [x] Mostrar botão apenas após rolar 300px
+- [x] Animação suave de scroll
+- [x] Posicionar no canto inferior direito
+- [x] Adicionar ao layout principal (Home.tsx)

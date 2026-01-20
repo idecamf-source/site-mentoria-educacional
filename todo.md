@@ -33,3 +33,6 @@
 - [x] Converter Biblioteca2.jpeg para WebP (273KB, qualidade 85)
 - [x] Substituir hero-bg.webp pela nova imagem
 - [x] Testar carregamento e performance
+
+## Correção de Erro de Sintaxe
+- [x] Corrigir erro de sintaxe no App.tsx (hot reload falhando)

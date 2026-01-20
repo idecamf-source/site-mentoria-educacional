@@ -39,3 +39,10 @@
 
 ## Cache Busting para Imagem Hero
 - [x] Adicionar parâmetro ?v=2 na URL da imagem hero-bg.webp
+
+## Otimização de Performance (Score 54 → 90+)
+- [x] Recomprimir hero-bg.webp com qualidade menor (273KB → 156KB)
+- [x] Adicionar srcset com versões responsivas da imagem hero (800w: 53KB, 1200w: 88KB, 1920w: 156KB)
+- [x] Lazy loading no YouTube já implementado (só carrega ao clicar)
+- [x] Scripts com defer já configurados
+- [x] Otimizar patricia.webp (17KB → 12KB)

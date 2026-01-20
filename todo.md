@@ -113,3 +113,8 @@
 
 ## Melhorias de Interatividade - Seção Mentora
 - [x] Badge animado com efeito shimmer no selo "15+ Anos de experiência" (3s loop)
+
+## Correções de SEO - Página Inicial
+- [x] Reduzir meta description para 50-160 caracteres (agora com 147 caracteres)
+- [x] Adicionar meta keywords com palavras-chave relevantes
+- [x] Corrigir lang="en" para lang="pt-BR"

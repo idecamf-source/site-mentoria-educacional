@@ -28,3 +28,8 @@
 
 ## Atualização de Contato
 - [x] Alterar email no Footer de mentoria@amf.edu.br para patricia.dias@amf.edu.br
+
+## Atualização de Imagem Hero
+- [x] Converter Biblioteca2.jpeg para WebP (273KB, qualidade 85)
+- [x] Substituir hero-bg.webp pela nova imagem
+- [x] Testar carregamento e performance

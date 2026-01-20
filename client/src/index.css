@@ -2,12 +2,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;600;700&display=swap');
 @import "tw-animate-css";
 
+@utility content-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 1000px;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --font-sans: "Lato", sans-serif;
   --font-serif: "Playfair Display", serif;
-  
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -49,43 +54,48 @@
 :root {
   /* Cores baseadas na identidade visual: Azul Marinho (#1a3a52) e Dourado (#D4A017) */
   /* Convertendo para OKLCH aproximado */
-  
+
   /* Azul Marinho Principal */
-  --primary: oklch(0.35 0.06 250); 
+  --primary: oklch(0.35 0.06 250);
   --primary-foreground: oklch(0.98 0 0);
-  
+
   /* Dourado Secundário */
   --secondary: oklch(0.75 0.15 85);
   --secondary-foreground: oklch(0.2 0.05 250);
-  
+
   /* Fundo e Texto */
-  --background: oklch(0.99 0.005 250); /* Off-white levemente azulado */
-  --foreground: oklch(0.25 0.05 250); /* Azul muito escuro para texto */
-  
+  --background: oklch(0.99 0.005 250);
+  /* Off-white levemente azulado */
+  --foreground: oklch(0.25 0.05 250);
+  /* Azul muito escuro para texto */
+
   /* Cards e Elementos */
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.25 0.05 250);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.25 0.05 250);
-  
+
   /* Elementos de Apoio */
   --muted: oklch(0.96 0.01 250);
-  --muted-foreground: oklch(0.40 0.05 250); /* Escurecido para melhor contraste (era 0.45) */
-  --accent: oklch(0.95 0.02 85); /* Dourado muito claro para fundos */
+  --muted-foreground: oklch(0.40 0.05 250);
+  /* Escurecido para melhor contraste (era 0.45) */
+  --accent: oklch(0.95 0.02 85);
+  /* Dourado muito claro para fundos */
   --accent-foreground: oklch(0.35 0.06 250);
-  
+
   /* Bordas e Inputs */
   --border: oklch(0.90 0.02 250);
   --input: oklch(0.90 0.02 250);
-  --ring: oklch(0.75 0.15 85); /* Anel de foco dourado */
-  
+  --ring: oklch(0.75 0.15 85);
+  /* Anel de foco dourado */
+
   /* Gráficos e Sidebar */
   --chart-1: oklch(0.35 0.06 250);
   --chart-2: oklch(0.75 0.15 85);
   --chart-3: oklch(0.55 0.06 250);
   --chart-4: oklch(0.85 0.10 85);
   --chart-5: oklch(0.25 0.06 250);
-  
+
   --sidebar: oklch(0.98 0.005 250);
   --sidebar-foreground: oklch(0.25 0.05 250);
   --sidebar-primary: oklch(0.35 0.06 250);
@@ -94,7 +104,7 @@
   --sidebar-accent-foreground: oklch(0.35 0.06 250);
   --sidebar-border: oklch(0.90 0.02 250);
   --sidebar-ring: oklch(0.75 0.15 85);
-  
+
   --radius: 0.5rem;
 }
 
@@ -114,7 +124,7 @@
   --muted: oklch(0.274 0.006 286.033);
   --muted-foreground: oklch(0.705 0.015 286.067);
   --accent: oklch(0.274 0.006 286.033);
-  --accent-foreground:  oklch(0.92 0.005 65);
+  --accent-foreground: oklch(0.92 0.005 65);
   --destructive: oklch(0.704 0.191 22.216);
   --destructive-foreground: oklch(0.985 0 0);
   --border: oklch(1 0 0 / 10%);
@@ -128,7 +138,7 @@
   --sidebar: oklch(0.21 0.006 285.885);
   --sidebar-foreground: oklch(0.85 0.005 65);
   --sidebar-accent: oklch(0.274 0.006 286.033);
-  --sidebar-accent-foreground:  oklch(0.985 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.488 0.243 264.376);
 }
@@ -137,12 +147,20 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground font-sans;
   }
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-serif font-bold text-primary;
   }
+
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
   [type="button"]:not(:disabled),
@@ -157,6 +175,7 @@
 }
 
 @layer components {
+
   /**
    * Custom container utility that centers content and adds responsive padding.
    *
@@ -174,7 +193,8 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem; /* 16px - mobile padding */
+    padding-left: 1rem;
+    /* 16px - mobile padding */
     padding-right: 1rem;
   }
 
@@ -185,16 +205,19 @@
 
   @media (min-width: 640px) {
     .container {
-      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-left: 1.5rem;
+      /* 24px - tablet padding */
       padding-right: 1.5rem;
     }
   }
 
   @media (min-width: 1024px) {
     .container {
-      padding-left: 2rem; /* 32px - desktop padding */
+      padding-left: 2rem;
+      /* 32px - desktop padding */
       padding-right: 2rem;
-      max-width: 1280px; /* Standard content width */
+      max-width: 1280px;
+      /* Standard content width */
     }
   }
 }

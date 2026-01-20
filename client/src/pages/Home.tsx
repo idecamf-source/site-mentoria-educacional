@@ -36,7 +36,7 @@ export default function Home() {
 
         {/* CTA Final Section */}
         <section className="py-24 bg-primary text-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-[url('/images/hero-bg.webp')] bg-cover bg-center opacity-10 mix-blend-overlay" />
+          <div className="absolute inset-0 bg-[url('/images/hero-bg.webp?v=2')] bg-cover bg-center opacity-10 mix-blend-overlay" />
           <div className="container relative z-10 text-center">
             <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6 text-white">
               Pronto para impulsionar sua jornada acadêmica?

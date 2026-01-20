@@ -36,3 +36,6 @@
 
 ## Correção de Erro de Sintaxe
 - [x] Corrigir erro de sintaxe no App.tsx (hot reload falhando)
+
+## Cache Busting para Imagem Hero
+- [x] Adicionar parâmetro ?v=2 na URL da imagem hero-bg.webp

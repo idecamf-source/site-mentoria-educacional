@@ -45,8 +45,8 @@ export function GlowButton({
                 )}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={handleClick}
-                {...props}
+                onClick={handleClick as any}
+                type="button"
             >
                 <span className="relative z-10 flex items-center gap-2">
                     {children}

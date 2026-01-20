@@ -82,3 +82,8 @@
 - [x] Animação suave de scroll
 - [x] Posicionar no canto inferior direito
 - [x] Adicionar ao layout principal (Home.tsx)
+
+## Alterações do Repositório GitHub (Jan 20, 2026)
+- [x] Componente GlowButton animado adicionado
+- [x] Integração do GlowButton na seção Hero
+- [x] Correção de erro TypeScript no GlowButton

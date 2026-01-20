@@ -27,15 +27,19 @@ export default function Disponibilidade() {
           {diasSemana.map((item, index) => (
             <Card 
               key={index}
-              className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[220px] hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-2 hover:border-primary/50"
+              className="group w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[220px] 
+                         transition-all duration-300 hover:-translate-y-2 
+                         border-2 border-transparent hover:border-secondary
+                         shadow-md hover:shadow-xl hover:shadow-secondary/20"
             >
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-center mb-2">
-                  <div className="p-3 rounded-full bg-primary/10">
-                    <Calendar className="h-6 w-6 text-primary" />
+                  <div className="p-3 rounded-full bg-primary/10 group-hover:bg-secondary/20 transition-colors duration-300">
+                    <Calendar className="h-6 w-6 text-primary group-hover:text-secondary transition-colors duration-300 
+                                         group-hover:animate-[tilt_0.3s_ease-in-out]" />
                   </div>
                 </div>
-                <CardTitle className="text-center text-lg font-bold text-primary">
+                <CardTitle className="text-center text-lg font-bold text-primary group-hover:text-secondary transition-colors duration-300">
                   {item.dia}
                 </CardTitle>
               </CardHeader>

@@ -98,3 +98,18 @@
 - [x] Adicionar sombra suave no texto "Universitária" (text-shadow esfumado)
 - [x] Adicionar drop-shadow no título principal e parágrafo
 - [x] Animar seta do botão (bounce-x 1.5s + translate-x no hover)
+
+## Melhorias de Interatividade - Seção Horários
+- [x] Bordas ativas com mudança de cor para dourado (secondary) no hover
+- [x] Animação de balanço (tilt) nos ícones de calendário no hover
+- [x] Título do dia muda para dourado no hover
+- [x] Sombra dourada no hover
+
+## Melhorias de Interatividade - Seção Pilares
+- [x] Entrada escalonada (staggered reveal) ao rolar a página (100ms delay entre cards)
+- [x] Ícones dinâmicos com fundo circular amarelo e scale no hover
+- [x] Efeito de profundidade com sombra mais suave e difusa (shadow-2xl shadow-secondary/15)
+- [x] Cards sobem 3px no hover (translate-y-3)
+
+## Melhorias de Interatividade - Seção Mentora
+- [x] Badge animado com efeito shimmer no selo "15+ Anos de experiência" (3s loop)

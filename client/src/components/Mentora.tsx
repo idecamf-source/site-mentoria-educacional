@@ -17,10 +17,13 @@ export default function Mentora() {
                 loading="lazy"
               />
 
-              {/* Card Flutuante */}
-              <div className="absolute -bottom-6 -right-6 z-20 bg-white p-6 rounded-xl shadow-xl max-w-[200px] hidden md:block border border-gray-100">
-                <p className="text-4xl font-serif font-bold text-primary mb-1">15+</p>
-                <p className="text-sm text-muted-foreground font-medium">Anos de experiência em educação</p>
+              {/* Card Flutuante com Shimmer */}
+              <div className="absolute -bottom-6 -right-6 z-20 bg-white p-6 rounded-xl shadow-xl max-w-[200px] hidden md:block border border-gray-100 overflow-hidden group">
+                {/* Shimmer Effect */}
+                <div className="absolute inset-0 -translate-x-full animate-[shimmer_3s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-secondary/20 to-transparent" />
+                
+                <p className="text-4xl font-serif font-bold text-primary mb-1 relative z-10">15+</p>
+                <p className="text-sm text-muted-foreground font-medium relative z-10">Anos de experiência em educação</p>
               </div>
             </div>
           </div>

@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { GlowButton } from "@/components/ui/glow-button";
 import { ArrowRight } from "lucide-react";
 import { useTracking } from "@/hooks/useTracking";
 
@@ -46,14 +47,14 @@ export default function Hero() {
         </p>
 
         <div className="animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-600">
-          <Button
-            size="lg"
-            onClick={handleScheduleClick}
-            className="bg-secondary text-secondary-foreground hover:bg-secondary/90 hover:scale-105 transition-transform font-bold text-2xl px-16 h-20 shadow-2xl"
+          <GlowButton
+            onClick={() => track("button_click", { button: "agendar_mentoria", location: "hero" })}
+            href="https://calendly.com/patricia-dias-amf/mentoria-educacional"
+            className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-bold text-2xl px-16 h-20 shadow-2xl"
           >
             Agendar Horário
             <ArrowRight className="ml-2 h-8 w-8" />
-          </Button>
+          </GlowButton>
         </div>
       </div>
     </section>

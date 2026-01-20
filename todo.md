@@ -52,4 +52,13 @@
 - [x] Criar versão 600w da hero-bg (32KB)
 - [x] Atualizar srcset priorizando mobile (400w, 600w, 800w, 1200w, 1920w)
 - [x] Otimizar preload com media queries para mobile
-- [ ] Testar LCP e TBT no mobile
+- [x] Cache busting v4 aplicado
+- [ ] Usuário testar performance mobile no PageSpeed Insights
+
+## Correções Críticas PageSpeed (Score 68 → 80+)
+- [x] Adicionar crossorigin ao preconnect do plausible.io
+- [x] Corrigir srcset - usar sizes="100vw" ao invés de pixels fixos
+- [x] Corrigir src padrão para mobile-first (400w)
+- [x] Otimizar thumbnail YouTube (mqdefault.jpg: 320x180, ~20KB ao invés de 102KB)
+- [ ] Inline critical CSS para reduzir Resource Load Delay (1970ms)
+- [ ] Investigar Element Render Delay (1020ms)

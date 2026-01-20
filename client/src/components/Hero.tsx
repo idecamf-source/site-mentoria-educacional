@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { GlowButton } from "@/components/ui/glow-button";
 import { ArrowRight } from "lucide-react";
 import { useTracking } from "@/hooks/useTracking";
@@ -6,15 +5,9 @@ import { useTracking } from "@/hooks/useTracking";
 export default function Hero() {
   const { track } = useTracking();
 
-  const handleScheduleClick = () => {
-    track("button_click", { button: "agendar_mentoria", location: "hero" });
-    window.open("https://calendly.com/patricia-dias-amf/mentoria-educacional", "_blank");
-  };
-
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      {/* Background Image with Overlay */}
+      {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
           src="/images/hero-bg.webp?v=4"
@@ -26,7 +19,11 @@ export default function Hero() {
           loading="eager"
           decoding="sync"
         />
-        <div className="absolute inset-0 bg-primary/90 md:bg-primary/80 md:mix-blend-multiply" />
+        
+        {/* Overlay de Gradiente Azul Marinho - 35% transparência para melhor legibilidade */}
+        <div className="absolute inset-0 bg-[#1a3a52]/[0.65] md:bg-[#1a3a52]/[0.55]" />
+        
+        {/* Gradiente adicional para suavizar a transição inferior */}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80 md:opacity-100" />
       </div>
 
@@ -37,11 +34,19 @@ export default function Hero() {
           </span>
         </div>
 
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold tracking-tight max-w-4xl animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 text-white">
-          Mentoria Educacional <span className="text-secondary">Universitária</span>
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold tracking-tight max-w-4xl animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 text-white drop-shadow-lg">
+          Mentoria Educacional{" "}
+          <span 
+            className="text-secondary"
+            style={{
+              textShadow: "0 2px 8px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.2)"
+            }}
+          >
+            Universitária
+          </span>
         </h1>
 
-        <p className="text-lg md:text-xl text-gray-200 max-w-2xl leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-400">
+        <p className="text-lg md:text-xl text-gray-200 max-w-2xl leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-400 drop-shadow-md">
           Um espaço seguro e acolhedor para o seu desenvolvimento acadêmico, profissional e pessoal.
           Supere desafios e alcance seu máximo potencial.
         </p>
@@ -50,10 +55,10 @@ export default function Hero() {
           <GlowButton
             onClick={() => track("button_click", { button: "agendar_mentoria", location: "hero" })}
             href="https://calendly.com/patricia-dias-amf/mentoria-educacional"
-            className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-bold text-2xl px-16 h-20 shadow-2xl"
+            className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-bold text-2xl px-16 h-20 shadow-2xl group"
           >
             Agendar Horário
-            <ArrowRight className="ml-2 h-8 w-8" />
+            <ArrowRight className="ml-2 h-8 w-8 transition-transform duration-300 group-hover:translate-x-2 animate-[bounce-x_1.5s_ease-in-out_infinite]" />
           </GlowButton>
         </div>
       </div>

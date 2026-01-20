@@ -92,3 +92,9 @@
 - [x] Alterar gradiente rosa/roxo para dourado/azul (amber-500/yellow-500/amber-600)
 - [x] Ajustar cor do botão para azul marinho (#1a3a52)
 - [x] Ajustar efeito shine para dourado (amber-300)
+
+## Melhorias de Legibilidade e Contraste na Hero
+- [x] Adicionar overlay de gradiente azul marinho (#1a3a52 com 65% mobile / 55% desktop)
+- [x] Adicionar sombra suave no texto "Universitária" (text-shadow esfumado)
+- [x] Adicionar drop-shadow no título principal e parágrafo
+- [x] Animar seta do botão (bounce-x 1.5s + translate-x no hover)

@@ -7,6 +7,16 @@
   contain-intrinsic-size: 1px 1000px;
 }
 
+/* Animação da seta do botão - movimento horizontal suave */
+@keyframes bounce-x {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

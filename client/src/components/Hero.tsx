@@ -46,7 +46,12 @@ export default function Hero() {
           </span>
         </h1>
 
-        <p className="text-lg md:text-xl text-gray-200 max-w-2xl leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-400 drop-shadow-md">
+        <p 
+          className="text-lg md:text-xl text-white max-w-2xl leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-400 font-medium"
+          style={{
+            textShadow: "0 2px 10px rgba(0, 0, 0, 0.5), 0 4px 20px rgba(0, 0, 0, 0.3), 0 8px 40px rgba(0, 0, 0, 0.2)"
+          }}
+        >
           Um espaço seguro e acolhedor para o seu desenvolvimento acadêmico, profissional e pessoal.
           Supere desafios e alcance seu máximo potencial.
         </p>

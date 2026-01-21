@@ -127,3 +127,21 @@
 - [x] Divisor elegante com gradiente transparente-branco/30-transparente
 - [x] Transição wave SVG entre seção anterior e rodapé
 - [x] Melhorar contraste do texto (font-semibold e text-white/90)
+
+## Correções Críticas de Performance (PageSpeed Insights - Jan 21, 2026)
+
+### 1. CSS Render-Blocking (20,5 KiB, 90ms)
+- [x] Extrair CSS crítico (above-the-fold) e colocar inline no <head>
+- [x] CSS crítico minificado inline (~1.5KB)
+- [x] Loading spinner inline para UX durante carregamento
+
+### 2. Árvore de Dependência da Rede (937ms latência)
+- [x] Adicionar preconnect para Google Fonts, YouTube, Plausible
+- [x] Adicionar dns-prefetch para Calendly e Manus Analytics
+- [x] Ordem otimizada de resource hints
+
+### 3. JavaScript Não Usado (150 KiB)
+- [x] Lazy loading de componentes below-the-fold (VideoSection, Pilares, etc)
+- [x] Code splitting otimizado por tipo (react, motion, ui-vendor, data-layer, icons)
+- [x] Terser com drop_console e pure_funcs para remover logs
+- [x] Fontes otimizadas (removidos pesos não utilizados: 300, 400, 600)

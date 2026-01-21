@@ -25,13 +25,40 @@ export default defineConfig({
     target: 'es2020',
     minify: 'terser',
     cssMinify: true,
-    sourcemap: true, // Requested for debugging/PSI
+    sourcemap: false, // Disabled for production performance
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+        pure_funcs: ['console.log', 'console.info'],
+      },
+    },
     rollupOptions: {
       output: {
-        manualChunks: {
-          'react-vendor': ['react', 'react-dom'],
-          'ui-vendor': ['@radix-ui/react-dialog', '@radix-ui/react-select', '@radix-ui/react-slot', '@radix-ui/react-label', '@radix-ui/react-checkbox'],
-          'motion': ['framer-motion'],
+        manualChunks(id) {
+          // React core - smallest possible chunk
+          if (id.includes('react-dom')) {
+            return 'react-dom';
+          }
+          if (id.includes('node_modules/react/')) {
+            return 'react';
+          }
+          // Framer Motion - lazy loaded with Hero
+          if (id.includes('framer-motion')) {
+            return 'motion';
+          }
+          // Radix UI components - lazy loaded
+          if (id.includes('@radix-ui')) {
+            return 'ui-vendor';
+          }
+          // tRPC and tanstack - only for authenticated pages
+          if (id.includes('@trpc') || id.includes('@tanstack')) {
+            return 'data-layer';
+          }
+          // Lucide icons - tree shake automatically
+          if (id.includes('lucide-react')) {
+            return 'icons';
+          }
         },
       },
     },

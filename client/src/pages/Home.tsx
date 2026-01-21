@@ -1,15 +1,32 @@
 import { useAuth } from "@/_core/hooks/useAuth";
+import { lazy, Suspense } from "react";
 
+// Critical above-the-fold component - loaded immediately
 import Hero from "@/components/Hero";
-import Disponibilidade from "@/components/Disponibilidade";
-import Pilares from "@/components/Pilares";
-import Mentora from "@/components/Mentora";
-import VideoSection from "@/components/VideoSection";
-import Footer from "@/components/Footer";
-import ScrollToTop from "@/components/ScrollToTop";
-import { Button } from "@/components/ui/button";
-import { CalendarCheck } from "lucide-react";
-import { usePageView, useTracking } from "@/hooks/useTracking";
+
+// Lazy load below-the-fold components to reduce initial JS bundle
+const VideoSection = lazy(() => import("@/components/VideoSection"));
+const Disponibilidade = lazy(() => import("@/components/Disponibilidade"));
+const Pilares = lazy(() => import("@/components/Pilares"));
+const Mentora = lazy(() => import("@/components/Mentora"));
+const Footer = lazy(() => import("@/components/Footer"));
+const ScrollToTop = lazy(() => import("@/components/ScrollToTop"));
+const CTAFinal = lazy(() => import("@/components/CTAFinal"));
+
+import { usePageView } from "@/hooks/useTracking";
+
+// Lightweight loading placeholder for sections
+function SectionSkeleton() {
+  return (
+    <div className="py-16 animate-pulse">
+      <div className="container">
+        <div className="h-8 bg-muted rounded w-1/3 mx-auto mb-8" />
+        <div className="h-4 bg-muted rounded w-2/3 mx-auto mb-4" />
+        <div className="h-4 bg-muted rounded w-1/2 mx-auto" />
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
   // The userAuth hooks provides authentication state
@@ -19,46 +36,41 @@ export default function Home() {
   // Rastrear visualização da página
   usePageView("home");
 
-  const { track } = useTracking();
-
-  const handleScheduleClick = () => {
-    track("button_click", { button: "agendar_horario", location: "cta_final" });
-    window.open("https://calendly.com/patricia-dias-amf/mentoria-educacional", "_blank");
-  };
-
   return (
     <div className="min-h-screen flex flex-col bg-background font-sans">
       <main className="flex-grow">
+        {/* Hero is critical - loaded immediately */}
         <Hero />
-        <VideoSection />
-        <Disponibilidade />
-        <Pilares />
-        <Mentora />
+        
+        {/* Below-the-fold sections - lazy loaded */}
+        <Suspense fallback={<SectionSkeleton />}>
+          <VideoSection />
+        </Suspense>
+        
+        <Suspense fallback={<SectionSkeleton />}>
+          <Disponibilidade />
+        </Suspense>
+        
+        <Suspense fallback={<SectionSkeleton />}>
+          <Pilares />
+        </Suspense>
+        
+        <Suspense fallback={<SectionSkeleton />}>
+          <Mentora />
+        </Suspense>
 
-        {/* CTA Final Section */}
-        <section className="py-24 bg-primary text-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-[url('/images/hero-bg.webp?v=3')] bg-cover bg-center opacity-10 mix-blend-overlay" />
-          <div className="container relative z-10 text-center">
-            <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6 text-white">
-              Pronto para impulsionar sua jornada acadêmica?
-            </h2>
-            <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10">
-              Agende agora sua sessão de mentoria e dê o próximo passo em direção ao seu sucesso pessoal e profissional.
-            </p>
-            <Button
-              size="lg"
-              onClick={handleScheduleClick}
-              className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-bold text-lg px-10 h-16 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1"
-            >
-              <CalendarCheck className="mr-2 h-6 w-6" />
-              Agendar Horário
-            </Button>
-          </div>
-        </section>
+        <Suspense fallback={<SectionSkeleton />}>
+          <CTAFinal />
+        </Suspense>
       </main>
 
-      <Footer />
-      <ScrollToTop />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
+      
+      <Suspense fallback={null}>
+        <ScrollToTop />
+      </Suspense>
     </div>
   );
 }

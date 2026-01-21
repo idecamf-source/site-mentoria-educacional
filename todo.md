@@ -155,3 +155,7 @@
 
 ## Correção de Cores - Seção CTA Final
 - [x] Corrigir cores dos textos na seção CTA Final (título #ffffff, subtítulo rgba(255,255,255,0.9), botão #D4A017/#1a3a52)
+
+## Correção de Cores - Rodapé
+- [x] Alterar cor dos títulos "Horários de Atendimento" e "Contato e Localização" de text-amber-300 para text-white
+- [ ] Sincronizar alterações com o GitHub

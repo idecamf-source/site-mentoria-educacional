@@ -149,3 +149,6 @@
 ## Correções de Acessibilidade (PageSpeed Insights - Jan 21, 2026)
 - [x] Corrigir contraste insuficiente no Footer (text-secondary → text-amber-300)
 - [x] Remover maximum-scale=1 da meta viewport (permite zoom para usuários com baixa visão)
+
+## Correção de Estilo - Seção Mentora
+- [x] Corrigir estilo do texto "Conheça a Mentora" para igualar ao "CONHEÇA A MENTORIA" (uppercase, tracking-wider, bg-primary/10)

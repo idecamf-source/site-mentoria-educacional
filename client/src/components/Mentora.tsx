@@ -1,5 +1,3 @@
-import { Badge } from "@/components/ui/badge";
-
 export default function Mentora() {
   return (
     <section id="mentora" className="py-24 bg-background overflow-hidden content-auto">
@@ -31,9 +29,11 @@ export default function Mentora() {
           {/* Conteúdo */}
           <div className="w-full lg:w-1/2 space-y-8">
             <div>
-              <Badge variant="outline" className="mb-4 border-secondary text-primary font-bold px-4 py-1">
-                Conheça a Mentora
-              </Badge>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-4">
+                <span className="text-sm font-semibold text-primary uppercase tracking-wider">
+                  Conheça a Mentora
+                </span>
+              </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Prof. Patrícia da Silva Dias
               </h2>

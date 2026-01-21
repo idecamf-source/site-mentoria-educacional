@@ -152,3 +152,6 @@
 
 ## Correção de Estilo - Seção Mentora
 - [x] Corrigir estilo do texto "Conheça a Mentora" para igualar ao "CONHEÇA A MENTORIA" (uppercase, tracking-wider, bg-primary/10)
+
+## Correção de Cores - Seção CTA Final
+- [x] Corrigir cores dos textos na seção CTA Final (título #ffffff, subtítulo rgba(255,255,255,0.9), botão #D4A017/#1a3a52)

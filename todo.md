@@ -145,3 +145,7 @@
 - [x] Code splitting otimizado por tipo (react, motion, ui-vendor, data-layer, icons)
 - [x] Terser com drop_console e pure_funcs para remover logs
 - [x] Fontes otimizadas (removidos pesos não utilizados: 300, 400, 600)
+
+## Correções de Acessibilidade (PageSpeed Insights - Jan 21, 2026)
+- [x] Corrigir contraste insuficiente no Footer (text-secondary → text-amber-300)
+- [x] Remover maximum-scale=1 da meta viewport (permite zoom para usuários com baixa visão)

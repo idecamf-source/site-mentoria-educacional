@@ -45,7 +45,7 @@ export default function Footer() {
 
             {/* Coluna 2: Horários */}
             <div className="space-y-6">
-              <h3 className="text-lg font-serif font-bold text-secondary">Horários de Atendimento</h3>
+              <h3 className="text-lg font-serif font-bold text-amber-300">Horários de Atendimento</h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <Clock className="w-5 h-5 text-secondary shrink-0 mt-0.5" />
@@ -60,7 +60,7 @@ export default function Footer() {
 
             {/* Coluna 3: Contato */}
             <div className="space-y-6">
-              <h3 className="text-lg font-serif font-bold text-secondary">Contato e Localização</h3>
+              <h3 className="text-lg font-serif font-bold text-amber-300">Contato e Localização</h3>
               <div className="space-y-4">
                 {/* Localização com link para Google Maps */}
                 <a 

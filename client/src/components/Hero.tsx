@@ -6,11 +6,9 @@ export default function Hero() {
   const { track } = useTracking();
 
   return (
-    // ESTRUTURA ROBUSTA (Mantemos o container que resolveu a barra azul)
     <section className="relative w-full min-h-[650px] md:min-h-[85vh] flex flex-col justify-center overflow-hidden bg-[#1a3a52]">
       
-      {/* A IMAGEM VOLTA A SER TAG IMG (Para recuperar o desempenho do srcSet) */}
-      {/* 'absolute inset-0 h-full w-full': Faz ela agir exatamente como um background-image */}
+      {/* Imagem de fundo com srcSet para desempenho */}
       <img
         src="/images/hero-bg.webp?v=4"
         srcSet="/images/hero-bg-400w.webp?v=4 400w, /images/hero-bg-600w.webp?v=4 600w, /images/hero-bg-sm.webp?v=4 800w, /images/hero-bg-md.webp?v=4 1200w, /images/hero-bg.webp?v=4 1920w"
@@ -22,15 +20,13 @@ export default function Hero() {
         decoding="sync"
       />
 
-      {/* CAMADA DE SOMBRA (OVERLAY) */}
-      {/* Ajustado para 50% no mobile (mais claro) e 55% no desktop */}
+      {/* Camada de sombra */}
       <div className="absolute inset-0 bg-black/50 md:bg-[#1a3a52]/55 z-10" />
 
-      {/* FADE SUAVE NO RODAPÉ */}
+      {/* Fade suave no rodapé */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-10" />
 
-      {/* CONTEÚDO */}
-      {/* z-20 garante que fique acima da imagem e da sombra */}
+      {/* Conteúdo */}
       <div className="container relative z-20 flex flex-col items-center text-center text-white space-y-8 px-4 py-24 md:py-0">
         
         <div className="inline-block animate-in fade-in slide-in-from-bottom-4 duration-1000">
@@ -39,14 +35,17 @@ export default function Hero() {
           </span>
         </div>
 
-        {/* Título com a sombra extra para leitura no mobile */}
+        {/* AJUSTE AQUI: Adicionada sombra forte ao H1 para realçar o texto branco */}
         <h1 
           className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold tracking-tight max-w-4xl animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 text-white"
-          style={{ textShadow: "0 4px 12px rgba(0,0,0,0.6)" }}
+          style={{ 
+            textShadow: "0 4px 16px rgba(0,0,0,0.8)" // Sombra escura e difusa para contraste máximo
+          }}
         >
           Mentoria Educacional{" "}
           <span
             className="text-secondary"
+            // O span dourado mantém sua própria sombra
             style={{
               textShadow: "0 2px 8px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.2)"
             }}

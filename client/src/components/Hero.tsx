@@ -6,7 +6,7 @@ export default function Hero() {
   const { track } = useTracking();
 
   return (
-    <section className="relative min-h-[60vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden bg-[#1a3a52]">
+    <section className="relative min-h-[85vh] md:min-h-[80vh] flex flex-col justify-center overflow-hidden bg-[#1a3a52]">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img

@@ -29,32 +29,32 @@ export function GlowButton({
 
     return (
         <div className="relative group">
-            {/* Animated Glow Background */}
+            {/* Animated Glow Background - Dourado e Azul */}
             <motion.div
-                className="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"
+                className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"
                 initial={{ opacity: 0.5 }}
                 whileHover={{ opacity: 1, scale: 1.05 }}
             />
 
-            {/* Main Button */}
+            {/* Main Button - Azul Marinho */}
             <motion.button
                 className={cn(
-                    "relative flex items-center justify-center gap-2 bg-black text-white rounded-lg leading-none overflow-hidden",
+                    "relative flex items-center justify-center gap-2 bg-[#1a3a52] text-white rounded-lg leading-none overflow-hidden",
                     "px-8 py-4 font-bold text-lg", // Default sizing
                     className
                 )}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={handleClick}
-                {...props}
+                onClick={handleClick as any}
+                type="button"
             >
                 <span className="relative z-10 flex items-center gap-2">
                     {children}
                 </span>
 
-                {/* Shine Effect */}
+                {/* Shine Effect - Dourado */}
                 <motion.div
-                    className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[100%]"
+                    className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-amber-300/30 to-transparent -translate-x-[100%]"
                     variants={{
                         hover: { translateX: "100%" }
                     }}

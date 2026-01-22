@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Brain, GraduationCap, Heart, Users, Briefcase } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 const pilares = [
   {
@@ -30,8 +31,29 @@ const pilares = [
 ];
 
 export default function Pilares() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="pilares" className="py-24 bg-muted/30">
+    <section id="pilares" className="py-24 bg-muted/30" ref={sectionRef}>
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Nossos Pilares de Atuação</h2>
@@ -42,12 +64,28 @@ export default function Pilares() {
 
         <div className="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
           {pilares.map((pilar, index) => (
-            <Card key={index} className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-card group">
+            <Card 
+              key={index} 
+              className={`w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] border-none bg-card group
+                         transition-all duration-500 ease-out
+                         hover:-translate-y-3 
+                         shadow-lg shadow-black/5
+                         hover:shadow-2xl hover:shadow-secondary/15
+                         ${isVisible 
+                           ? 'opacity-100 translate-y-0' 
+                           : 'opacity-0 translate-y-8'
+                         }`}
+              style={{ 
+                transitionDelay: isVisible ? `${index * 100}ms` : '0ms'
+              }}
+            >
               <CardHeader>
-                <div className="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
-                  <pilar.icon className="w-6 h-6 text-primary" />
+                <div className="w-14 h-14 rounded-full bg-primary/5 flex items-center justify-center mb-4 
+                               group-hover:bg-secondary/20 transition-all duration-300
+                               group-hover:scale-110">
+                  <pilar.icon className="w-7 h-7 text-primary group-hover:text-secondary transition-colors duration-300" />
                 </div>
-                <CardTitle className="text-xl font-bold text-primary group-hover:text-secondary transition-colors">
+                <CardTitle className="text-xl font-bold text-primary group-hover:text-secondary transition-colors duration-300">
                   {pilar.title}
                 </CardTitle>
               </CardHeader>

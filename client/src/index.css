@@ -1,10 +1,73 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;600;700&display=swap');
+/* Fontes carregadas via preconnect no index.html para melhor performance */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap');
 @import "tw-animate-css";
 
 @utility content-auto {
   content-visibility: auto;
   contain-intrinsic-size: 1px 1000px;
+}
+
+/* Animação da seta do botão - movimento horizontal suave */
+@keyframes bounce-x {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+}
+
+/* Animação de balanço (tilt) para ícones */
+@keyframes tilt {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-8deg);
+  }
+  75% {
+    transform: rotate(8deg);
+  }
+}
+
+/* Animação shimmer para badges */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  50%, 100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Animação bounce para ícone de localização */
+@keyframes bounce-pin {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-6px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-3px);
+  }
+}
+
+/* Animação de abertura para ícone de e-mail */
+@keyframes mail-open {
+  0% {
+    transform: scale(1) rotateX(0deg);
+  }
+  50% {
+    transform: scale(1.15) rotateX(-15deg);
+  }
+  100% {
+    transform: scale(1.1) rotateX(0deg);
+  }
 }
 
 @custom-variant dark (&:is(.dark *));

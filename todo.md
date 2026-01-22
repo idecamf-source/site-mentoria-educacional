@@ -82,3 +82,80 @@
 - [x] Animação suave de scroll
 - [x] Posicionar no canto inferior direito
 - [x] Adicionar ao layout principal (Home.tsx)
+
+## Alterações do Repositório GitHub (Jan 20, 2026)
+- [x] Componente GlowButton animado adicionado
+- [x] Integração do GlowButton na seção Hero
+- [x] Correção de erro TypeScript no GlowButton
+
+## Ajuste de Cores do GlowButton
+- [x] Alterar gradiente rosa/roxo para dourado/azul (amber-500/yellow-500/amber-600)
+- [x] Ajustar cor do botão para azul marinho (#1a3a52)
+- [x] Ajustar efeito shine para dourado (amber-300)
+
+## Melhorias de Legibilidade e Contraste na Hero
+- [x] Adicionar overlay de gradiente azul marinho (#1a3a52 com 65% mobile / 55% desktop)
+- [x] Adicionar sombra suave no texto "Universitária" (text-shadow esfumado)
+- [x] Adicionar drop-shadow no título principal e parágrafo
+- [x] Animar seta do botão (bounce-x 1.5s + translate-x no hover)
+
+## Melhorias de Interatividade - Seção Horários
+- [x] Bordas ativas com mudança de cor para dourado (secondary) no hover
+- [x] Animação de balanço (tilt) nos ícones de calendário no hover
+- [x] Título do dia muda para dourado no hover
+- [x] Sombra dourada no hover
+
+## Melhorias de Interatividade - Seção Pilares
+- [x] Entrada escalonada (staggered reveal) ao rolar a página (100ms delay entre cards)
+- [x] Ícones dinâmicos com fundo circular amarelo e scale no hover
+- [x] Efeito de profundidade com sombra mais suave e difusa (shadow-2xl shadow-secondary/15)
+- [x] Cards sobem 3px no hover (translate-y-3)
+
+## Melhorias de Interatividade - Seção Mentora
+- [x] Badge animado com efeito shimmer no selo "15+ Anos de experiência" (3s loop)
+
+## Correções de SEO - Página Inicial
+- [x] Reduzir meta description para 50-160 caracteres (agora com 147 caracteres)
+- [x] Adicionar meta keywords com palavras-chave relevantes
+- [x] Corrigir lang="en" para lang="pt-BR"
+
+## Melhorias no Rodapé
+- [x] Animação no ícone de e-mail (mail-open: scale + rotateX)
+- [x] Animação no ícone de localização (bounce-pin: pulinho duplo)
+- [x] Links funcionais (mailto: e Google Maps com target=_blank)
+- [x] Sublinhado animado nos links (cresce do centro para bordas)
+- [x] Divisor elegante com gradiente transparente-branco/30-transparente
+- [x] Transição wave SVG entre seção anterior e rodapé
+- [x] Melhorar contraste do texto (font-semibold e text-white/90)
+
+## Correções Críticas de Performance (PageSpeed Insights - Jan 21, 2026)
+
+### 1. CSS Render-Blocking (20,5 KiB, 90ms)
+- [x] Extrair CSS crítico (above-the-fold) e colocar inline no <head>
+- [x] CSS crítico minificado inline (~1.5KB)
+- [x] Loading spinner inline para UX durante carregamento
+
+### 2. Árvore de Dependência da Rede (937ms latência)
+- [x] Adicionar preconnect para Google Fonts, YouTube, Plausible
+- [x] Adicionar dns-prefetch para Calendly e Manus Analytics
+- [x] Ordem otimizada de resource hints
+
+### 3. JavaScript Não Usado (150 KiB)
+- [x] Lazy loading de componentes below-the-fold (VideoSection, Pilares, etc)
+- [x] Code splitting otimizado por tipo (react, motion, ui-vendor, data-layer, icons)
+- [x] Terser com drop_console e pure_funcs para remover logs
+- [x] Fontes otimizadas (removidos pesos não utilizados: 300, 400, 600)
+
+## Correções de Acessibilidade (PageSpeed Insights - Jan 21, 2026)
+- [x] Corrigir contraste insuficiente no Footer (text-secondary → text-amber-300)
+- [x] Remover maximum-scale=1 da meta viewport (permite zoom para usuários com baixa visão)
+
+## Correção de Estilo - Seção Mentora
+- [x] Corrigir estilo do texto "Conheça a Mentora" para igualar ao "CONHEÇA A MENTORIA" (uppercase, tracking-wider, bg-primary/10)
+
+## Correção de Cores - Seção CTA Final
+- [x] Corrigir cores dos textos na seção CTA Final (título #ffffff, subtítulo rgba(255,255,255,0.9), botão #D4A017/#1a3a52)
+
+## Correção de Cores - Rodapé
+- [x] Alterar cor dos títulos "Horários de Atendimento" e "Contato e Localização" de text-amber-300 para text-white
+- [ ] Sincronizar alterações com o GitHub

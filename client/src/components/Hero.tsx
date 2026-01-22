@@ -14,7 +14,7 @@ export default function Hero() {
           srcSet="/images/hero-bg-400w.webp?v=4 400w, /images/hero-bg-600w.webp?v=4 600w, /images/hero-bg-sm.webp?v=4 800w, /images/hero-bg-md.webp?v=4 1200w, /images/hero-bg.webp?v=4 1920w"
           sizes="100vw"
           alt="Ambiente acadêmico acolhedor"
-          className="w-full h-full object-contain md:object-cover object-top"
+          className="w-full h-full object-cover object-top"
           fetchPriority="high"
           loading="eager"
           decoding="sync"
@@ -22,6 +22,9 @@ export default function Hero() {
 
         {/* Overlay de Gradiente Azul Marinho - 35% transparência para melhor legibilidade */}
         <div className="absolute inset-0 bg-[#1a3a52]/[0.65] md:bg-[#1a3a52]/[0.55]" />
+
+        {/* Gradiente adicional para legibilidade do texto no mobile */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60 opacity-90 md:opacity-0" />
 
         {/* Gradiente adicional para suavizar a transição inferior */}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80 md:opacity-100" />

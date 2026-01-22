@@ -6,41 +6,42 @@ export default function Hero() {
   const { track } = useTracking();
 
   return (
-    // 'min-h-[100svh]' no mobile garante que ocupe a tela toda se precisar, 
-    // mas 'h-auto' permite crescer mais se o texto for grande.
-    // 'bg-[#1a3a52]' fica apenas como segurança, a imagem vai cobrir ele.
-    <section className="relative w-full h-auto min-h-[600px] md:min-h-[80vh] flex flex-col justify-center overflow-hidden bg-[#1a3a52]">
+    // ESTRUTURA BLINDADA:
+    // 'relative' e 'overflow-hidden': Seguram tudo dentro da caixa.
+    // 'min-h-[600px]': Garante altura mínima no celular.
+    // 'md:min-h-[85vh]': Garante imponência no desktop.
+    // 'bg-[#1a3a52]': Apenas cor de segurança (a imagem vai cobrir).
+    <section className="relative w-full min-h-[600px] md:min-h-[85vh] flex flex-col justify-center overflow-hidden bg-[#1a3a52]">
       
-      {/* CAMADA DE FUNDO (IMAGEM + OVERLAYS) */}
-      <div className="absolute inset-0 w-full h-full z-0">
+      {/* 1. A IMAGEM DE FUNDO QUE PREENCHE TUDO */}
+      {/* 'absolute inset-0' + 'h-full': Obriga a imagem a ir até o último pixel da seção. */}
+      {/* 'object-cover': Faz o zoom automático para não sobrar bordas. */}
+      <div className="absolute inset-0 z-0">
         <img
           src="/images/hero-bg.webp?v=4"
           srcSet="/images/hero-bg-400w.webp?v=4 400w, /images/hero-bg-600w.webp?v=4 600w, /images/hero-bg-sm.webp?v=4 800w, /images/hero-bg-md.webp?v=4 1200w, /images/hero-bg.webp?v=4 1920w"
           sizes="100vw"
           alt="Ambiente acadêmico acolhedor"
-          // object-cover garante o "zoom" para preencher tudo sem deformar
-          // object-top garante que o nome da faculdade não seja cortado
           className="w-full h-full object-cover object-top"
           fetchPriority="high"
           loading="eager"
           decoding="sync"
         />
 
-        {/* Overlay Escuro para dar leitura no texto (Mantido) */}
-        <div className="absolute inset-0 w-full h-full bg-[#1a3a52]/60 md:bg-[#1a3a52]/50" />
+        {/* 2. OVERLAY ESCURO (LEITURA) */}
+        {/* Camada única e sólida para garantir que o texto branco apareça. */}
+        <div className="absolute inset-0 bg-black/50 md:bg-[#1a3a52]/50" />
 
-        {/* Gradiente extra para o mobile (ajuda no contraste do título) */}
-        <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-black/70 via-transparent to-black/70 opacity-80 md:opacity-0" />
-
-        {/* A TRANSIÇÃO SUAVE (FADE) */}
-        {/* Fica colada no fundo (bottom-0), tem altura fixa curta (h-24) e vai do branco (background) para transparente */}
-        {/* Isso conecta a imagem ao resto do site sem criar névoa no meio da foto */}
-        <div className="absolute bottom-0 left-0 right-0 w-full h-24 bg-gradient-to-t from-background to-transparent z-10" />
+        {/* 3. A TRANSIÇÃO SUAVE (O "FADE") */}
+        {/* Apenas no rodapé (bottom-0), curto (h-24) e sutil. */}
+        {/* Conecta a imagem ao fundo branco sem criar névoa no meio da tela. */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent z-10" />
       </div>
 
-      {/* CONTEÚDO (TEXTO + BOTÃO) */}
-      {/* py-20 garante que o conteúdo não encoste nas bordas superior/inferior */}
-      <div className="container relative z-20 flex flex-col items-center text-center text-white space-y-8 px-4 py-24 md:py-0">
+      {/* 4. O CONTEÚDO (TEXTO E BOTÃO) */}
+      {/* 'py-20': Garante que o texto nunca encoste nas bordas em telas pequenas. */}
+      {/* 'z-20': Garante que fique SOBRE a imagem e o fade. */}
+      <div className="container relative z-20 flex flex-col items-center text-center text-white space-y-8 px-4 py-20">
         
         <div className="inline-block animate-in fade-in slide-in-from-bottom-4 duration-1000">
           <span className="px-4 py-2 rounded-full bg-secondary/20 border border-secondary/50 text-secondary text-sm font-bold tracking-wider uppercase backdrop-blur-sm">
@@ -70,7 +71,7 @@ export default function Hero() {
           Supere desafios e alcance seu máximo potencial.
         </p>
 
-        <div className="animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-600 pt-4 pb-2">
+        <div className="animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-600 pt-4">
           <GlowButton
             onClick={() => track("button_click", { button: "agendar_mentoria", location: "hero" })}
             href="https://calendly.com/patricia-dias-amf/mentoria-educacional"

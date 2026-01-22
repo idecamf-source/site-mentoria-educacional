@@ -12,7 +12,7 @@ export default function Hero() {
     // 'bg-top': Garante que o topo (nome da faculdade) não corte.
     // 'bg-no-repeat': Evita repetições.
     <section 
-      className="relative w-full min-h-[650px] md:min-h-[85vh] flex flex-col justify-center overflow-hidden bg-[#1a3a52]"
+      className="relative w-full min-h-[650px] md:min-h-[85vh] flex flex-col justify-center overflow-hidden bg-[#2e7cb7]"
       style={{
         backgroundImage: "url('/images/hero-bg.webp?v=4')",
         backgroundSize: "cover",

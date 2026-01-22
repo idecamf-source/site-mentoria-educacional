@@ -6,7 +6,9 @@ export default function Hero() {
   const { track } = useTracking();
 
   return (
-    <section className="relative h-auto min-h-[600px] pt-20 pb-10 md:min-h-[80vh] md:py-0 flex flex-col justify-center overflow-hidden bg-[#1a3a52]">
+    // AJUSTE 1: Altura automática no mobile com mínimo de 500px para não esticar demais.
+    // Reduzi o pb-10 para pb-8 no mobile para aproximar a próxima seção.
+    <section className="relative h-auto min-h-[500px] pt-20 pb-8 md:min-h-[80vh] md:pb-0 md:pt-0 flex flex-col justify-center overflow-hidden bg-[#1a3a52]">
       {/* Background Image */}
       <div className="absolute inset-0 z-0 w-full h-full">
         <img
@@ -20,17 +22,18 @@ export default function Hero() {
           decoding="sync"
         />
 
-        {/* Overlay de Gradiente Azul Marinho - 35% transparência para melhor legibilidade */}
+        {/* Overlay de Gradiente Azul Marinho */}
         <div className="absolute inset-0 w-full h-full bg-[#1a3a52]/[0.65] md:bg-[#1a3a52]/[0.55]" />
 
-        {/* Gradiente adicional para legibilidade do texto no mobile */}
+        {/* Gradiente para legibilidade no mobile */}
         <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-black/60 via-transparent to-black/60 opacity-90 md:opacity-0" />
 
-        {/* Gradiente adicional para suavizar a transição inferior - Curto no mobile, Cheio no desktop */}
-        <div className="absolute bottom-0 left-0 right-0 w-full h-24 md:h-full md:inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-100 md:opacity-100" />
+        {/* AJUSTE 2: O gradiente de transição (fade) agora tem altura fixa (h-24) no mobile
+            e fica colado no fundo (bottom-0). No desktop (md:), ele ocupa a tela toda como antes. */}
+        <div className="absolute bottom-0 left-0 right-0 w-full h-24 md:h-full bg-gradient-to-t from-background to-transparent opacity-100" />
       </div>
 
-      <div className="container relative z-10 flex flex-col items-center text-center text-white space-y-8 px-4">
+      <div className="container relative z-10 flex flex-col items-center text-center text-white space-y-6 md:space-y-8 px-4">
         <div className="inline-block animate-in fade-in slide-in-from-bottom-4 duration-1000">
           <span className="px-4 py-2 rounded-full bg-secondary/20 border border-secondary/50 text-secondary text-sm font-bold tracking-wider uppercase backdrop-blur-sm">
             Antonio Meneghetti Faculdade
@@ -59,14 +62,14 @@ export default function Hero() {
           Supere desafios e alcance seu máximo potencial.
         </p>
 
-        <div className="animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-600">
+        <div className="animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-600 pt-2">
           <GlowButton
             onClick={() => track("button_click", { button: "agendar_mentoria", location: "hero" })}
             href="https://calendly.com/patricia-dias-amf/mentoria-educacional"
-            className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-bold text-2xl px-16 h-20 shadow-2xl group"
+            className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-bold text-xl md:text-2xl px-10 md:px-16 h-16 md:h-20 shadow-2xl group"
           >
             Agendar Horário
-            <ArrowRight className="ml-2 h-8 w-8 transition-transform duration-300 group-hover:translate-x-2 animate-[bounce-x_1.5s_ease-in-out_infinite]" />
+            <ArrowRight className="ml-2 h-6 w-6 md:h-8 md:w-8 transition-transform duration-300 group-hover:translate-x-2 animate-[bounce-x_1.5s_ease-in-out_infinite]" />
           </GlowButton>
         </div>
       </div>

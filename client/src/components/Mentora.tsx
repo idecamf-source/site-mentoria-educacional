@@ -9,7 +9,7 @@ export default function Mentora() {
             <div className="relative aspect-[4/5] w-full max-w-md mx-auto lg:mx-0">
               <div className="absolute inset-0 bg-secondary/20 rounded-2xl transform translate-x-4 translate-y-4" />
               <img
-                src="/images/patricia.webp"
+                src="/images/patricia-nova.jpg"
                 alt="Prof. Patrícia da Silva Dias"
                 className="relative w-full h-full object-cover rounded-2xl shadow-2xl z-10 bg-white"
                 loading="lazy"
@@ -19,7 +19,7 @@ export default function Mentora() {
               <div className="absolute -bottom-6 -right-6 z-20 bg-white p-6 rounded-xl shadow-xl max-w-[200px] hidden md:block border border-gray-100 overflow-hidden group">
                 {/* Shimmer Effect */}
                 <div className="absolute inset-0 -translate-x-full animate-[shimmer_3s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-secondary/20 to-transparent" />
-                
+
                 <p className="text-4xl font-serif font-bold text-primary mb-1 relative z-10">15+</p>
                 <p className="text-sm text-muted-foreground font-medium relative z-10">Anos de experiência em educação</p>
               </div>

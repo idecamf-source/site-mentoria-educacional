@@ -28,8 +28,8 @@ export default defineConfig({
     sourcemap: false, // Disabled for production performance
     terserOptions: {
       compress: {
-        drop_console: true,
-        drop_debugger: true,
+        drop_console: false,
+        drop_debugger: false,
         pure_funcs: ['console.log', 'console.info'],
       },
     },

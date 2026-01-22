@@ -5,14 +5,14 @@ export default function Footer() {
     <footer className="bg-primary text-primary-foreground py-16">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          
+
           {/* Coluna 1: Sobre */}
           <div className="space-y-6">
             <picture>
               <source srcSet="/images/logo.webp" type="image/webp" />
-              <img 
-                src="/images/logo.png" 
-                alt="Mentoria Educacional" 
+              <img
+                src="/images/logo.png"
+                alt="Mentoria Educacional"
                 className="h-16 w-auto"
                 loading="lazy"
                 width="200"
@@ -20,14 +20,14 @@ export default function Footer() {
               />
             </picture>
             <p className="text-primary-foreground/80 text-sm leading-relaxed max-w-xs">
-              Um serviço dedicado ao desenvolvimento integral dos alunos da Antonio Meneghetti Faculdade, 
+              Um serviço dedicado ao desenvolvimento integral dos alunos da Antonio Meneghetti Faculdade,
               oferecendo suporte acadêmico, emocional e profissional.
             </p>
           </div>
 
           {/* Coluna 2: Horários */}
           <div className="space-y-6">
-            <h3 className="text-lg font-serif font-bold text-secondary">Horários de Atendimento</h3>
+            <h3 className="text-lg font-serif font-bold text-white">Horários de Atendimento</h3>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <Clock className="w-5 h-5 text-secondary shrink-0 mt-0.5" />
@@ -42,7 +42,7 @@ export default function Footer() {
 
           {/* Coluna 3: Contato */}
           <div className="space-y-6">
-            <h3 className="text-lg font-serif font-bold text-secondary">Contato e Localização</h3>
+            <h3 className="text-lg font-serif font-bold text-white">Contato e Localização</h3>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-secondary shrink-0 mt-0.5" />

@@ -26,6 +26,11 @@ export default defineConfig({
     minify: 'terser',
     cssMinify: true,
     sourcemap: true, // Requested for debugging/PSI
+    terserOptions: {
+      compress: {
+        drop_console: false,
+      },
+    },
     rollupOptions: {
       output: {
         manualChunks: {

@@ -44,7 +44,7 @@ export default function Hero() {
               textShadow: "0 2px 8px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.2)"
             }}
           >
-          Mentoria Educacional{" "}
+            Mentoria Educacional{" "}
           <span
             className="text-secondary"
             style={{

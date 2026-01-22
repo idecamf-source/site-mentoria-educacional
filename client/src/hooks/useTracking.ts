@@ -1,4 +1,4 @@
-import { trpc } from "@/lib/trpc";
+
 import { useEffect, useState } from "react";
 
 // Gerar um ID de sessão único
@@ -12,15 +12,10 @@ function getSessionId() {
 }
 
 export function useTracking() {
-  const trackMutation = trpc.tracking.track.useMutation();
   const [sessionId] = useState(getSessionId);
 
   const track = (eventType: string, eventData?: Record<string, any>) => {
-    trackMutation.mutate({
-      eventType,
-      eventData: eventData ? JSON.stringify(eventData) : undefined,
-      sessionId,
-    });
+    console.log("[Tracking] ", eventType, eventData, sessionId);
   };
 
   return { track };
@@ -32,7 +27,7 @@ export function usePageView(pageName: string) {
 
   useEffect(() => {
     track("page_view", { page: pageName });
-    
+
     // Track pageview no Umami (sem usar unload)
     if (typeof window !== 'undefined' && (window as any).umami) {
       (window as any).umami.track();

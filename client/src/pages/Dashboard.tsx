@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { trpc } from "@/lib/trpc";
+
 import { useState, useMemo } from "react";
 import { Calendar, TrendingUp, Users, MousePointerClick, BarChart3, Clock, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -23,37 +23,52 @@ export default function Dashboard() {
     endDate: new Date(),
   });
 
-  const utils = trpc.useUtils();
   const [isSyncing, setIsSyncing] = useState(false);
 
-  const { data: dashboardData, isLoading: isDashboardLoading } = trpc.analytics.dashboard.useQuery({
-    startDate: dateRange.startDate,
-    endDate: dateRange.endDate,
-  });
-
-  const { data: appointments, isLoading: isAppointmentsLoading } = trpc.appointments.list.useQuery();
-  const { data: events, isLoading: isEventsLoading } = trpc.tracking.list.useQuery();
-
-  const syncCalendly = trpc.calendly.syncNow.useMutation({
-    onSuccess: (result) => {
-      if (result.success) {
-        toast.success(`Sincronização concluída! ${result.newCount || 0} novos agendamentos.`);
-        utils.appointments.list.invalidate();
-      } else {
-        toast.error(result.error || 'Erro ao sincronizar');
-      }
-      setIsSyncing(false);
+  // Static Data for Demo
+  const dashboardData = {
+    appointments: {
+      total: 124,
+      byStatus: [
+        { status: 'pending', count: 12 },
+        { status: 'confirmed', count: 45 },
+        { status: 'completed', count: 58 },
+        { status: 'cancelled', count: 9 },
+      ]
     },
-    onError: (error) => {
-      toast.error('Erro ao sincronizar com Calendly');
-      setIsSyncing(false);
-    },
-  });
+    pageViews: 1250,
+    conversionRate: 8.5,
+    events: {
+      byType: [
+        { eventType: 'page_view', count: 1250 },
+        { eventType: 'button_click', count: 320 },
+        { eventType: 'contact_view', count: 150 },
+      ]
+    }
+  };
+  const isDashboardLoading = false;
+
+  const appointments = [
+    { id: 101, userName: "João Silva", userEmail: "joao@example.com", status: "confirmed", createdAt: new Date().toISOString() },
+    { id: 102, userName: "Maria Oliveira", userEmail: "maria@example.com", status: "pending", createdAt: new Date(Date.now() - 86400000).toISOString() },
+    { id: 103, userName: "Carlos Souza", userEmail: "carlos@example.com", status: "completed", createdAt: new Date(Date.now() - 172800000).toISOString() },
+  ];
+  const isAppointmentsLoading = false;
+
+  const events = [
+    { id: 1, eventType: 'page_view', eventData: 'Home Page', sessionId: 'sess_1', createdAt: new Date().toISOString() },
+    { id: 2, eventType: 'button_click', eventData: 'CTA Hero', sessionId: 'sess_1', createdAt: new Date().toISOString() },
+  ];
+  const isEventsLoading = false;
 
   const handleSync = () => {
     setIsSyncing(true);
-    toast.info('Sincronizando com Calendly...');
-    syncCalendly.mutate();
+    toast.info('Sincronizando com Calendly (Simulação)...');
+
+    setTimeout(() => {
+      setIsSyncing(false);
+      toast.success(`Sincronização concluída! 0 novos agendamentos.`);
+    }, 1500);
   };
 
   const stats = useMemo(() => {
@@ -263,10 +278,10 @@ export default function Dashboard() {
                                 appointment.status === "completed"
                                   ? "default"
                                   : appointment.status === "confirmed"
-                                  ? "secondary"
-                                  : appointment.status === "cancelled"
-                                  ? "destructive"
-                                  : "outline"
+                                    ? "secondary"
+                                    : appointment.status === "cancelled"
+                                      ? "destructive"
+                                      : "outline"
                               }
                             >
                               {appointment.status}

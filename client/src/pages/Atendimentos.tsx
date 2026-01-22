@@ -26,7 +26,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { trpc } from "@/lib/trpc";
+
 import { useState } from "react";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
@@ -56,30 +56,26 @@ export default function Atendimentos() {
     directivesTaken: "",
   });
 
-  const { data: attendances, isLoading, refetch } = trpc.attendances.list.useQuery();
-  const { data: nextNumberData } = trpc.attendances.getNextNumber.useQuery();
-  const { data: appointments } = trpc.appointments.list.useQuery();
-  const createMutation = trpc.attendances.create.useMutation({
-    onSuccess: () => {
-      toast.success("Atendimento registrado com sucesso!");
-      setIsDialogOpen(false);
-      refetch();
-      resetForm();
-    },
-    onError: (error) => {
-      toast.error("Erro ao registrar atendimento: " + error.message);
-    },
-  });
+  const attendances: any[] = []; // Mock empty or populate if needed
+  const isLoading = false;
+  const refetch = () => { };
+  const nextNumberData = { nextNumber: 101 };
+  const appointments: any[] = [];
 
-  const deleteMutation = trpc.attendances.delete.useMutation({
-    onSuccess: () => {
-      toast.success("Atendimento excluído com sucesso!");
-      refetch();
-    },
-    onError: (error) => {
-      toast.error("Erro ao excluir atendimento: " + error.message);
-    },
-  });
+  const createMutation = {
+    isPending: false,
+    mutate: (data: any) => {
+      toast.success("Atendimento registrado com sucesso! (Simulação)");
+      setIsDialogOpen(false);
+      resetForm();
+    }
+  };
+
+  const deleteMutation = {
+    mutate: (data: any) => {
+      toast.success("Atendimento excluído com sucesso! (Simulação)");
+    }
+  };
 
   const resetForm = () => {
     setFormData({
@@ -296,13 +292,13 @@ export default function Atendimentos() {
                             <Clock className="h-4 w-4 text-muted-foreground" />
                             {appointment.calendlyStartTime
                               ? format(new Date(appointment.calendlyStartTime), "dd/MM/yyyy HH:mm", {
-                                  locale: ptBR,
-                                })
+                                locale: ptBR,
+                              })
                               : appointment.scheduledAt
-                              ? format(new Date(appointment.scheduledAt), "dd/MM/yyyy HH:mm", {
+                                ? format(new Date(appointment.scheduledAt), "dd/MM/yyyy HH:mm", {
                                   locale: ptBR,
                                 })
-                              : "-"}
+                                : "-"}
                           </div>
                         </TableCell>
                         <TableCell>{appointment.userName || "-"}</TableCell>
@@ -313,19 +309,19 @@ export default function Atendimentos() {
                               appointment.status === "confirmed"
                                 ? "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"
                                 : appointment.status === "completed"
-                                ? "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
-                                : appointment.status === "cancelled"
-                                ? "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800"
-                                : "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800"
+                                  ? "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
+                                  : appointment.status === "cancelled"
+                                    ? "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800"
+                                    : "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800"
                             }
                           >
                             {appointment.status === "confirmed"
                               ? "Confirmado"
                               : appointment.status === "completed"
-                              ? "Concluído"
-                              : appointment.status === "cancelled"
-                              ? "Cancelado"
-                              : "Pendente"}
+                                ? "Concluído"
+                                : appointment.status === "cancelled"
+                                  ? "Cancelado"
+                                  : "Pendente"}
                           </span>
                         </TableCell>
                         <TableCell>

@@ -6,9 +6,9 @@ export default function Hero() {
   const { track } = useTracking();
 
   return (
-    <section className="relative min-h-[85vh] md:min-h-[80vh] flex flex-col justify-center overflow-hidden bg-[#1a3a52]">
+    <section className="relative h-auto min-h-[600px] py-20 md:min-h-[80vh] md:py-0 flex flex-col justify-center overflow-hidden bg-[#1a3a52]">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 w-full h-full">
         <img
           src="/images/hero-bg.webp?v=4"
           srcSet="/images/hero-bg-400w.webp?v=4 400w, /images/hero-bg-600w.webp?v=4 600w, /images/hero-bg-sm.webp?v=4 800w, /images/hero-bg-md.webp?v=4 1200w, /images/hero-bg.webp?v=4 1920w"
@@ -21,13 +21,13 @@ export default function Hero() {
         />
 
         {/* Overlay de Gradiente Azul Marinho - 35% transparência para melhor legibilidade */}
-        <div className="absolute inset-0 bg-[#1a3a52]/[0.65] md:bg-[#1a3a52]/[0.55]" />
+        <div className="absolute inset-0 w-full h-full bg-[#1a3a52]/[0.65] md:bg-[#1a3a52]/[0.55]" />
 
         {/* Gradiente adicional para legibilidade do texto no mobile */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60 opacity-90 md:opacity-0" />
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-black/60 via-transparent to-black/60 opacity-90 md:opacity-0" />
 
         {/* Gradiente adicional para suavizar a transição inferior */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80 md:opacity-100" />
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-t from-background via-transparent to-transparent opacity-80 md:opacity-100" />
       </div>
 
       <div className="container relative z-10 flex flex-col items-center text-center text-white space-y-8 px-4">

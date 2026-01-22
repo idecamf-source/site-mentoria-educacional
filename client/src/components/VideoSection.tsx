@@ -10,7 +10,7 @@ export default function VideoSection() {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-background to-muted/30 content-auto">
+    <section className="pt-10 pb-20 md:py-20 bg-gradient-to-b from-background to-muted/30 content-auto">
       <div className="container">
         <div className="max-w-5xl mx-auto">
           {/* Header */}

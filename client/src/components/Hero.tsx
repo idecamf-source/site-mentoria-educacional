@@ -6,7 +6,7 @@ export default function Hero() {
   const { track } = useTracking();
 
   return (
-    <section className="relative h-auto min-h-[600px] py-20 md:min-h-[80vh] md:py-0 flex flex-col justify-center overflow-hidden bg-[#1a3a52]">
+    <section className="relative h-auto min-h-[600px] pt-20 pb-10 md:min-h-[80vh] md:py-0 flex flex-col justify-center overflow-hidden bg-[#1a3a52]">
       {/* Background Image */}
       <div className="absolute inset-0 z-0 w-full h-full">
         <img
@@ -26,8 +26,8 @@ export default function Hero() {
         {/* Gradiente adicional para legibilidade do texto no mobile */}
         <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-black/60 via-transparent to-black/60 opacity-90 md:opacity-0" />
 
-        {/* Gradiente adicional para suavizar a transição inferior */}
-        <div className="absolute inset-0 w-full h-full bg-gradient-to-t from-background via-transparent to-transparent opacity-80 md:opacity-100" />
+        {/* Gradiente adicional para suavizar a transição inferior - Curto no mobile, Cheio no desktop */}
+        <div className="absolute bottom-0 left-0 right-0 w-full h-24 md:h-full md:inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-100 md:opacity-100" />
       </div>
 
       <div className="container relative z-10 flex flex-col items-center text-center text-white space-y-8 px-4">

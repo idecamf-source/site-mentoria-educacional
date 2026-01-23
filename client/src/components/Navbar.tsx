@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { useAuth } from "@/_core/hooks/useAuth";
+
 
 export default function Navbar() {
-  const { user } = useAuth();
+
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -49,20 +49,7 @@ export default function Navbar() {
           >
             Conheça a Mentora
           </button>
-          {user && (
-            <>
-              <Link href="/dashboard">
-                <span className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors cursor-pointer">
-                  Dashboard
-                </span>
-              </Link>
-              <Link href="/atendimentos">
-                <span className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors cursor-pointer">
-                  Atendimentos
-                </span>
-              </Link>
-            </>
-          )}
+
           <Button
             onClick={() => window.open("https://calendly.com/patricia-dias-amf/mentoria-educacional", "_blank")}
             className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-bold"

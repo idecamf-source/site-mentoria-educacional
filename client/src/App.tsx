@@ -7,6 +7,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import { Suspense, lazy } from "react";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
+import { Analytics } from "@vercel/analytics/react";
 
 // Lazy load non-critical pages
 
@@ -40,6 +41,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
+          <Analytics />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

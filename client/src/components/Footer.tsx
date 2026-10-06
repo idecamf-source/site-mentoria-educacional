@@ -13,7 +13,7 @@ export default function Footer() {
   return (
     <footer className="bg-madrugada py-16 text-[#FFF8EE]/85">
       <div className="container">
-        <div className="grid items-start gap-12 md:grid-cols-3 md:items-center md:gap-10">
+        <div className="grid items-start gap-12 md:grid-cols-3 md:gap-10">
           <div>
             <img
               src={`/images/logo-simbolo-${LOGO_COR}.webp`}
@@ -30,7 +30,7 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Horários e Contato agrupados: alinhados entre si pelo topo, e o par centralizado em relação à 1ª coluna */}
+          {/* Horários e Contato: títulos alinhados entre si e com o topo do símbolo */}
           <div className="grid items-start gap-12 md:col-span-2 md:grid-cols-2 md:gap-10">
             <div>
               <h3 className="text-lg text-[#FFF8EE]">

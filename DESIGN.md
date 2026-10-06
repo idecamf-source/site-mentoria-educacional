@@ -121,7 +121,7 @@ components:
 
 The page lives the hours the mentor is actually available. Every section is one hour of a single evening, and scrolling moves the sky from 18:00 gold through apricot, rose and violet into 22:00 night, ending in the deeper madrugada of the footer. Each section is a drenched, full-bleed field of one sky color; there are no white pages with colored accents, and no card grids floating on neutral gray. Color carries the narrative, so each field holds very little else: a big grotesque headline, a readable paragraph, and one piece of evidence (the portrait, the video, the week grid, the pillar list, the credentials).
 
-Typography pairs a characterful, tightly tracked grotesque for headings with a typeface designed for legibility for everything read. Shapes are soft and few: pills, arches, and generously rounded panels. Depth is quiet: long, negative-spread shadows tinted with night, never hard edges. A fixed clock chip in night ink tells the visitor what hour they are in.
+Typography pairs a characterful, tightly tracked grotesque for headings with a typeface designed for legibility for everything read. Shapes are soft and few: pills, arches, and generously rounded panels. Depth is quiet: long, negative-spread shadows tinted with night, never hard edges.
 
 The system rejects the generic campus-photo hero with cards and the coach-template look, and it must never read as childish: saturation lives in the fields, not in playful ornaments.
 
@@ -131,14 +131,14 @@ The system rejects the generic campus-photo hero with cards and the coach-templa
 - Night-ink and gold pills as the only button form; one action: Agendar.
 - Arch-topped portraits, 1.75rem panels, round badges; no sharp corners at component scale.
 - Soft night-tinted drop shadows; flat fields.
-- The hour is a recurring data motif (clock chip, hours strip, week grid), never a decoration.
+- The hour is a recurring data motif (hours line, week grid), never a decoration.
 
 ## Colors
 
 A warm-to-cold sunset sequence used as whole-section fields, with night ink and cream as the two text voices.
 
 ### Primary
-- **Noite (Night Ink)** (#101D33): the ink of the system. Text on every light field (ouro, damasco), the primary pill button, the navbar (at 92% with backdrop blur), the clock chip, the hours strip under the hero, the week-grid panel, the 22:00 field, selection background, scrollbar thumb and `theme-color`. Hover on night pills lifts to Noite Hover (#1B2C4A).
+- **Noite (Night Ink)** (#101D33): the ink of the system. Text on every light field (ouro, damasco), the primary pill button, the navbar (at 92% with backdrop blur), the hours line under the hero, the week-grid panel, the 22:00 field, selection background, scrollbar thumb and `theme-color`. Hover on night pills lifts to Noite Hover (#1B2C4A).
 
 ### Secondary
 - **Ouro (18h Gold)** (#F2B84B): the 18:00 field (hero, page background) and the highlight voice on dark fields: the gold pill button, pillar badges, credential list headings and bullets, footer icons, the nav wordmark subline, link underlines on hover, the clock icon. Hover on gold pills lifts to Ouro Hover (#F6C562).
@@ -192,16 +192,16 @@ The first viewport always carries the hours line beneath the hero buttons: a clo
 
 Seams between fields are 5rem linear gradients from the previous hour's color into the next, so the sky blends continuously instead of cutting.
 
-Fixed chrome: sticky 64px navbar at top; clock chip pinned 20px from bottom-left; scroll-to-top pinned bottom-right. `scroll-padding-top: 5rem` clears the navbar for anchor jumps.
+Fixed chrome: sticky 64px navbar at top; scroll-to-top pinned bottom-right. No other floating elements (the clock chip was removed by user decision, 2026-10-06: it read as the real time). `scroll-padding-top: 5rem` clears the navbar for anchor jumps.
 
 ## Elevation & Depth
 
-Fields are flat; depth is reserved for the few objects that sit on them (portraits, the video, the week-grid panel, pills, the clock chip). Shadows are long, soft and negative-spread, so they read as a glow of night beneath the object rather than a drop edge, and they are tinted with noite or black, never gray.
+Fields are flat; depth is reserved for the few objects that sit on them (portraits, the video, the week-grid panel, pills). Shadows are long, soft and negative-spread, so they read as a glow of night beneath the object rather than a drop edge, and they are tinted with noite or black, never gray.
 
 ### Shadow Vocabulary
 - **Panel float** (`box-shadow: 0 30px 70px -30px rgb(16 29 51 / 0.75)`; on dark fields `rgb(10 19 34 / 0.8)` or `rgb(0 0 0 / 0.8)`): video frame, week-grid panel, mentor portrait.
 - **Pill lift** (`box-shadow: 0 10px 24px -12px rgb(16 29 51 / 0.7)`, gold pills `rgb(0 0 0 / 0.6)`): Agendar buttons.
-- **Chip float** (`box-shadow: 0 8px 24px -10px rgb(0 0 0 / 0.6)`): the clock chip.
+- **Chip float** (`box-shadow: 0 8px 24px -10px rgb(0 16 29 / 0.7)`): the scroll-to-top button.
 - **Arch glow** (`box-shadow: 0 -20px 60px -30px rgb(16 29 51 / 0.45)`): upward shadow on the hero arch portrait.
 
 ### Named Rules
@@ -223,7 +223,7 @@ Confident night-ink and gold pills with a small lift; one verb, Agendar.
 - **Text link (secondary action):** bold, underlined 2px at 6px offset in noite/40, underline solidifies on hover ("Ver horários").
 
 ### Chips
-- **Clock chip (signature):** fixed bottom-left pill, noite at 90% with backdrop blur, cream text, gold clock icon, hour in Bricolage bold tabular. It advances 18:00 → 22:00 as each `data-hora` section crosses mid-screen, with a 300ms fade-and-rise on change. Decorative (`aria-hidden`), non-interactive.
+- **Clock chip:** removed (user decision, 2026-10-06). Do not reintroduce a floating hour indicator; visitors read it as the current time.
 
 ### Cards / Containers
 - **Corner Style:** 1.75rem panels.
@@ -246,7 +246,7 @@ The availability panel: one row per weekday (bold day name in a 8.5rem column), 
 Open list on the violet field: each row has a creme 20% top hairline, 28-32px vertical padding, a 48px gold circle holding a 24px line icon (stroke 1.75) in noite, then a title and an 85% creme description.
 
 ### Logo
-Two official assets. The **symbol** (`logo-simbolo-noite.webp`, the two-figure mark recolored to one color, noite #101D33, transparent) sits above the hero title: centered on mobile, left-aligned with the title from lg (user decision, 2026-10-06), 64px tall on mobile and 80px from lg, directly on the ouro field with no plate: the original gold figure would vanish on gold. The full-color symbol (`logo-simbolo.webp`) is kept for light or cream grounds. The **full logo with text** (`logo-mentoria.webp`) appears only in the footer, on a cream (#FFF8EE) plate with 16px radius, 56px tall, because its navy parts vanish on noite. Never place the full-color logo directly on a sky field, and never in the 64px navbar, where "Universitária" becomes illegible.
+Two official assets. The **symbol** (`logo-simbolo-noite.webp`, the two-figure mark recolored to one color, noite #101D33, transparent) sits above the hero title: centered on mobile, left-aligned with the title from lg (user decision, 2026-10-06), 64px tall on mobile and 80px from lg, directly on the ouro field with no plate: the original gold figure would vanish on gold. The full-color symbol (`logo-simbolo.webp`) is kept for light or cream grounds. In the footer the symbol appears in one color on noite, 56px tall, top-aligned with the column headings (`logo-simbolo-ouro.webp`; a cream version `logo-simbolo-creme.webp` exists as the alternative). The full logo with text (`logo-mentoria.webp`) is kept as an asset but not placed on the page. Never place the full-color logo directly on a sky field, and never in the 64px navbar, where "Universitária" becomes illegible.
 
 ### Arch Portrait
 The mentor appears once, in the hero: a 4:5 image with a fully rounded top and square bottom, object-position 50% 18%, with Arch glow. Source: `mentora-patricia-perfil.webp`. One photo per page: the 22:00 mentor section is text-only (user decision, 2026-10-06: two portraits read as odd).
@@ -257,7 +257,7 @@ A 1.75rem panel at 16:9 on the apricot field. Before playing: poster with a noit
 ## Do's and Don'ts
 
 ### Do:
-- **Do** give every new full-width section one sky field from the 18:00 → madrugada sequence, in order, with a `data-hora` attribute so the clock chip follows it.
+- **Do** give every new full-width section one sky field from the 18:00 → madrugada sequence, in order.
 - **Do** join consecutive fields with a 5rem gradient seam from the previous hour into the next.
 - **Do** use noite text on ouro/damasco and creme text on rosa/violeta/noite/madrugada; keep rosa at #AE4A5E so creme text holds WCAG AA.
 - **Do** use the Agendar pill (noite on light fields, ouro on dark) as the only button, one tap away in the navbar and at the end of key sections.
@@ -266,7 +266,7 @@ A 1.75rem panel at 16:9 on the apricot field. Before playing: poster with a noit
 - **Do** keep the global 3px currentColor focus outline and respect `prefers-reduced-motion` (all animation and smooth scrolling collapse).
 
 ### Don't:
-- **Don't** put giant background hour numerals (or any oversized decorative digits) in a section; the hour lives only in the clock chip, the hours strip and the week grid (user decision, 2026-10-06).
+- **Don't** put giant background hour numerals (or any oversized decorative digits) in a section; the hour lives only in the hours line and the week grid (user decision, 2026-10-06).
 - **Don't** use a white or gray page background, or campus-photo heroes with card grids; the fields are the canvas.
 - **Don't** use pure white (#FFFFFF) text; light text is always creme #FFF8EE.
 - **Don't** introduce sharp-cornered boxes, outlined cards or hard offset shadows; separation inside a field is a creme hairline.

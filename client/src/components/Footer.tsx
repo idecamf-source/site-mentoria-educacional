@@ -2,6 +2,9 @@ import { Clock, MapPin, Mail } from "lucide-react";
 
 const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=Antonio+Meneghetti+Faculdade+Recanto+Maestro+RS";
 
+// Símbolo da Mentoria em uma cor sobre o azul do rodapé: "creme" (branco) ou "ouro" (dourado).
+const LOGO_COR: "creme" | "ouro" = "ouro";
+
 const linkClass =
   "underline decoration-[#FFF8EE]/30 decoration-1 underline-offset-4 transition-colors hover:decoration-ouro hover:text-[#FFF8EE]";
 
@@ -9,12 +12,17 @@ export default function Footer() {
   return (
     <footer className="bg-madrugada py-16 text-[#FFF8EE]/85">
       <div className="container">
-        <div className="grid gap-12 md:grid-cols-[1.3fr_1fr_1fr]">
-          <div className="space-y-5">
-            <div className="inline-flex rounded-2xl bg-[#FFF8EE] px-4 py-3">
-              <img src="/images/logo-mentoria.webp" alt="Mentoria Educacional Universitária" className="h-14 w-auto" loading="lazy" width="716" height="394" />
-            </div>
-            <p className="max-w-xs text-sm leading-relaxed">
+        <div className="grid items-start gap-12 md:grid-cols-3 md:gap-10">
+          <div>
+            <img
+              src={`/images/logo-simbolo-${LOGO_COR}.webp`}
+              alt="Mentoria Educacional Universitária"
+              className="h-14 w-auto"
+              loading="lazy"
+              width="207"
+              height="400"
+            />
+            <p className="mt-4 max-w-xs text-sm leading-relaxed">
               Um serviço dedicado ao desenvolvimento integral dos alunos da Antonio Meneghetti Faculdade,
               oferecendo suporte acadêmico, emocional e profissional.
             </p>

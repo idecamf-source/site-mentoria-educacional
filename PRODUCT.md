@@ -39,7 +39,7 @@ An in-house mentoring service run by AMF's psychopedagogical coordinator, Prof. 
 
 ## Evidence on Hand
 
-- Presentation video by the mentor, 3:25, with subtitles: `client/public/videos/mentoria-educacional.mp4` (poster `mentoria-educacional-capa.jpg`).
+- Presentation video by the mentor, 3:25, with subtitles: `client/public/videos/mentoria-educacional.mp4` (poster: the opening frame, `mentoria-educacional-abertura.jpg`, with AMF and Mentoria logos and the line "Mentoria: sua vantagem para se dar bem nessa jornada!").
 - Mentor portrait (the page's only photo, in the hero): `client/public/images/mentora-patricia-perfil.webp`.
 - Logo: full logo with text `client/public/images/logo-mentoria.webp`; symbol only `logo-simbolo.webp` (color) and `logo-simbolo-noite.webp` (one color, navy).
 - Mentor credentials (degrees and roles) in the current copy; "15+ anos de experiência em educação".

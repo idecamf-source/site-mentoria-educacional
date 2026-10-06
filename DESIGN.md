@@ -252,7 +252,7 @@ Two official assets. The **symbol** (`logo-simbolo-noite.webp`, the two-figure m
 The mentor appears once, in the hero: a 4:5 image with a fully rounded top and square bottom, object-position 50% 18%, with Arch glow. Source: `mentora-patricia-perfil.webp`. One photo per page: the 22:00 mentor section is text-only (user decision, 2026-10-06: two portraits read as odd).
 
 ### Video Frame
-A 1.75rem panel at 16:9 on the apricot field. Before playing: poster with a noite 20% veil (5% on hover), centered 72-88px noite circle with a gold filled play icon and an 8px cream 30% ring; the poster scales 1.02 on hover over 700ms. The video loads only on click.
+A 1.75rem panel at 16:9 on the apricot field. Before playing: the video's own opening frame as poster (`mentoria-educacional-abertura.jpg`), shown at full color with no veil (noite 10% on hover), centered 72-88px noite circle with a gold filled play icon and an 8px cream 30% ring; the poster scales 1.02 on hover over 700ms. The video loads only on click.
 
 ## Do's and Don'ts
 

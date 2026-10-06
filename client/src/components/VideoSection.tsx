@@ -2,7 +2,8 @@ import { Play } from "lucide-react";
 import { useRef, useState } from "react";
 
 const VIDEO_SRC = "/videos/mentoria-educacional.mp4";
-const VIDEO_POSTER = "/videos/mentoria-educacional-capa.jpg";
+// Capa: o primeiro quadro do vídeo (abertura com os logos da AMF e da Mentoria).
+const VIDEO_POSTER = "/videos/mentoria-educacional-abertura.jpg";
 
 export default function VideoSection() {
   // preload="none": o vídeo (~20 MB) só é baixado depois do clique em reproduzir.
@@ -56,7 +57,7 @@ export default function VideoSection() {
                   width="1280"
                   height="720"
                 />
-                <span aria-hidden="true" className="absolute inset-0 bg-noite/20 transition-colors duration-300 group-hover:bg-noite/5" />
+                <span aria-hidden="true" className="absolute inset-0 bg-noite/0 transition-colors duration-300 group-hover:bg-noite/10" />
                 <span
                   aria-hidden="true"
                   className="absolute left-1/2 top-1/2 flex size-18 md:size-22 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-noite text-ouro shadow-[0_10px_30px_-6px_rgb(10_25_38/0.55)] ring-8 ring-[#FFF8EE]/30 transition-transform duration-300 ease-out group-hover:scale-105"

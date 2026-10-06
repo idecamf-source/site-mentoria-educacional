@@ -1,6 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Brain, GraduationCap, Heart, Users, Briefcase } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
 
 const pilares = [
   {
@@ -31,71 +29,34 @@ const pilares = [
 ];
 
 export default function Pilares() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section id="pilares" className="py-24 bg-muted/30" ref={sectionRef}>
+    <section
+      id="pilares"
+      data-hora="21:00"
+      className="relative isolate overflow-hidden bg-[linear-gradient(180deg,var(--color-rosa)_0%,var(--color-violeta)_5rem,var(--color-violeta)_100%)] py-20 text-[#FFF8EE] md:py-28"
+    >
       <div className="container">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Nossos Pilares de Atuação</h2>
-          <p className="text-muted-foreground text-lg">
-            A Mentoria Educacional atua em cinco frentes principais para garantir o seu desenvolvimento integral durante a graduação.
-          </p>
-        </div>
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-20 max-w-6xl mx-auto">
+          <div className="lg:self-start lg:pt-7">
+            <h2 className="text-4xl leading-[1.02] md:text-6xl">Nossos Pilares de Atuação</h2>
+            <p className="mt-5 max-w-md text-lg leading-relaxed text-[#FFF8EE]/90 md:text-xl">
+              A Mentoria Educacional atua em cinco frentes principais para garantir o seu desenvolvimento integral durante a graduação.
+            </p>
+          </div>
 
-        <div className="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
-          {pilares.map((pilar, index) => (
-            <Card 
-              key={index} 
-              className={`w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] border-none bg-card group
-                         transition-all duration-500 ease-out
-                         hover:-translate-y-3 
-                         shadow-lg shadow-black/5
-                         hover:shadow-2xl hover:shadow-secondary/15
-                         ${isVisible 
-                           ? 'opacity-100 translate-y-0' 
-                           : 'opacity-0 translate-y-8'
-                         }`}
-              style={{ 
-                transitionDelay: isVisible ? `${index * 100}ms` : '0ms'
-              }}
-            >
-              <CardHeader>
-                <div className="w-14 h-14 rounded-full bg-primary/5 flex items-center justify-center mb-4 
-                               group-hover:bg-secondary/20 transition-all duration-300
-                               group-hover:scale-110">
-                  <pilar.icon className="w-7 h-7 text-primary group-hover:text-secondary transition-colors duration-300" />
+          <ul>
+            {pilares.map(pilar => (
+              <li key={pilar.title} className="flex gap-5 border-t border-[#FFF8EE]/20 py-7 md:gap-6 md:py-8">
+                <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-ouro text-noite">
+                  <pilar.icon aria-hidden="true" className="size-6" strokeWidth={1.75} />
+                </span>
+                <div>
+                  <h3 className="text-xl md:text-2xl">{pilar.title}</h3>
+                  <p className="mt-2 max-w-prose leading-relaxed text-[#FFF8EE]/85">{pilar.description}</p>
                 </div>
-                <CardTitle className="text-xl font-bold text-primary group-hover:text-secondary transition-colors duration-300">
-                  {pilar.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground leading-relaxed">
-                  {pilar.description}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

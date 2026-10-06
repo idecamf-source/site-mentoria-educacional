@@ -1,0 +1,371 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-06T12:00:00Z",
+  "title": "Design System: Mentoria Educacional Universitária",
+  "extensions": {
+    "colorMeta": {
+      "ouro": {
+        "role": "secondary",
+        "displayName": "18h Gold",
+        "tonalRamp": [
+          "#3A2706",
+          "#5E4110",
+          "#86601C",
+          "#B0822C",
+          "#D9A33D",
+          "#F2B84B",
+          "#F7D28A",
+          "#FCEBC8"
+        ]
+      },
+      "ouro-hover": {
+        "role": "secondary",
+        "displayName": "Gold Hover",
+        "tonalRamp": [
+          "#3A2706",
+          "#5E4110",
+          "#86601C",
+          "#B0822C",
+          "#D9A33D",
+          "#F6C562",
+          "#F9DA98",
+          "#FDEFD2"
+        ]
+      },
+      "damasco": {
+        "role": "tertiary",
+        "displayName": "19h Apricot",
+        "tonalRamp": [
+          "#3A1B07",
+          "#5F2E12",
+          "#86431F",
+          "#B05B2D",
+          "#E98A4A",
+          "#F0A777",
+          "#F6C6A6",
+          "#FBE5D6"
+        ]
+      },
+      "rosa": {
+        "role": "tertiary",
+        "displayName": "20h Dusk Rose",
+        "tonalRamp": [
+          "#2A0F16",
+          "#4A1B27",
+          "#6E2A3A",
+          "#8F384B",
+          "#AE4A5E",
+          "#C97585",
+          "#E0A7B2",
+          "#F3D9DE"
+        ]
+      },
+      "violeta": {
+        "role": "tertiary",
+        "displayName": "21h Violet",
+        "tonalRamp": [
+          "#170E20",
+          "#2A1C38",
+          "#412B55",
+          "#5B3C74",
+          "#7A5B95",
+          "#9C80B4",
+          "#C1AED3",
+          "#E5DCEE"
+        ]
+      },
+      "noite": {
+        "role": "primary",
+        "displayName": "Night Ink",
+        "tonalRamp": [
+          "#0A1322",
+          "#101D33",
+          "#1B2C4A",
+          "#2C4166",
+          "#4A5F85",
+          "#7184A6",
+          "#A3B1C9",
+          "#D6DDE9"
+        ]
+      },
+      "noite-hover": {
+        "role": "primary",
+        "displayName": "Night Ink Hover",
+        "tonalRamp": [
+          "#0A1322",
+          "#101D33",
+          "#1B2C4A",
+          "#2C4166",
+          "#4A5F85",
+          "#7184A6",
+          "#A3B1C9",
+          "#D6DDE9"
+        ]
+      },
+      "madrugada": {
+        "role": "neutral",
+        "displayName": "Small-Hours Navy",
+        "tonalRamp": [
+          "#05090F",
+          "#0A1322",
+          "#121F36",
+          "#1D2E4C",
+          "#334664",
+          "#566985",
+          "#8A99AF",
+          "#C9D0DB"
+        ]
+      },
+      "creme": {
+        "role": "neutral",
+        "displayName": "Warm Paper",
+        "tonalRamp": [
+          "#3B3328",
+          "#5E5446",
+          "#857967",
+          "#ADA08B",
+          "#D2C6B0",
+          "#EDE3D1",
+          "#F7EFE2",
+          "#FFF8EE"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero title only."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section h2 on mobile."
+      },
+      "headline-lg": {
+        "displayName": "Headline (md+)",
+        "purpose": "Section h2 from 768px; closing CTA goes to 4.5rem."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Pillar names, credential list heads, footer column heads."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Paragraph under each headline, 40-56ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Descriptions and credentials, max 65ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Buttons, nav links, short notes."
+      },
+      "clock": {
+        "displayName": "Clock",
+        "purpose": "Hours in the clock chip; always tabular."
+      }
+    },
+    "eveningRamp": {
+      "purpose": "Week-grid slot colors, 18:00 to 21:30 in 30-minute steps.",
+      "values": [
+        "#F2B84B",
+        "#EFA449",
+        "#E98A4A",
+        "#D16A50",
+        "#AE4A5E",
+        "#934466",
+        "#77406C",
+        "#5B3C74"
+      ]
+    },
+    "fieldSeams": {
+      "length": "5rem",
+      "purpose": "Linear gradient from previous hour's field into the next at the top of each section."
+    },
+    "shadows": [
+      {
+        "name": "panel-float",
+        "value": "0 30px 70px -30px rgb(16 29 51 / 0.75)",
+        "purpose": "Video frame, week-grid panel, portraits on dark fields (tint shifts to rgb(10 19 34 / 0.8) or rgb(0 0 0 / 0.8))."
+      },
+      {
+        "name": "pill-lift",
+        "value": "0 10px 24px -12px rgb(16 29 51 / 0.7)",
+        "purpose": "Night Agendar pill; gold pill uses rgb(0 0 0 / 0.6)."
+      },
+      {
+        "name": "chip-float",
+        "value": "0 8px 24px -10px rgb(0 0 0 / 0.6)",
+        "purpose": "Clock chip."
+      },
+      {
+        "name": "arch-glow",
+        "value": "0 -20px 60px -30px rgb(16 29 51 / 0.45)",
+        "purpose": "Upward shadow on the hero arch portrait."
+      }
+    ],
+    "motion": [
+      {
+        "name": "lift",
+        "value": "200ms ease-out; translateY(-2px)",
+        "purpose": "Agendar pill hover; arrow nudges 2px up-right."
+      },
+      {
+        "name": "clock-tick",
+        "value": "300ms fade-in + slide-in-from-bottom 4px",
+        "purpose": "Clock chip hour change."
+      },
+      {
+        "name": "poster-drift",
+        "value": "700ms ease-out; scale(1.02)",
+        "purpose": "Video poster hover."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "all durations 0.01ms; scroll-behavior auto",
+        "purpose": "prefers-reduced-motion: reduce."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Agendar Pill (Noite)",
+      "kind": "button",
+      "refersTo": "button-agendar-noite",
+      "description": "Primary booking action on light fields (ouro, damasco).",
+      "html": "<a class=\"ds-btn-noite\" href=\"#\">Agendar horário <svg aria-hidden=\"true\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 7h10v10\"/><path d=\"M7 17 17 7\"/></svg></a>",
+      "css": ".ds-btn-noite{display:inline-flex;align-items:center;gap:10px;height:64px;padding:0 28px 0 32px;border-radius:9999px;font-family:'Atkinson Hyperlegible Next',system-ui,sans-serif;font-weight:700;font-size:1.25rem;text-decoration:none;background:#101D33;color:#FFF8EE;box-shadow:0 10px 24px -12px rgb(16 29 51 / 0.7);transition:background-color 200ms ease-out,transform 200ms ease-out} .ds-btn-noite svg{transition:transform 200ms ease-out} .ds-btn-noite:hover{background:#1B2C4A;transform:translateY(-2px)} .ds-btn-noite:hover svg{transform:translate(2px,-2px)} .ds-btn-noite:active{transform:none} .ds-btn-noite:focus-visible{outline:3px solid currentColor;outline-offset:3px}"
+    },
+    {
+      "name": "Agendar Pill (Ouro)",
+      "kind": "button",
+      "refersTo": "button-agendar-ouro",
+      "description": "Booking action on dark fields (navbar, closing CTA).",
+      "html": "<div class=\"ds-dark\"><a class=\"ds-btn-ouro\" href=\"#\">Agendar horário <svg aria-hidden=\"true\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 7h10v10\"/><path d=\"M7 17 17 7\"/></svg></a></div>",
+      "css": ".ds-dark{background:#101D33;padding:32px;display:inline-block} .ds-btn-ouro{display:inline-flex;align-items:center;gap:10px;height:64px;padding:0 28px 0 32px;border-radius:9999px;font-family:'Atkinson Hyperlegible Next',system-ui,sans-serif;font-weight:700;font-size:1.25rem;text-decoration:none;background:#F2B84B;color:#101D33;box-shadow:0 10px 24px -12px rgb(0 0 0 / 0.6);transition:background-color 200ms ease-out,transform 200ms ease-out} .ds-btn-ouro svg{transition:transform 200ms ease-out} .ds-btn-ouro:hover{background:#F6C562;transform:translateY(-2px)} .ds-btn-ouro:hover svg{transform:translate(2px,-2px)} .ds-btn-ouro:active{transform:none} .ds-btn-ouro:focus-visible{outline:3px solid currentColor;outline-offset:3px}"
+    },
+    {
+      "name": "Navigation Bar",
+      "kind": "nav",
+      "refersTo": "nav-bar",
+      "description": "Sticky night bar: wordmark lockup, anchor links, small gold pill.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-mark\" href=\"#\"><span class=\"ds-nav-name\">Mentoria Educacional</span><span class=\"ds-nav-sub\">Universitária · AMF</span></a><div class=\"ds-nav-right\"><a class=\"ds-nav-link\" href=\"#\">Disponibilidade</a><a class=\"ds-nav-link\" href=\"#\">Pilares</a><a class=\"ds-nav-cta\" href=\"#\">Agendar</a></div></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px;padding:0 32px;background:rgb(16 29 51 / 0.92);backdrop-filter:blur(12px);color:#FFF8EE;font-family:'Atkinson Hyperlegible Next',system-ui,sans-serif} .ds-nav-mark{display:flex;flex-direction:column;line-height:1;color:inherit;text-decoration:none} .ds-nav-name{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:700;font-size:1.125rem;letter-spacing:-0.025em} .ds-nav-sub{margin-top:4px;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.16em;color:#F2B84B} .ds-nav-right{display:flex;align-items:center;gap:28px} .ds-nav-link{font-weight:700;font-size:0.95rem;color:rgb(255 248 238 / 0.8);text-decoration:none;text-decoration-color:#F2B84B;text-decoration-thickness:2px;text-underline-offset:7px;transition:color 150ms} .ds-nav-link:hover{color:#FFF8EE;text-decoration-line:underline} .ds-nav-link:focus-visible,.ds-nav-cta:focus-visible{outline:3px solid currentColor;outline-offset:3px} .ds-nav-cta{display:inline-flex;align-items:center;height:40px;padding:0 14px 0 16px;border-radius:9999px;background:#F2B84B;color:#101D33;font-weight:700;font-size:0.95rem;text-decoration:none;transition:background-color 200ms ease-out,transform 200ms ease-out} .ds-nav-cta:hover{background:#F6C562;transform:translateY(-2px)}"
+    },
+    {
+      "name": "Clock Chip",
+      "kind": "chip",
+      "refersTo": "clock-chip",
+      "description": "Signature fixed chip showing the hour of the section in view, 18:00 to 22:00.",
+      "html": "<div class=\"ds-clock\"><svg aria-hidden=\"true\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#F2B84B\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M12 6v6l4 2\"/></svg><span>20:00</span></div>",
+      "css": ".ds-clock{display:inline-flex;align-items:center;gap:8px;padding:8px 16px 8px 12px;border-radius:9999px;background:rgb(16 29 51 / 0.9);backdrop-filter:blur(12px);color:#FFF8EE;box-shadow:0 8px 24px -10px rgb(0 0 0 / 0.6)} .ds-clock span{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:700;font-size:1rem;font-variant-numeric:tabular-nums}"
+    },
+    {
+      "name": "Week Grid Panel",
+      "kind": "card",
+      "refersTo": "night-panel",
+      "description": "Night panel on the rose field; rows of 30-minute slots colored along the evening ramp.",
+      "html": "<div class=\"ds-field-rosa\"><div class=\"ds-panel\"><div class=\"ds-row\"><span>Segunda-feira</span><div class=\"ds-slots\"><i style=\"background:#F2B84B\"></i><i style=\"background:#EFA449\"></i><i style=\"background:#E98A4A\"></i><i style=\"background:#D16A50\"></i><i style=\"background:#AE4A5E\"></i><i style=\"background:#934466\"></i><i style=\"background:#77406C\"></i><i style=\"background:#5B3C74\"></i></div></div><p class=\"ds-panel-foot\"><b>Sessões de 30 minutos</b><span>8 horários por noite</span></p></div></div>",
+      "css": ".ds-field-rosa{background:#AE4A5E;padding:32px} .ds-panel{border-radius:1.75rem;background:rgb(16 29 51 / 0.88);padding:32px;color:#FFF8EE;font-family:'Algarismos','Atkinson Hyperlegible Next',system-ui,sans-serif;box-shadow:0 30px 70px -30px rgb(10 19 34 / 0.8)} .ds-row{display:grid;grid-template-columns:8.5rem 1fr;align-items:center;font-weight:700} .ds-slots{display:grid;grid-template-columns:repeat(8,1fr);gap:4px} .ds-slots i{display:block;height:32px;border-radius:6px} .ds-panel-foot{display:flex;justify-content:space-between;margin:24px 0 0;padding-top:16px;border-top:1px solid rgb(255 248 238 / 0.15);font-size:0.875rem} .ds-panel-foot b{color:#F2B84B} .ds-panel-foot span{color:rgb(255 248 238 / 0.7);font-variant-numeric:tabular-nums}"
+    },
+    {
+      "name": "Pillar Row",
+      "kind": "custom",
+      "refersTo": "pillar-badge",
+      "description": "Open list row on the violet field: hairline, gold circle icon, title and description.",
+      "html": "<div class=\"ds-field-violeta\"><div class=\"ds-pillar\"><span class=\"ds-badge\"><svg aria-hidden=\"true\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z\"/></svg></span><div><h3>Apoio ao Bem Estar Emocional</h3><p>Um ambiente seguro e acolhedor para discutir questões emocionais.</p></div></div></div>",
+      "css": ".ds-field-violeta{background:#5B3C74;padding:32px;color:#FFF8EE} .ds-pillar{display:flex;gap:24px;padding:32px 0;border-top:1px solid rgb(255 248 238 / 0.2)} .ds-badge{display:flex;flex-shrink:0;align-items:center;justify-content:center;width:48px;height:48px;border-radius:9999px;background:#F2B84B;color:#101D33} .ds-pillar h3{margin:0;font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:700;font-size:1.5rem;letter-spacing:-0.025em} .ds-pillar p{margin:8px 0 0;line-height:1.625;color:rgb(255 248 238 / 0.85);font-family:'Atkinson Hyperlegible Next',system-ui,sans-serif}"
+    },
+    {
+      "name": "Arch Portrait",
+      "kind": "custom",
+      "refersTo": "arch-portrait",
+      "description": "4:5 portrait with a fully rounded top; the system's frame for people.",
+      "html": "<div class=\"ds-field-ouro\"><div class=\"ds-arch\" role=\"img\" aria-label=\"Retrato\"></div></div>",
+      "css": ".ds-field-ouro{background:linear-gradient(180deg,#F2B84B 0%,#F2B84B 55%,#E98A4A 100%);padding:32px 32px 0} .ds-arch{width:220px;aspect-ratio:4/5;border-radius:9999px 9999px 0 0;background:linear-gradient(180deg,#5B3C74,#101D33);box-shadow:0 -20px 60px -30px rgb(16 29 51 / 0.45)}"
+    },
+    {
+      "name": "Hours Strip",
+      "kind": "custom",
+      "refersTo": "hours-strip",
+      "description": "Night band under the hero carrying the session hours inside the first viewport.",
+      "html": "<div class=\"ds-strip\"><span><b>Segunda a sexta</b> · 18:00 às 22:00 · sessões de 30 minutos</span><span class=\"ds-strip-muted\">Antonio Meneghetti Faculdade · Recanto Maestro, RS</span></div>",
+      "css": ".ds-strip{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 24px;padding:16px 32px;background:#101D33;color:#FFF8EE;font-size:0.875rem;font-family:'Algarismos','Atkinson Hyperlegible Next',system-ui,sans-serif} .ds-strip b{color:#F2B84B} .ds-strip-muted{color:rgb(255 248 238 / 0.75)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Entardecer, 18h às 22h",
+    "overview": "\n**Creative North Star: \"Entardecer, 18h às 22h\"**\n\nThe page lives the hours the mentor is actually available. Every section is one hour of a single evening, and scrolling moves the sky from 18:00 gold through apricot, rose and violet into 22:00 night, ending in the deeper madrugada of the footer. Each section is a drenched, full-bleed field of one sky color; there are no white pages with colored accents, and no card grids floating on neutral gray. Color carries the narrative, so each field holds very little else: a big grotesque headline, a readable paragraph, and one piece of evidence (the portrait, the video, the week grid, the pillar list, the credentials).\n\nTypography pairs a characterful, tightly tracked grotesque for headings with a typeface designed for legibility for everything read. Shapes are soft and few: pills, arches, and generously rounded panels. Depth is quiet: long, negative-spread shadows tinted with night, never hard edges. A fixed clock chip in night ink tells the visitor what hour they are in.\n\nThe system rejects the generic campus-photo hero with cards and the coach-template look, and it must never read as childish: saturation lives in the fields, not in playful ornaments.",
+    "keyCharacteristics": [
+      "One full-bleed sky field per section, ordered by hour, joined by 5rem gradient seams.",
+      "Bricolage Grotesque display (700, -0.025em) over Atkinson Hyperlegible Next body, with Bricolage digits everywhere.",
+      "Night-ink and gold pills as the only button form; one action: Agendar.",
+      "Arch-topped portraits, 1.75rem panels, round badges; no sharp corners at component scale.",
+      "Soft night-tinted drop shadows; flat fields.",
+      "The hour is a recurring data motif (clock chip, hours strip, week grid), never a decoration."
+    ],
+    "rules": [
+      {
+        "name": "The One Hour Per Field Rule",
+        "body": "Each full-width section is drenched in exactly one sky color, ordered 18:00 gold → 19:00 apricot → 20:00 rose → 21:00 violet → 22:00 night → madrugada. A new section takes its place in this sequence; it never introduces a color outside it or breaks the order.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Inks Rule",
+        "body": "Text is either Noite on ouro/damasco or Creme on rosa/violeta/noite/madrugada. Nothing else is a body text color; gold is allowed only for short highlights (headings in lists, emphasis, icons) on dark fields.",
+        "section": "colors"
+      },
+      {
+        "name": "The Evening Ramp Rule",
+        "body": "When the hours themselves are visualized (the week grid's eight 30-minute slots), color follows the evening ramp from gold to violet, interpolated between the field tokens; the slot hue is the time.",
+        "section": "colors"
+      },
+      {
+        "name": "The Grotesque Speaks, Atkinson Reads Rule",
+        "body": "Bricolage is for headings, the clock and big numbers; anything a student has to read for meaning is Atkinson. Never set paragraphs in Bricolage or headings in Atkinson.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Hours Rule",
+        "body": "Times are always set with tabular figures (`tabular-nums`) and Bricolage digits, so 18:00 → 22:00 never jitters as it changes.",
+        "section": "typography"
+      },
+      {
+        "name": "The Night Glow Rule",
+        "body": "A shadow is always large-blur with a negative spread equal to or greater than half its blur, tinted noite or black. No hard offsets, no tight gray `shadow-md` edges.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** give every new full-width section one sky field from the 18:00 → madrugada sequence, in order, with a `data-hora` attribute so the clock chip follows it.",
+      "**Do** join consecutive fields with a 5rem gradient seam from the previous hour into the next.",
+      "**Do** use noite text on ouro/damasco and creme text on rosa/violeta/noite/madrugada; keep rosa at #AE4A5E so creme text holds WCAG AA.",
+      "**Do** use the Agendar pill (noite on light fields, ouro on dark) as the only button, one tap away in the navbar and at the end of key sections.",
+      "**Do** set every time and number with Bricolage digits and tabular figures.",
+      "**Do** frame people in arches and objects in 1.75rem panels with the soft night-tinted shadows.",
+      "**Do** keep the global 3px currentColor focus outline and respect `prefers-reduced-motion` (all animation and smooth scrolling collapse)."
+    ],
+    "donts": [
+      "**Don't** put giant background hour numerals (or any oversized decorative digits) in a section; the hour lives only in the clock chip, the hours strip and the week grid (user decision, 2026-10-06).",
+      "**Don't** use a white or gray page background, or campus-photo heroes with card grids; the fields are the canvas.",
+      "**Don't** use pure white (#FFFFFF) text; light text is always creme #FFF8EE.",
+      "**Don't** introduce sharp-cornered boxes, outlined cards or hard offset shadows; separation inside a field is a creme hairline.",
+      "**Don't** set body copy in Bricolage Grotesque or headings in Atkinson.",
+      "**Don't** add small uppercase tracked labels above headings; headlines stand alone on the field."
+    ]
+  }
+}

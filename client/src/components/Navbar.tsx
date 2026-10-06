@@ -1,63 +1,36 @@
-import { Button } from "@/components/ui/button";
-import { Link } from "wouter";
+import AgendarButton from "@/components/AgendarButton";
 
+const links = [
+  { href: "#disponibilidade", label: "Disponibilidade" },
+  { href: "#pilares", label: "Pilares" },
+  { href: "#mentora", label: "Conheça a Mentora" },
+];
 
 export default function Navbar() {
-
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
-    <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-20 items-center justify-between">
-        <div className="flex items-center gap-2">
-          <Link href="/">
-            <picture>
-              <source srcSet="/images/logo.webp" type="image/webp" />
-              <img
-                src="/images/logo.png"
-                alt="Mentoria Educacional Universitária"
-                className="h-12 w-auto object-contain cursor-pointer"
-                width="150"
-                height="48"
-              />
-            </picture>
-          </Link>
-        </div>
+    <header className="sticky top-0 z-50 w-full bg-noite/92 text-[#FFF8EE] backdrop-blur-md">
+      <nav aria-label="Principal" className="container flex h-16 items-center justify-between gap-4">
+        <a href="#" className="flex flex-col leading-none" aria-label="Mentoria Educacional Universitária, voltar ao início">
+          <span className="font-display text-lg font-bold tracking-tight">Mentoria Educacional</span>
+          <span className="mt-1 text-[0.7rem] font-bold uppercase tracking-[0.16em] text-ouro">Universitária · AMF</span>
+        </a>
 
-        <div className="hidden md:flex items-center gap-8">
-          <button
-            onClick={() => scrollToSection("disponibilidade")}
-            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-          >
-            Disponibilidade
-          </button>
-          <button
-            onClick={() => scrollToSection("pilares")}
-            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-          >
-            Pilares
-          </button>
-          <button
-            onClick={() => scrollToSection("mentora")}
-            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-          >
-            Conheça a Mentora
-          </button>
-
-          <Button
-            onClick={() => window.open("https://calendly.com/patricia-dias-amf/mentoria-educacional", "_blank")}
-            className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-bold"
-          >
-            Agendar Horário
-          </Button>
+        <div className="flex items-center gap-7">
+          <ul className="hidden items-center gap-7 md:flex">
+            {links.map(link => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="text-[0.95rem] font-bold text-[#FFF8EE]/80 underline-offset-[7px] decoration-ouro decoration-2 transition-colors hover:text-[#FFF8EE] hover:underline"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <AgendarButton location="navbar" size="sm" tone="ouro" />
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 }

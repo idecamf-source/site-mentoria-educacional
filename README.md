@@ -33,3 +33,21 @@ Ao manipular caminhos de arquivos, utilize os aliases definidos no `vite.config.
 ---
 
 > **Nota para a IA:** Caso precise adicionar novas funcionalidades que exijam conexão externa, solicite primeiro que o usuário configure a respectiva variável `VITE_` no painel da Vercel antes de implementar a chamada no código.
+
+---
+
+### ☁️ Deploy no Cloudflare Pages
+
+O site é estático (React + Vite); o servidor em `/server` não é usado no Cloudflare.
+
+| Configuração | Valor |
+|---|---|
+| Framework preset | Nenhum (None) |
+| Build command | `pnpm run build:pages` |
+| Build output directory | `dist/public` |
+| Node | 22 (definido em `.node-version`) |
+
+* **Variáveis de ambiente (opcionais):** `VITE_WHATSAPP_NUMBER` (só dígitos, com DDI e DDD; padrão `5555999546611`) e `VITE_CALENDLY_EVENT_URL` (usado apenas se o número do WhatsApp ficar vazio).
+* **Limite de 25 MB por arquivo:** o Cloudflare Pages recusa arquivos maiores. O vídeo em `client/public/videos/` está com ~20 MB; ao substituí-lo, mantenha abaixo desse limite.
+* **Cabeçalhos e cache:** definidos em `client/public/_headers`.
+* **Deploy pela linha de comando (alternativa):** `pnpm run build:pages && npx wrangler pages deploy` (usa `wrangler.toml`).

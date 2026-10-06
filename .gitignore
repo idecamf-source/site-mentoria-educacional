@@ -108,3 +108,11 @@ temp/
 
 # Google Sheets Service Account credentials (NUNCA commitar!)
 google-credentials.json
+
+# Originais enviados para o projeto (as versões otimizadas ficam em client/public/)
+/WhatsApp *
+/Logo Mentorias - *.png
+
+# Impeccable: capturas de revisão e configuração local
+.impeccable/review/
+.impeccable/config.local.json

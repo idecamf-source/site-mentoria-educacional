@@ -1,80 +1,40 @@
 @import "tailwindcss";
-/* Fontes carregadas via preconnect no index.html para melhor performance */
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+/* Fontes (Bricolage Grotesque + Atkinson Hyperlegible Next) carregadas por <link> no index.html */
 @import "tw-animate-css";
+
+/* Algarismos do texto corrido em Bricolage Grotesque: a Atkinson desenha o zero cortado,
+   e os horários (18:30 às 22:00) são o motivo central da página. Mesmo arquivo que o
+   Google Fonts entrega para os títulos; se a URL mudar, os números voltam para a Atkinson. */
+@font-face {
+  font-family: "Algarismos";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/bricolagegrotesque/v9/3y9K6as8bTXq_nANBjzKo3IeZx8z6up5BeSl9D4dj_x9PpZBMlGIInHWVyNJ.woff2) format("woff2");
+  unicode-range: U+0030-0039;
+}
 
 @utility content-auto {
   content-visibility: auto;
   contain-intrinsic-size: 1px 1000px;
 }
 
-/* Animação da seta do botão - movimento horizontal suave */
-@keyframes bounce-x {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(6px);
-  }
-}
-
-/* Animação de balanço (tilt) para ícones */
-@keyframes tilt {
-  0%, 100% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(-8deg);
-  }
-  75% {
-    transform: rotate(8deg);
-  }
-}
-
-/* Animação shimmer para badges */
-@keyframes shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
-  50%, 100% {
-    transform: translateX(100%);
-  }
-}
-
-/* Animação bounce para ícone de localização */
-@keyframes bounce-pin {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  25% {
-    transform: translateY(-6px);
-  }
-  50% {
-    transform: translateY(0);
-  }
-  75% {
-    transform: translateY(-3px);
-  }
-}
-
-/* Animação de abertura para ícone de e-mail */
-@keyframes mail-open {
-  0% {
-    transform: scale(1) rotateX(0deg);
-  }
-  50% {
-    transform: scale(1.15) rotateX(-15deg);
-  }
-  100% {
-    transform: scale(1.1) rotateX(0deg);
-  }
-}
-
 @custom-variant dark (&:is(.dark *));
 
+/* Paleta "Entardecer": cada seção é uma hora da noite em que a mentoria atende (18h às 22h) */
+@theme {
+  --color-ouro: #F2B84B;      /* 18:00 */
+  --color-damasco: #E98A4A;   /* 19:00 */
+  --color-rosa: #AE4A5E;      /* 20:00 (escurecido para contraste AA com texto claro) */
+  --color-violeta: #5B3C74;   /* 21:00 */
+  --color-noite: #101D33;     /* 22:00 */
+  --color-madrugada: #0A1322; /* rodapé */
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+}
+
 @theme inline {
-  --font-sans: "Lato", sans-serif;
-  --font-serif: "Playfair Display", serif;
+  --font-sans: "Algarismos", "Atkinson Hyperlegible Next", system-ui, sans-serif;
+  --font-serif: "Bricolage Grotesque", system-ui, sans-serif;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -115,60 +75,39 @@
 }
 
 :root {
-  /* Cores baseadas na identidade visual: Azul Marinho (#1a3a52) e Dourado (#D4A017) */
-  /* Convertendo para OKLCH aproximado */
-
-  /* Azul Marinho Principal */
-  --primary: oklch(0.35 0.06 250);
-  --primary-foreground: oklch(0.98 0 0);
-
-  /* Dourado Secundário */
-  --secondary: oklch(0.75 0.15 85);
-  --secondary-foreground: oklch(0.2 0.05 250);
-
-  /* Fundo e Texto */
-  --background: oklch(0.99 0.005 250);
-  /* Off-white levemente azulado */
-  --foreground: oklch(0.25 0.05 250);
-  /* Azul muito escuro para texto */
-
-  /* Cards e Elementos */
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.25 0.05 250);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.25 0.05 250);
-
-  /* Elementos de Apoio */
-  --muted: oklch(0.96 0.01 250);
-  --muted-foreground: oklch(0.40 0.05 250);
-  /* Escurecido para melhor contraste (era 0.45) */
-  --accent: oklch(0.95 0.02 85);
-  /* Dourado muito claro para fundos */
-  --accent-foreground: oklch(0.35 0.06 250);
-
-  /* Bordas e Inputs */
-  --border: oklch(0.90 0.02 250);
-  --input: oklch(0.90 0.02 250);
-  --ring: oklch(0.75 0.15 85);
-  /* Anel de foco dourado */
-
-  /* Gráficos e Sidebar */
-  --chart-1: oklch(0.35 0.06 250);
-  --chart-2: oklch(0.75 0.15 85);
-  --chart-3: oklch(0.55 0.06 250);
-  --chart-4: oklch(0.85 0.10 85);
-  --chart-5: oklch(0.25 0.06 250);
-
-  --sidebar: oklch(0.98 0.005 250);
-  --sidebar-foreground: oklch(0.25 0.05 250);
-  --sidebar-primary: oklch(0.35 0.06 250);
-  --sidebar-primary-foreground: oklch(0.98 0 0);
-  --sidebar-accent: oklch(0.95 0.02 85);
-  --sidebar-accent-foreground: oklch(0.35 0.06 250);
-  --sidebar-border: oklch(0.90 0.02 250);
-  --sidebar-ring: oklch(0.75 0.15 85);
-
-  --radius: 0.5rem;
+  --primary: #101D33;
+  --primary-foreground: #FFF8EE;
+  --secondary: #F2B84B;
+  --secondary-foreground: #101D33;
+  --background: #F2B84B;
+  --foreground: #101D33;
+  --card: #FFF8EE;
+  --card-foreground: #101D33;
+  --popover: #FFF8EE;
+  --popover-foreground: #101D33;
+  --muted: #F6CB72;
+  --muted-foreground: #3A3528;
+  --accent: #E98A4A;
+  --accent-foreground: #101D33;
+  --destructive: #B3261E;
+  --destructive-foreground: #FFFFFF;
+  --border: rgb(16 29 51 / 0.18);
+  --input: rgb(16 29 51 / 0.24);
+  --ring: #101D33;
+  --chart-1: #F2B84B;
+  --chart-2: #E98A4A;
+  --chart-3: #AE4A5E;
+  --chart-4: #5B3C74;
+  --chart-5: #101D33;
+  --sidebar: #FFF8EE;
+  --sidebar-foreground: #101D33;
+  --sidebar-primary: #101D33;
+  --sidebar-primary-foreground: #FFF8EE;
+  --sidebar-accent: #F6CB72;
+  --sidebar-accent-foreground: #101D33;
+  --sidebar-border: rgb(16 29 51 / 0.18);
+  --sidebar-ring: #101D33;
+  --radius: 0.75rem;
 }
 
 .dark {
@@ -215,13 +154,37 @@
     @apply bg-background text-foreground font-sans;
   }
 
+  html {
+    scroll-padding-top: 5rem;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scrollbar-color: #101D33 #F2B84B;
+  }
+
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    @apply font-serif font-bold text-primary;
+    @apply font-display font-bold;
+    text-wrap: balance;
+    letter-spacing: -0.025em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: #101D33;
+    color: #F2B84B;
+  }
+
+  :focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 3px;
   }
 
   button:not(:disabled),
@@ -282,5 +245,16 @@
       max-width: 1280px;
       /* Standard content width */
     }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

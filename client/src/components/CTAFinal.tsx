@@ -1,34 +1,21 @@
-import { Button } from "@/components/ui/button";
-import { CalendarCheck } from "lucide-react";
-import { useTracking } from "@/hooks/useTracking";
+import AgendarButton from "@/components/AgendarButton";
 
 export default function CTAFinal() {
-  const { track } = useTracking();
-
-  const handleScheduleClick = () => {
-    track("button_click", { button: "agendar_horario", location: "cta_final" });
-    window.open("https://calendly.com/patricia-dias-amf/mentoria-educacional", "_blank");
-  };
-
   return (
-    <section className="py-24 bg-primary text-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('/images/hero-bg.webp?v=4')] bg-cover bg-center opacity-10 mix-blend-overlay" />
-      <div className="container relative z-10 text-center">
-        <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6" style={{ color: '#ffffff' }}>
+    <section className="relative isolate overflow-hidden py-24 text-[#FFF8EE] md:py-36">
+      {/* 22:00 → madrugada: a noite do próprio site se aprofunda até o rodapé */}
+      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,var(--color-noite)_0%,var(--color-madrugada)_100%)]" />
+
+      <div className="container text-center">
+        <h2 className="mx-auto max-w-4xl text-4xl leading-[1.02] md:text-7xl">
           Pronto para impulsionar sua jornada acadêmica?
         </h2>
-        <p className="text-lg md:text-xl max-w-2xl mx-auto mb-10" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
+        <p className="mx-auto mt-6 max-w-2xl text-lg text-[#FFF8EE]/85 md:text-xl">
           Agende agora sua sessão de mentoria e dê o próximo passo em direção ao seu sucesso pessoal e profissional.
         </p>
-        <Button
-          size="lg"
-          onClick={handleScheduleClick}
-          className="font-bold text-lg px-10 h-16 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1"
-          style={{ backgroundColor: '#D4A017', color: '#1a3a52' }}
-        >
-          <CalendarCheck className="mr-2 h-6 w-6" />
-          Agendar Horário
-        </Button>
+        <div className="mt-10">
+          <AgendarButton location="cta_final" tone="ouro" />
+        </div>
       </div>
     </section>
   );

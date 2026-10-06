@@ -1,0 +1,107 @@
+{
+  "title": "Escolha o novo mundo visual do site",
+  "question": "O sorteio indicou a Coleção Universitária. Fique com ela, escolha uma alternativa ou peça novo sorteio.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Coleção Universitária",
+      "kicker": "O SORTEIO",
+      "lineage": "séries de bolso de editoras universitárias brasileiras: capas tipográficas em cor chapada, lombada numerada, colofão",
+      "thesis": "A Mentoria apresentada como uma coleção editorial da AMF: cada pilar é um volume numerado, a mentora é a autora, os horários são o colofão.",
+      "palette": ["#16263d", "#b5432a", "#d9a21b", "#1e5b5a", "#eef1f4"],
+      "materials": ["capa em cor chapada", "lombadas numeradas", "tipografia de editora", "papel frio, não creme"],
+      "viewport": "Uma capa de livro ocupando a tela: título grande em tipografia editorial sobre campo azul-tinta, selo da AMF como marca de editora, a foto da mentora como retrato de autora, e o botão Agendar (WhatsApp) como a faixa de lançamento.",
+      "risk": "Pode soar sério demais se a cor ficar tímida; a cor chapada por seção é o que mantém acolhedor.",
+      "raised": [
+        {"from": "challenger-zine", "raise": "Cada seção marca a única frase que importa, como um grifo de marca-texto feito à mão."},
+        {"from": "challenger-osciloscopio", "raise": "Tudo se mede numa grade de colunas rígida, como o miolo de um livro: margens e linha de base fixas."},
+        {"from": "challenger-instalador", "raise": "O caminho até agendar vira uma sequência numerada e linear de 3 passos, com uma única ação padrão."},
+        {"from": "challenger-bebop", "raise": "Compromisso total de cor: cada volume (pilar) inunda sua faixa inteira com a própria cor de capa."},
+        {"from": "challenger-molde", "raise": "Numeração como sistema: volumes 1 a 5 ranqueados e citados pelo número em todo o site."},
+        {"from": "challenger-jardim", "raise": "No celular, um campo de cor dominante por tela, sem dividir a atenção."}
+      ]
+    },
+    {
+      "id": "model-pick",
+      "label": "Entardecer, 18h às 22h",
+      "kicker": "ESCOLHA DA IMPECCABLE",
+      "lineage": "o céu de fim de tarde em Recanto Maestro, quando as sessões acontecem",
+      "thesis": "O horário das sessões vira a paleta: a página anoitece enquanto se rola, do dourado das 18h ao azul profundo das 22h.",
+      "palette": ["#e7a83a", "#e0694a", "#5b3c74", "#101d33", "#f4f1ec"],
+      "materials": ["gradiente de céu real por seção", "silhuetas do campus", "luz quente de janela"],
+      "viewport": "Céu dourado das 18h em tela cheia, título branco, a hora '18:00' como elemento gráfico, botão Agendar em destaque; ao rolar, o céu escurece seção a seção.",
+      "risk": "É a minha melhor candidata, e também a mais previsível: gradientes de pôr do sol são comuns em sites de bem-estar."
+    },
+    {
+      "id": "challenger-bebop",
+      "label": "Cartão de abertura jazz-anime",
+      "verdict": "declined",
+      "lineage": "cartões de título de anime dos anos 90",
+      "palette": ["#d9a21b", "#a8432c", "#1e6b6b", "#f1e6d0", "#111111"],
+      "materials": ["campos de cor chapada", "barras assimétricas", "grão de impressão"],
+      "case": "Funde mal: universitários reconhecem a referência, mas ela compete com a clareza de 'o que é e como agendar'.",
+      "kept": "Compromisso total de cor por campo."
+    },
+    {
+      "id": "challenger-zine",
+      "label": "Zine desenhado à mão",
+      "verdict": "declined",
+      "lineage": "zines explicativos com mascotes e setas desenhadas",
+      "palette": ["#f4efe2", "#111111", "#f5d64c", "#ef6aa0", "#2bb3a8"],
+      "materials": ["marcador", "setas desenhadas"],
+      "case": "Funde mal: o tom de mascote soa infantil, que você pediu para evitar.",
+      "kept": "O grifo de marca-texto na frase que importa."
+    },
+    {
+      "id": "challenger-molde",
+      "label": "Envelope de molde de costura",
+      "verdict": "declined",
+      "lineage": "moldes de costura caseiros",
+      "palette": ["#e9dcc0", "#111111", "#c43b2e"],
+      "materials": ["papel de seda", "linhas tracejadas"],
+      "case": "Funde mal: o público não se identifica com moldes, e a metáfora atrapalha a clareza.",
+      "kept": "Numeração como sistema de navegação."
+    },
+    {
+      "id": "challenger-osciloscopio",
+      "label": "Osciloscópio de bancada",
+      "verdict": "declined",
+      "lineage": "instrumentos CRT de laboratório",
+      "palette": ["#0b0f0c", "#39ff7a", "#f2a33a"],
+      "materials": ["fósforo verde", "gratícula gravada"],
+      "case": "Funde mal: frio e técnico para um serviço de acolhimento.",
+      "kept": "Medir tudo numa grade rígida."
+    },
+    {
+      "id": "challenger-instalador",
+      "label": "Instalador shareware",
+      "verdict": "declined",
+      "lineage": "assistentes de instalação dos anos 90",
+      "palette": ["#c0c0c0", "#000080", "#ffffff"],
+      "materials": ["chanfro de sistema", "barra de progresso em blocos"],
+      "case": "Funde mal: nostálgico e burocrático, o oposto de acolher.",
+      "kept": "Sequência linear com uma ação padrão."
+    },
+    {
+      "id": "challenger-jardim",
+      "label": "Jardim de chuva gravitacional",
+      "verdict": "declined",
+      "lineage": "mundos surreais interativos",
+      "palette": ["#5f6b5e", "#3b6fd1", "#c8473b", "#111111"],
+      "materials": ["simulação de física", "nuvens coloridas"],
+      "case": "Funde mal: experimental demais; esconde a oferta e a ação.",
+      "kept": "Um campo dominante por tela no celular."
+    }
+  ],
+  "reroll": { "registers": ["safer", "bolder"] },
+  "canon": true,
+  "canonCard": {
+    "label": "O padrão da categoria",
+    "thesis": "Site institucional de serviço universitário, executado com capricho.",
+    "palette": ["#ffffff", "#16263d", "#2563eb", "#f3f4f6"],
+    "materials": ["grade limpa", "fotografia", "cartões"],
+    "viewport": "Foto do campus com título e botão, seções em cartões, rodapé institucional.",
+    "risk": "Indistinguível de qualquer outro site do gênero, que você pediu para evitar."
+  },
+  "steer": true
+}

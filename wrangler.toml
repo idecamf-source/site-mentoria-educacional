@@ -1,5 +1,12 @@
-# Cloudflare Pages: site estático gerado pelo Vite.
-# Build: pnpm run build:pages  →  saída em dist/public
-name = "mentoria-educacional"
-pages_build_output_dir = "dist/public"
+# Cloudflare Workers (static assets): site estático gerado pelo Vite.
+# O `wrangler deploy` roda o build abaixo e publica a pasta dist/public.
+# O nome precisa ser igual ao do Worker criado no painel da Cloudflare.
+name = "site-mentoria-educacional"
 compatibility_date = "2026-10-01"
+
+[build]
+command = "pnpm run build:pages"
+
+[assets]
+directory = "./dist/public"
+not_found_handling = "single-page-application"

@@ -36,18 +36,18 @@ Ao manipular caminhos de arquivos, utilize os aliases definidos no `vite.config.
 
 ---
 
-### ☁️ Deploy no Cloudflare Pages
+### ☁️ Deploy na Cloudflare
 
-O site é estático (React + Vite); o servidor em `/server` não é usado no Cloudflare.
+O site é estático (React + Vite); o servidor em `/server` não é usado na Cloudflare.
 
-| Configuração | Valor |
-|---|---|
-| Framework preset | Nenhum (None) |
-| Build command | `pnpm run build:pages` |
-| Build output directory | `dist/public` |
-| Node | 22 (definido em `.node-version`) |
+**Workers (Workers & Pages → Create → Workers → importar do Git):** funciona sem configuração extra.
+O `wrangler.toml` já define o build (`pnpm run build:pages`) e publica `dist/public` como assets estáticos.
+Deixe o *Deploy command* como `npx wrangler deploy` e o *Build command* vazio.
+O nome do Worker no painel precisa ser `site-mentoria-educacional` (o mesmo do `wrangler.toml`).
 
+**Pages (alternativa):** Build command `pnpm run build:pages`, Build output directory `dist/public`.
+
+* **Node:** 22 (definido em `.node-version`).
 * **Variáveis de ambiente (opcionais):** `VITE_WHATSAPP_NUMBER` (só dígitos, com DDI e DDD; padrão `5555999546611`) e `VITE_CALENDLY_EVENT_URL` (usado apenas se o número do WhatsApp ficar vazio).
-* **Limite de 25 MB por arquivo:** o Cloudflare Pages recusa arquivos maiores. O vídeo em `client/public/videos/` está com ~20 MB; ao substituí-lo, mantenha abaixo desse limite.
+* **Limite de 25 MB por arquivo:** o vídeo em `client/public/videos/` está com ~20 MB; ao substituí-lo, mantenha abaixo desse limite.
 * **Cabeçalhos e cache:** definidos em `client/public/_headers`.
-* **Deploy pela linha de comando (alternativa):** `pnpm run build:pages && npx wrangler pages deploy` (usa `wrangler.toml`).

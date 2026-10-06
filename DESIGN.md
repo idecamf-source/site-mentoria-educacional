@@ -188,7 +188,7 @@ A single scrolling column of full-bleed fields. Content sits in a container of 1
 
 Sections breathe on an 80px vertical rhythm, 112px from md; the closing CTA uses 96px / 144px to land as a finale. Desktop compositions are asymmetric two-column grids: a 5:7 split of text column to evidence (availability, pillars), 1.15:0.85 in the hero (title left, arch portrait right, bottom-aligned), and a 5:7 split in the 22:00 mentor section (name and experience left, bio and credentials right, no photo). Column gaps run 48px on mobile, 56-80px on desktop. Everything stacks to one column below 1024px, text first, evidence second; the hero portrait centers at max 26rem.
 
-The first viewport always holds the hours strip: a night band beneath the hero carrying "Segunda, quarta e quinta · 18:30 às 22:00 · sessões de 30 minutos". The hero portrait height is clamped to `min(36rem, 100svh - 9.5rem)` to guarantee it.
+The first viewport always carries the hours line beneath the hero buttons: a clock icon and "Segunda, quarta e quinta · 18:30 às 22:00 · sessões de 30 minutos" in noite. There is no separate night band (user decision, 2026-10-06): the gold hero flows straight into the apricot video field.
 
 Seams between fields are 5rem linear gradients from the previous hour's color into the next, so the sky blends continuously instead of cutting.
 
@@ -237,7 +237,7 @@ There are no card grids; lists of items are open rows on the field.
 Sticky 64px bar in noite at 92% with medium backdrop blur. Left: a two-line wordmark, "Mentoria Educacional" in Bricolage 1.125rem bold over "Universitária · AMF" in small bold uppercase gold (part of the logo lockup, not a reusable label style). Right: three anchor links in bold 0.95rem creme at 80%, gaining a 2px gold underline at 7px offset on hover; then the small gold Agendar pill. Below md the links hide and only the wordmark and the pill remain.
 
 ### Hours Strip
-A full-width night band at the foot of the hero: "Segunda, quarta e quinta" in gold bold, the hours and session length in cream, location in cream at 75%, 14px text, 16px vertical padding. Splits left/right from 640px, stacks below.
+Removed (2026-10-06): the hours now sit as an inline line under the hero buttons, noite text at 85% with a 16px clock icon, 15px.
 
 ### Week Grid
 The availability panel: one row per weekday (bold day name in a 8.5rem column), eight 6px-rounded slots per row (28px tall, 32px at md, 4px gaps) colored along the Evening Ramp, an hour axis above in 12px tabular creme at 60%, and a hairline footer row with "Sessões de 30 minutos" in gold.

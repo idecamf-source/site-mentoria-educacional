@@ -1,4 +1,5 @@
 import AgendarButton from "@/components/AgendarButton";
+import { Clock } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -39,6 +40,13 @@ export default function Hero() {
               Ver horários
             </a>
           </div>
+
+          <p className="mt-6 flex items-start gap-2 text-[0.95rem] text-noite/85">
+            <Clock aria-hidden="true" className="mt-[0.2em] size-4 shrink-0" />
+            <span>
+              <strong className="text-noite">Segunda, quarta e quinta</strong> · 18:30 às 22:00 · sessões de 30 minutos
+            </span>
+          </p>
         </div>
 
         <div className="relative mx-auto w-full max-w-[26rem] lg:mr-0 lg:max-w-none lg:w-auto">
@@ -50,15 +58,6 @@ export default function Hero() {
             fetchPriority="high"
             className="aspect-[4/5] w-full rounded-t-full object-cover object-[50%_18%] shadow-[0_-20px_60px_-30px_rgb(16_29_51/0.45)] lg:h-[min(36rem,calc(100svh-9.5rem))] lg:w-auto"
           />
-        </div>
-      </div>
-
-      <div className="bg-noite text-[#FFF8EE]">
-        <div className="container flex flex-col gap-1 py-4 text-sm sm:flex-row sm:items-center sm:justify-between">
-          <span>
-            <strong className="text-ouro">Segunda, quarta e quinta</strong> · 18:30 às 22:00 · sessões de 30 minutos
-          </span>
-          <span className="text-[#FFF8EE]/75">Antonio Meneghetti Faculdade · Recanto Maestro, RS</span>
         </div>
       </div>
     </section>

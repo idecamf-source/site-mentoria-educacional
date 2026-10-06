@@ -1,6 +1,7 @@
 import { Clock, MapPin, Mail } from "lucide-react";
 
-const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=Antonio+Meneghetti+Faculdade+Recanto+Maestro+RS";
+const googleMapsUrl =
+  "https://www.google.com/maps/search/?api=1&query=Antonio+Meneghetti+Faculdade+Recanto+Maestro+RS";
 
 // Símbolo da Mentoria em uma cor sobre o azul do rodapé: "creme" (branco) ou "ouro" (dourado).
 const LOGO_COR: "creme" | "ouro" = "ouro";
@@ -12,7 +13,7 @@ export default function Footer() {
   return (
     <footer className="bg-madrugada py-16 text-[#FFF8EE]/85">
       <div className="container">
-        <div className="grid items-start gap-12 md:grid-cols-3 md:gap-10">
+        <div className="grid items-start gap-12 md:grid-cols-3 md:items-center md:gap-10">
           <div>
             <img
               src={`/images/logo-simbolo-${LOGO_COR}.webp`}
@@ -23,46 +24,72 @@ export default function Footer() {
               height="400"
             />
             <p className="mt-4 max-w-xs text-sm leading-relaxed">
-              Um serviço dedicado ao desenvolvimento integral dos alunos da Antonio Meneghetti Faculdade,
-              oferecendo suporte acadêmico, emocional e profissional.
+              Um serviço dedicado ao desenvolvimento integral dos alunos da
+              Antonio Meneghetti Faculdade, oferecendo suporte acadêmico,
+              emocional e profissional.
             </p>
           </div>
 
-          <div>
-            <h3 className="text-lg text-[#FFF8EE]">Horários de Atendimento</h3>
-            <p className="mt-4 flex gap-3 text-sm leading-relaxed">
-              <Clock aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-ouro" />
-              <span>
-                <strong className="text-[#FFF8EE]">Segunda, quarta e quinta</strong>
-                <br />
-                Horários das 18:30 às 22:00
-                <br />
-                Sessões de 30 minutos
-              </span>
-            </p>
-          </div>
+          {/* Horários e Contato agrupados: alinhados entre si pelo topo, e o par centralizado em relação à 1ª coluna */}
+          <div className="grid items-start gap-12 md:col-span-2 md:grid-cols-2 md:gap-10">
+            <div>
+              <h3 className="text-lg text-[#FFF8EE]">
+                Horários de Atendimento
+              </h3>
+              <p className="mt-4 flex gap-3 text-sm leading-relaxed">
+                <Clock
+                  aria-hidden="true"
+                  className="mt-0.5 size-4 shrink-0 text-ouro"
+                />
+                <span>
+                  <strong className="text-[#FFF8EE]">
+                    Segunda, quarta e quinta
+                  </strong>
+                  <br />
+                  Horários das 18:30 às 22:00
+                  <br />
+                  Sessões de 30 minutos
+                </span>
+              </p>
+            </div>
 
-          <div>
-            <h3 className="text-lg text-[#FFF8EE]">Contato e Localização</h3>
-            <ul className="mt-4 space-y-3 text-sm">
-              <li className="flex gap-3">
-                <MapPin aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-ouro" />
-                <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" className={linkClass}>
-                  Antonio Meneghetti Faculdade, Recanto Maestro, RS
-                </a>
-              </li>
-              <li className="flex gap-3">
-                <Mail aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-ouro" />
-                <a href="mailto:patricia.dias@amf.edu.br" className={linkClass}>
-                  patricia.dias@amf.edu.br
-                </a>
-              </li>
-            </ul>
+            <div>
+              <h3 className="text-lg text-[#FFF8EE]">Contato e Localização</h3>
+              <ul className="mt-4 space-y-3 text-sm">
+                <li className="flex gap-3">
+                  <MapPin
+                    aria-hidden="true"
+                    className="mt-0.5 size-4 shrink-0 text-ouro"
+                  />
+                  <a
+                    href={googleMapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={linkClass}
+                  >
+                    Antonio Meneghetti Faculdade, Recanto Maestro, RS
+                  </a>
+                </li>
+                <li className="flex gap-3">
+                  <Mail
+                    aria-hidden="true"
+                    className="mt-0.5 size-4 shrink-0 text-ouro"
+                  />
+                  <a
+                    href="mailto:patricia.dias@amf.edu.br"
+                    className={linkClass}
+                  >
+                    patricia.dias@amf.edu.br
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
         <p className="mt-14 border-t border-[#FFF8EE]/10 pt-6 text-center text-xs text-[#FFF8EE]/60">
-          &copy; {new Date().getFullYear()} Mentoria Educacional Universitária - Antonio Meneghetti Faculdade. Todos os direitos reservados.
+          &copy; {new Date().getFullYear()} Mentoria Educacional Universitária -
+          Antonio Meneghetti Faculdade. Todos os direitos reservados.
         </p>
       </div>
     </footer>

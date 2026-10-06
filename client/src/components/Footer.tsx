@@ -6,6 +6,9 @@ const googleMapsUrl =
 // Símbolo da Mentoria em uma cor sobre o azul do rodapé: "creme" (branco) ou "ouro" (dourado).
 const LOGO_COR: "creme" | "ouro" = "ouro";
 
+// Todos os títulos com a mesma altura (a do símbolo), para o conteúdo começar na mesma linha.
+const tituloClass = "flex h-8 items-center gap-2.5 text-lg text-[#FFF8EE]";
+
 const linkClass =
   "underline decoration-[#FFF8EE]/30 decoration-1 underline-offset-4 transition-colors hover:decoration-ouro hover:text-[#FFF8EE]";
 
@@ -15,14 +18,17 @@ export default function Footer() {
       <div className="container">
         <div className="grid items-start gap-12 md:flex md:justify-between md:gap-12">
           <div>
-            <img
-              src={`/images/logo-simbolo-${LOGO_COR}.webp`}
-              alt="Mentoria Educacional Universitária"
-              className="h-14 w-auto"
-              loading="lazy"
-              width="207"
-              height="400"
-            />
+            {/* Mesma estrutura das outras colunas (título + conteúdo), para as linhas ficarem alinhadas */}
+            <h3 className={tituloClass}>
+              <img
+                src={`/images/logo-simbolo-${LOGO_COR}.webp`}
+                alt=""
+                className="h-8 w-auto"
+                width="207"
+                height="400"
+              />
+              Mentoria Educacional
+            </h3>
             <p className="mt-4 max-w-xs text-sm leading-relaxed">
               Um serviço dedicado ao desenvolvimento integral dos alunos da
               Antonio Meneghetti Faculdade, oferecendo suporte acadêmico,
@@ -31,12 +37,10 @@ export default function Footer() {
           </div>
 
           {/* No computador as três colunas se distribuem com espaços iguais entre si (justify-between),
-              com os títulos alinhados ao topo do símbolo. */}
+              e títulos e conteúdos na mesma altura. */}
           <div className="grid items-start gap-12 md:contents">
             <div>
-              <h3 className="text-lg text-[#FFF8EE]">
-                Horários de Atendimento
-              </h3>
+              <h3 className={tituloClass}>Horários de Atendimento</h3>
               <p className="mt-4 flex gap-3 text-sm leading-relaxed">
                 <Clock
                   aria-hidden="true"
@@ -55,7 +59,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <h3 className="text-lg text-[#FFF8EE]">Contato e Localização</h3>
+              <h3 className={tituloClass}>Contato e Localização</h3>
               <ul className="mt-4 space-y-3 text-sm">
                 <li className="flex gap-3">
                   <MapPin

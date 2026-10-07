@@ -192,6 +192,8 @@ The first viewport always carries the hours line beneath the hero buttons: a clo
 
 Seams between fields are 5rem linear gradients from the previous hour's color into the next, so the sky blends continuously instead of cutting.
 
+Browser chrome follows the evening: the scrollbar track takes the color of the section crossing mid-screen (ouro, damasco, rosa, violeta, noite, madrugada) with a contrasting thumb (noite on light fields, creme on rosa/violeta, ouro on night), via `useCorDaRolagem`. Text selection and copying are disabled site-wide (client request, 2026-10-07): `user-select: none` on body, no iOS long-press callout, no image dragging, and copy/cut events cancelled (`useBloquearCopia`). Links, buttons and the video keep working.
+
 Fixed chrome: sticky 64px navbar at top; scroll-to-top pinned bottom-right. No other floating elements (the clock chip was removed by user decision, 2026-10-06: it read as the real time). `scroll-padding-top: 5rem` clears the navbar for anchor jumps.
 
 ## Elevation & Depth

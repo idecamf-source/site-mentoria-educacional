@@ -7,11 +7,15 @@ import Navbar from "@/components/Navbar";
 import Pilares from "@/components/Pilares";
 import ScrollToTop from "@/components/ScrollToTop";
 import VideoSection from "@/components/VideoSection";
+import { useBloquearCopia } from "@/hooks/useBloquearCopia";
+import { useCorDaRolagem } from "@/hooks/useCorDaRolagem";
 import { usePageView } from "@/hooks/useTracking";
 
 // Seções carregadas juntas (são leves). O vídeo, o item pesado, só baixa ao clicar em reproduzir.
 export default function Home() {
   usePageView("home");
+  useCorDaRolagem();
+  useBloquearCopia();
 
   return (
     <div className="min-h-screen flex flex-col font-sans">

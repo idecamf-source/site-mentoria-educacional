@@ -159,6 +159,7 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* cor inicial; muda por seção via useCorDaRolagem */
     scrollbar-color: #101D33 #F2B84B;
   }
 
@@ -175,6 +176,18 @@
 
   p {
     text-wrap: pretty;
+  }
+
+  /* Texto não pode ser selecionado nem copiado (pedido do cliente). Links e botões continuam funcionando. */
+  body {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+
+  img,
+  video {
+    -webkit-user-drag: none;
   }
 
   ::selection {
